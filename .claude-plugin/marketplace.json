@@ -1,0 +1,16 @@
+{
+  "name": "mshahiddigital-seo-tools",
+  "owner": {
+    "name": "mshahiddigital",
+    "email": "",
+    "url": "https://github.com/mshahiddigital"
+  },
+  "plugins": [
+    {
+      "name": "local-seo-audit",
+      "source": ".",
+      "description": "Complete 21-phase local business SEO audit system with competitive analysis, technical SEO, content gaps, AI visibility, and actionable roadmaps.",
+      "version": "1.0.0"
+    }
+  ]
+}
