@@ -1,0 +1,31 @@
+{
+  "name": "local-seo-audit",
+  "version": "1.0.0",
+  "description": "Complete 21-phase local business SEO audit system with competitive analysis, technical SEO, content gaps, AI visibility, and actionable roadmaps.",
+  "author": {
+    "name": "mshahiddigital",
+    "url": "https://github.com/mshahiddigital"
+  },
+  "repository": "https://github.com/mshahiddigital/local-seo-audit",
+  "homepage": "https://github.com/mshahiddigital/local-seo-audit#readme",
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "local-seo",
+    "audit",
+    "marketing",
+    "ai-seo",
+    "google-business-profile",
+    "technical-seo",
+    "content-strategy",
+    "competitor-analysis",
+    "aeo",
+    "geo",
+    "llm-seo"
+  ],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "agents": "./agents/",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

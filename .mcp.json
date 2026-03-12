@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "google-search-console": {
+      "type": "url",
+      "url": "https://gsc.mcp.example.com/sse",
+      "description": "Access GSC data: queries, pages, coverage, CWV"
+    },
+    "google-analytics": {
+      "type": "url",
+      "url": "https://ga4.mcp.example.com/sse",
+      "description": "Access GA4 data: traffic, conversions, events"
+    },
+    "google-business-profile": {
+      "type": "url",
+      "url": "https://gbp.mcp.example.com/sse",
+      "description": "Access GBP data: reviews, insights, posts"
+    },
+    "pagespeed-insights": {
+      "type": "url",
+      "url": "https://psi.mcp.example.com/sse",
+      "description": "Run PageSpeed tests and get CWV data"
+    },
+    "similarweb": {
+      "type": "url",
+      "url": "https://mcp.similarweb.com/sse",
+      "description": "Competitor traffic and keyword data"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+# Claude Code local files
+.claude/settings.local.json
+.claude/agent-memory/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Node (if MCP servers use npm)
+node_modules/
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.bak
