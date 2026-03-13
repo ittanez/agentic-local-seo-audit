@@ -2,28 +2,23 @@
   "mcpServers": {
     "google-search-console": {
       "type": "url",
-      "url": "https://gsc.mcp.example.com/sse",
-      "description": "Access GSC data: queries, pages, coverage, CWV"
+      "url": "https://gsc.mcp.example.com/sse"
     },
     "google-analytics": {
       "type": "url",
-      "url": "https://ga4.mcp.example.com/sse",
-      "description": "Access GA4 data: traffic, conversions, events"
+      "url": "https://ga4.mcp.example.com/sse"
     },
     "google-business-profile": {
       "type": "url",
-      "url": "https://gbp.mcp.example.com/sse",
-      "description": "Access GBP data: reviews, insights, posts"
+      "url": "https://gbp.mcp.example.com/sse"
     },
     "pagespeed-insights": {
       "type": "url",
-      "url": "https://psi.mcp.example.com/sse",
-      "description": "Run PageSpeed tests and get CWV data"
+      "url": "https://psi.mcp.example.com/sse"
     },
     "similarweb": {
       "type": "url",
-      "url": "https://mcp.similarweb.com/sse",
-      "description": "Competitor traffic and keyword data"
+      "url": "https://mcp.similarweb.com/sse"
     }
   }
 }
