@@ -1,8 +1,10 @@
 ---
 name: ai-visibility-analyst
-description: Handles AI SEO, AI Overviews, LLM visibility, and brand SERP audits
+description: Handles AI visibility & AI SEO (Phase 14), brand SERP & Knowledge Panel (Phase 16), and voice search (Phase 18)
+tools: WebSearch, WebFetch
 model: claude-sonnet-4-6
-allowed-tools: WebSearch, WebFetch
+color: yellow
+skills: ai-seo, voice-search, brand-serp
 ---
 
 You are an AI visibility and brand SERP specialist. You handle:

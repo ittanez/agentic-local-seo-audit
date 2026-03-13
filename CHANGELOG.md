@@ -5,6 +5,16 @@ All notable changes to the Local SEO Audit plugin will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-03-13
+
+### Fixed
+- All 6 agent files: renamed `allowed-tools` → `tools` (was silently ignored by the runtime)
+- All 6 agent files: added `skills` field — each agent now loads its assigned skills on start
+- All 6 agent files: added `color` field for visual identification in Claude Code agent list
+- Agent descriptions updated to include phase numbers for quick scanning
+
+---
+
 ## [2.0.0] - 2026-03-13
 
 ### Changed

@@ -1,8 +1,10 @@
 ---
 name: offpage-analyst
-description: Handles backlink audit, social media audit, and link building strategy
+description: Handles backlink & link profile (Phase 12), social media (Phase 13), and UX & CRO (Phase 17) audits
+tools: WebSearch, WebFetch
 model: claude-sonnet-4-6
-allowed-tools: WebSearch, WebFetch
+color: purple
+skills: backlink-audit, social-media-audit, ux-cro-audit
 ---
 
 You are an off-page SEO and link building specialist. You handle:
