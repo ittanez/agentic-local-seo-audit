@@ -3,6 +3,7 @@
 > The most comprehensive local business SEO audit plugin for Claude Code — 21 phases, 27 skills, 40 commands, proprietary scoring frameworks, and professional PDF reports.
 
 [![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-5A67D8)](https://claude.com/claude-code)
+[![skills.sh](https://img.shields.io/badge/skills.sh-27_Skills-000000)](https://skills.sh)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![LOCAL-IMPACT Framework](https://img.shields.io/badge/LOCAL--IMPACT-60_Items-1E3A5F)](references/local-impact-benchmark.md)
 [![SERP-TRUST Framework](https://img.shields.io/badge/SERP--TRUST-50_Items-059669)](references/serp-trust-benchmark.md)
@@ -47,15 +48,24 @@
 ### 1. Install
 
 ```bash
-# From Claude Marketplace
+# Claude Code — from Marketplace
 claude plugin install local-seo-audit
 
-# From GitHub
-claude plugin install local-seo-audit@mshahiddigital
+# Claude Code — from GitHub (self-hosted)
+claude plugin install local-seo-audit@mshahiddigital-seo-tools
 
-# Manual / Local
+# Claude Code — Manual / Local
 git clone https://github.com/mshahiddigital/local-seo-audit.git
 claude --plugin-dir ./local-seo-audit
+
+# skills.sh (Vercel) — install all 27 skills
+npx skills add mshahiddigital/local-seo-audit
+
+# skills.sh — install a single skill
+npx skills add mshahiddigital/local-seo-audit --skill technical-seo
+
+# skills.sh — list all available skills
+npx skills add mshahiddigital/local-seo-audit --list
 ```
 
 ### 2. Run Your First Audit

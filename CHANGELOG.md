@@ -5,6 +5,23 @@ All notable changes to the Local SEO Audit plugin will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.3] - 2026-03-13
+
+### Added
+- `skills.sh.json` — skills.sh (Vercel) manifest mapping all 27 skills to their domain paths
+- `README.md` — skills.sh install commands (`npx skills add mshahiddigital/local-seo-audit`)
+- `README.md` — skills.sh badge in header
+- Plugin now listed on both Anthropic Claude Code Marketplace and skills.sh (Vercel)
+
+---
+
+## [2.0.2] - 2026-03-13
+
+### Fixed
+- Author identity updated to Muhammad Shahid `info@mshahid.com` in `plugin.json` and `marketplace.json`
+
+---
+
 ## [2.0.1] - 2026-03-13
 
 ### Fixed
