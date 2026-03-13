@@ -1,0 +1,1 @@
+../../commands/score-serp-trust.md

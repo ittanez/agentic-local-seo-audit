@@ -1,0 +1,1 @@
+../../commands/ai-visibility-check.md

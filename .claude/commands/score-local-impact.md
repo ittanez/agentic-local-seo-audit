@@ -1,0 +1,1 @@
+../../commands/score-local-impact.md

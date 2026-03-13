@@ -1,0 +1,1 @@
+../../commands/schema-generator.md
