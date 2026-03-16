@@ -10,6 +10,24 @@ description: >
 
 # Multi-Location SEO Audit — Phase 21
 
+## Executive Summary
+
+Multi-location SEO is exponentially more complex than single-location — each additional location adds citation management, content differentiation, schema isolation, and cannibalization risk. In 2025, proximity weight for mobile local search increased to ~35% of local pack ranking (up from ~25% in 2023), meaning geographic optimization at each location matters more than ever. AI Overviews appear for ~35% of local service queries (Q1 2025) and pull directly from GBP data + location landing pages. Businesses with template-cloned location pages face active suppression under Google's Helpful Content System (integrated into core algorithm March 2024). The 60% unique content threshold is now a hard floor — below it = Helpful Content System penalty risk.
+
+**2025 multi-location benchmarks per location:**
+| Metric | Minimum Viable | Competitive | Market Leader |
+|--------|---------------|------------|---------------|
+| GBP review count | 25 reviews | 75–100 | 200+ |
+| GBP review rating | 4.0 stars | 4.5 stars | 4.7–5.0 stars |
+| Review velocity | 2/month | 5–8/month | 15+/month |
+| GBP photos | 10 photos | 25+ photos | 50+ photos |
+| Location page word count | 600 words | 1,000–1,500 words | 2,000+ words |
+| Unique content vs. other pages | 60% | 80%+ | 90%+ |
+| Citations per location | 40 | 75–100 | 150+ |
+| NAP consistency | 85% | 95% | 99–100% |
+
+---
+
 ## Applicability Check
 
 This phase applies when the business has:
@@ -347,3 +365,84 @@ Include:
 - `local/local-seo` — single-location baseline for comparison
 - `local/entity-audit` — entity isolation per location
 - `output/report-generation` — master report section 21
+
+---
+
+## Citation Tool Comparison (2025 Pricing)
+
+| Tool | Best For | Locations | Price (2025) | Key Strength |
+|------|---------|----------|-------------|--------------|
+| **Yext** | Enterprise (50+ locations) | Unlimited | $500–$999/location/yr | Real-time sync to 200+ publishers |
+| **BrightLocal** | Agencies, SMBs (1–100 locations) | Up to 100 | $29–$79/location/mo | Best reporting + NAP audit quality |
+| **Whitespark** | Agencies needing manual quality | Any size | $30–$50/location/mo | Highest accuracy, best for niche dirs |
+| **Data Axle (Localeze)** | Chain businesses with data feeds | 10+ | Custom enterprise | Feeds GPS/navigation systems |
+| **Semrush Listing Management** | Existing Semrush users | Up to 50 | $20/location/mo (add-on) | Integrated SEO workflow; Yext backend |
+| **Moz Local** | Small chains (1–20 locations) | Up to 20 | $14–$33/location/mo | Simple Google/Facebook/Apple sync |
+
+**2025 recommendation by use case:**
+- 50+ locations → Yext (only tool with real-time sync at scale)
+- Agency managing multiple clients (2–15 locations each) → BrightLocal + Whitespark combination
+- Single business with 2–10 locations → BrightLocal or Semrush Listing Management
+- Franchise system → Data Axle + Yext combination
+
+---
+
+## SAB vs. Storefront — Critical 2025 Distinction
+
+| Business Type | Address in GBP | Service Area Setting |
+|--------------|---------------|---------------------|
+| **Storefront** (customers visit) | Show address | Set service areas as supplemental |
+| **Pure SAB** (no walk-ins at all locations) | Hide address | Set service area only |
+| **Mixed** (some storefronts, some SABs) | Show on storefronts; hide on SABs | Per-location setting |
+
+**2025 GBP ruling (confirmed):** SABs must NOT set service areas broader than 2-hour drive time from the business location. Google reconfirmed this via GBP Help Community Q1 2025. Violations result in Map Pack suppression.
+
+**Critical mistake:** Hiding the address on a storefront location (where staff/customers are present) causes significant Map Pack ranking drop for proximity searches.
+
+---
+
+## GBP Location Groups — Management Structure (10+ Locations)
+
+For chains with 10+ locations, use proper account hierarchy:
+```
+Owner Account (1 account only)
+  └── Location Group 1 (Region A)
+      ├── Manager Account (Regional Manager)
+      └── Individual GBP listings (locations in Region A)
+  └── Location Group 2 (Region B)
+      ├── Manager Account (Regional Manager)
+      └── Individual GBP listings (locations in Region B)
+```
+
+**Rules:**
+- Maximum 20 manager accounts per location group (more triggers spam flags)
+- Bulk verification threshold: 10+ locations via GBP API `accounts.locations.list`
+- Never add more than 1 owner account — ownership conflicts cause verification suspension
+- Use `updateMask` in GBP API to bulk-update specific fields (hours, services, photos) without full listing resubmission
+
+---
+
+## Common 2025 Multi-Location Mistakes (Top 10)
+
+| # | Mistake | Impact | Fix | Effort |
+|---|---------|--------|-----|--------|
+| 1 | Template-cloned location pages (<60% unique) | HCS penalty, page 4+ rankings | Rewrite with location-specific content | 3–5 hrs/page |
+| 2 | Same phone number across all locations | Duplicate signal, local relevance loss | Assign unique local number per location | 1–2 hrs |
+| 3 | GBP links to homepage (not location page) | Map Pack click-through loss | Update GBP website URL to `/locations/city-state/` | 5 min/location |
+| 4 | `branchOf` schema (deprecated 2025) | Entity graph confusion | Replace with `parentOrganization` | 30 min/location |
+| 5 | Same `@id` value across all location schemas | Google cannot distinguish locations | Use unique `@id` per location URL fragment | 30 min/location |
+| 6 | GBP Q&A left unmanaged | Misinformation damages conversion | Seed 5–10 Q&As + answer within 24hrs | 30 min/location |
+| 7 | Service areas overlap between locations | Cannibalization in entity model | Assign distinct `areaServed` per location schema | 30 min/location |
+| 8 | No UTM on GBP website URL | Cannot measure GBP traffic per location in GA4 | Add `?utm_source=gmb&utm_medium=organic&utm_campaign=[city]-gbp` | 5 min/location |
+| 9 | Orphaned location pages (0 internal links) | Not crawled/indexed | Add to hub + sitemap + breadcrumb | 30 min/page |
+| 10 | Review gating (only asking happy customers) | FTC violation (2025) + GBP suspension risk | Send requests to all customers | Policy change |
+
+---
+
+## GBP Website URL — UTM Parameter Template
+
+For each location's GBP "Website" field, use:
+```
+https://domain.com/locations/[city-state]/?utm_source=gmb&utm_medium=organic&utm_campaign=[city]-gbp
+```
+This enables GA4 to measure GBP-specific traffic per location — essential for proving ROI at the location level.
