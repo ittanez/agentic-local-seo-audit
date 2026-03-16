@@ -9,6 +9,36 @@ description: >
 
 # Keyword Gap Analysis — Phase 6
 
+## Executive Summary
+
+Keyword gap analysis identifies the highest-ROI search opportunities a business is currently missing. In 2025, the keyword landscape has shifted: "near me" searches grew 200%+ in 5 years, AIO (AI Overviews) appears for 20–35% of local service queries reducing organic P1 CTR by 30–45%, and zero-click searches hit 58% (SparkToro 2024). The most impactful keyword opportunities are no longer just the high-volume head terms but: (1) P4–10 keywords already ranking that need a push — highest ROI, (2) long-tail transactional keywords with KD <20 where a single optimized page can rank within 1–4 months, (3) emerging AI-recommendation query patterns. This phase maps the client's full keyword universe vs. competitors, identifies the highest-priority gaps, and produces a prioritized content + optimization plan.
+
+**2025 keyword benchmarks:**
+- P4–10 opportunity value: moving position 5 → position 1 = 6–10× more clicks (CTR: ~2.5% → 25–30%)
+- Long-tail KD <20 targeting: 80% of searchers find what they need using 4+ word queries (Ahrefs 2024)
+- Near me +200%: every local business needs "near me" variants mapped to GBP + local pages
+- AIO CTR impact: if AIO shows for P1 keyword, organic P1 CTR drops from ~30% → ~15–20%
+- Featured snippet → AIO citation: owning featured snippets = primary route to AIO inclusion
+- Voice search: 27% of mobile searches are voice (Google 2024) — conversational queries now rank for both traditional + voice
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1 — No New Content Required)
+1. **Fix P4–10 keywords with high volume** — For each keyword ranking 4–10 with >100 monthly searches: add FAQ section + FAQPage schema + internal links from related pages + update title with current year. Effort: 1–2 hrs/keyword. Expected: 3–5× CTR improvement when moving P5 → P1–3.
+2. **Rewrite low-CTR titles** — GSC → Performance → filter: Impressions >500/month + CTR <2%. Rewrite title tags to include: year, city, "Free Estimate", or specific benefit. Effort: 15 min/title. Expected: 1–3% → 3–8% CTR.
+3. **Fix keyword cannibalization** — Ahrefs → Organic Keywords → find same keyword on 2+ URLs → 301 redirect weaker to stronger. Effort: 30 min per pair. Priority: High.
+4. **Add schema to quick-win pages** — Every P4–P10 service page that lacks FAQPage schema: add 5 FAQs + schema. AIO citation rate 3.2× higher with FAQPage. Effort: 30 min/page.
+5. **Create GBP service entries for all target keywords** — Every service in keyword gap list should have a matching GBP service entry (free). Effort: 30 min.
+
+### Short-Term (Week 2–4)
+6. **Create missing transactional pages** — For each competitor-only keyword gap at BOFU intent: create a dedicated service page (800+ words, FAQPage schema, local NAP). Effort: 3–5 hrs/page.
+7. **Expand thin location content** — For neighborhood-specific keywords (neighborhood + service): add location micro-section to service area page OR create standalone location page if volume >50/month. Effort: 2–4 hrs.
+8. **Target "cost/price" long-tails** — Create pricing guide pages for top 3 services ("Cost of [Service] in [City] 2025"). These rank quickly (KD <20), attract MOFU searchers, and reduce price objections. Effort: 2–4 hrs.
+9. **Capture "open now" keywords** — Optimize GBP hours, add 24/7 emergency availability page if applicable, add "open now" + hours to service pages. Effort: 1–2 hrs.
+10. **Build topical cluster for top 3 head terms** — Each head term (e.g., "plumber Chicago") needs a pillar page (2,500+ words) + 5+ cluster pages (1,200+ words each). Without cluster, head term rankings have ceiling. Effort: 20–40 hrs/cluster (strategic).
+
+---
+
 ## Step 1: Read Project Context
 
 Read `{AUDIT_DIR}/intake-data.md` — business name, services, location.

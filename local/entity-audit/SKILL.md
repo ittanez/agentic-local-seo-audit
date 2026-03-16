@@ -9,6 +9,38 @@ description: >
 
 # Entity Audit — Phase 9
 
+## Executive Summary
+
+Entity optimization is the bridge between traditional SEO and AI search visibility. Google's Knowledge Graph powers both the traditional Knowledge Panel and AI Overviews — businesses with strong entity signals get cited in AIO at higher rates than those without. In 2025, the minimum viable entity footprint is: GBP verified + 7+ sameAs connections + consistent NAP across all platforms + Wikidata entity. ChatGPT and Perplexity reference businesses with complete Wikidata entries 3× more than businesses without. The 30-minute fix with the highest impact: add sameAs properties to LocalBusiness schema (links to GBP, Facebook, LinkedIn, Yelp, BBB, Instagram, Wikidata) — this single action strengthens entity consolidation significantly.
+
+**2025 entity benchmarks:**
+- sameAs count for Knowledge Panel eligibility: 7+ authoritative sources (Google's Knowledge Vault threshold)
+- sameAs 0–3: weak entity — Knowledge Panel very unlikely; 7–9: competitive; 10+: strong
+- E-E-A-T entity signal: named author/owner with Person schema = measurable trust increase for YMYL and local service categories
+- AI recognition rate: businesses with Wikidata entry cited 3× more by ChatGPT/Perplexity
+- `knowsAbout` schema property: signals topical expertise domain directly to Google NLP
+- Most specific `@type` matters: `PlumbingContractor` not `LocalBusiness` — specificity = entity clarity
+
+**Numbered Action Plan:**
+
+### Immediate (30-Minute Wins)
+1. **Add sameAs links to LocalBusiness schema** — Add `"sameAs": [...]` array with GBP URL, Facebook, LinkedIn, Yelp, BBB, Instagram, Twitter/X, Wikidata (if exists). Each is a separate entity consolidation signal. Effort: 30 min. Priority: 25 (5×5).
+2. **Change `@type` to most specific type** — If currently `"@type": "LocalBusiness"`, change to specific type (e.g., `PlumbingContractor`, `Dentist`, `Attorney`). Effort: 5 min. Priority: 15.
+3. **Add `knowsAbout` to Organization schema** — Add the 5–7 core service entities the business is authoritative on. Example: `"knowsAbout": ["Drain Cleaning", "Water Heater Installation", "Emergency Plumbing"]`. Effort: 15 min. Priority: 20.
+
+### Short-Term (Week 1–2)
+4. **Create Wikidata entity** — If business has significant web presence (news mentions, 3+ external references): create Wikidata entry with name, type, location, website, founding date, sameAs links. Effort: 2–4 hrs. Priority: 16.
+5. **Add Person schema for owner** — Create author page for business owner with Person schema: name, jobTitle (specific), credentials, worksFor → business entity, sameAs → LinkedIn. Effort: 1–2 hrs. Priority: 16.
+6. **Fix entity attribute inconsistencies** — Audit: business name format, address format, phone format across website/GBP/Yelp/BBB/Facebook. Any variation = entity fragmentation. Fix the ≤3 platforms causing inconsistency. Effort: 1–2 hrs. Priority: 20.
+7. **Validate all schema** — Run Rich Results Test (search.google.com/test/rich-results) + Schema Markup Validator (validator.schema.org) on homepage and top service pages. Fix any errors (invalid @type, missing required properties). Effort: 1–2 hrs. Priority: 20.
+
+### Medium-Term (Month 1–2)
+8. **Build topical entity associations** — Publish 25+ articles on primary service cluster (entity co-occurrence accumulates). Get cited alongside industry terms in local publications. Add `about` + `mentions` schema to key pages. Effort: Ongoing.
+9. **Create team author pages** — For each key team member: create /team/[name]/ page with Person schema, headshot, credentials, linked blog posts. Strengthens E-E-A-T author entity signals. Effort: 2–4 hrs/person.
+10. **Earn entity mentions** — Pitch local news, industry publications, community platforms. Each mention = entity co-citation = strengthened Knowledge Graph. Effort: 4–8 hrs/mention.
+
+---
+
 ## Why Entities Matter in 2025–2026
 
 Google's search engine is fundamentally entity-based. Rankings are increasingly driven by whether Google understands:
