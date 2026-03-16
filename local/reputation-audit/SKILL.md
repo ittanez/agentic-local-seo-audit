@@ -9,6 +9,20 @@ description: >
 
 # Reputation & Review Management Audit — Phase 15
 
+## Executive Summary
+
+Online reputation is a direct local pack ranking signal and an AI visibility gatekeeper. Businesses with <4.0 stars are systematically excluded from Google AI Overviews, ChatGPT recommendations, and Perplexity citations for most local service categories (2025). Review velocity — not review count — is what separates stagnant profiles from rising ones: Google's algorithm weights reviews from the last 60–90 days at 3–5× more than older reviews (confirmed via multiple local SEO studies, 2024–2025). A single SMS-based review request system set up in one afternoon can generate 4–8 reviews/month consistently — the highest-ROI action in local SEO. This phase audits the full review ecosystem, benchmarks against competitors, identifies fake/malicious content, and builds a systematic reputation management infrastructure.
+
+**2025 reputation benchmarks:**
+- Star rating threshold for AI inclusion: ≥4.3 (Google AIO), ≥4.0 (ChatGPT/Perplexity)
+- Review count for local pack top-3: 50–200 depending on niche and market size
+- Review velocity minimum to rank top-3: 4–8/month (mid-sized city, home services)
+- Response rate target: 100% (Google confirms response rate is a quality signal)
+- Recency weighting: reviews in last 60–90 days = 3–5× weight of older reviews (BrightLocal 2025)
+- CTR lift from star ratings in SERPs: +17–25% (Search Engine Land, 2024)
+
+---
+
 ## Why Reputation Is an SEO Factor (2025)
 
 1. **Local Pack ranking** — review count and rating are direct top-3 ranking signals (BrightLocal 2025 Local Search Survey)
@@ -18,12 +32,17 @@ description: >
 5. **Conversion** — 93% of consumers say online reviews impact their purchasing decisions (BrightLocal 2025); average consumer reads 7 reviews before trusting a business
 
 **Tools for this phase:**
-- **BrightLocal** — review dashboard, review generation, citation scan
-- **Podium** — SMS review requests, review inbox
-- **Birdeye** — multi-platform review monitoring and response
-- **ReviewTrackers** — sentiment analysis, competitive benchmarking
-- **Grade.us** — review generation funnels
-- **Google Business Profile** dashboard (free) — direct review management
+
+| Tool | Purpose | Cost |
+|------|---------|------|
+| **BrightLocal** | Review dashboard, NAP scan, citation audit, review generation | Paid ($29–79/mo) |
+| **Podium** | SMS-based review requests, review inbox, webchat | Paid ($289+/mo) |
+| **Birdeye** | Multi-platform review monitoring, AI response generation, sentiment analysis | Paid ($299+/mo) |
+| **ReviewTrackers** | Competitive benchmarking, sentiment analysis, reporting dashboard | Paid |
+| **Grade.us** | Review generation funnels, drip campaigns, white-label reporting | Paid ($110+/mo) |
+| **Google Business Profile** | Direct review management, Q&A, insights dashboard | Free |
+| **Google Alerts** | Monitor brand mentions in real-time across web | Free |
+| **Mention / Brand24** | Social listening, competitor review tracking, sentiment scoring | Paid |
 
 ---
 
@@ -57,8 +76,21 @@ Search `[Business Name] [City]` in Google Maps and note:
 | Velocity (per month) | ≥8/month | 4–7/month | 1–3/month | <1/month |
 | Response rate | 100% | 80–99% | 50–79% | <50% |
 | Response time | <4 hrs | 4–24 hrs | 1–3 days | >3 days |
+| % reviews with photos | ≥30% | 20–29% | 10–19% | <10% |
+| % reviews mentioning services | ≥40% | 25–39% | 10–24% | <10% |
+| Negative review recovery rate | ≥80% | 60–79% | 40–59% | <40% |
 
-**Veto:** Rating <3.5 → maximum reputation score 30/100; effectively disqualified from local pack.
+**Review benchmarks by market size and niche:**
+| Niche | Small Market (<100K) | Mid Market (100K–1M) | Major Metro (1M+) |
+|-------|---------------------|---------------------|-------------------|
+| Home services (plumbing, HVAC) | 2–4/mo, 25+ total | 4–8/mo, 50+ total | 8–15/mo, 100+ total |
+| Legal / professional | 1–2/mo, 20+ total | 2–4/mo, 40+ total | 4–8/mo, 75+ total |
+| Healthcare / dental | 2–4/mo, 30+ total | 5–10/mo, 75+ total | 10–20/mo, 200+ total |
+| Restaurant / food | 5–10/mo, 50+ total | 15–30/mo, 150+ total | 30–50/mo, 500+ total |
+| Automotive | 2–5/mo, 40+ total | 5–10/mo, 100+ total | 10–20/mo, 200+ total |
+
+**Veto:** Rating <3.5 → maximum reputation score 40/100; effectively disqualified from local pack.
+**Veto:** Rating <4.0 → excluded from Google AIO recommendations for most service categories.
 
 ### Review Response Analysis
 - Owner response rate: [X%] of reviews responded to
@@ -235,17 +267,53 @@ Provide 3 customized response templates:
 
 ---
 
+## Priority Recommendations
+
+### Priority Matrix (Impact × Feasibility)
+
+| Action | Impact (1–5) | Feasibility (1–5) | Priority Score | Effort |
+|--------|-------------|-------------------|----------------|--------|
+| Set up SMS review request system (Podium/Birdeye) | 5 | 5 | 25 | 2 hrs setup |
+| Respond to every unanswered review (positive + negative) | 5 | 5 | 25 | 30 min/batch |
+| Resolve operational issues driving negative reviews | 5 | 3 | 15 | Varies |
+| Add AggregateRating schema to homepage + service pages | 4 | 5 | 20 | 30 min |
+| Flag and report fake/competitor reviews via GBP | 3 | 5 | 15 | 15 min/review |
+| Train staff on verbal review request after service | 4 | 4 | 16 | 1 hr training |
+| Display top reviews on website (testimonials section) | 3 | 5 | 15 | 1–2 hrs |
+| Create review-optimized landing page with schema | 4 | 4 | 16 | 2–3 hrs |
+| Set up QR code for review requests (print + digital) | 3 | 5 | 15 | 30 min |
+| Build multi-platform review monitoring dashboard | 4 | 4 | 16 | 2 hrs setup |
+
+### Immediate Actions (Week 1)
+1. **Deploy review request system** — Set up Podium or Birdeye SMS flow: trigger = job completed → SMS within 2 hrs → link to GBP review page → automated follow-up if no response in 48 hrs. Expected: 4–8 new reviews/month from month 1.
+2. **Respond to all unanswered reviews** — Prioritize all 1-star and 2-star first (reputation recovery), then 5-star (engagement signal). Use personalized templates (not generic). Expected: response rate 100%.
+3. **Add AggregateRating schema** — Implement JSON-LD on homepage + service pages. Use `ratingValue`, `reviewCount`, `bestRating:5`, `worstRating:1`. Validate at search.google.com/test/rich-results. Expected: star ratings appear in SERP snippets = +17–25% CTR.
+4. **Flag fake reviews** — For any cluster of reviews from single-review accounts posted on same day → Report via GBP Manager → "Flag as inappropriate" → Document pattern for potential legal action.
+
+### Short-Term (Month 1)
+5. **Fix operational root causes** — Identify top 3 recurring negative themes from review content → escalate to operations team → create service delivery improvement SOP.
+6. **Build suppression content** — If damaging content appears in branded SERPs: create positive content (case studies, awards page, testimonials hub, PR mentions) to push negative results below page 1.
+7. **Expand multi-platform presence** — Claim and optimize profiles on 2–3 industry-specific platforms (see niche list in Step 3). Coordinate cross-platform review asks.
+8. **Create review marketing assets** — Export top 5-star reviews → design social media cards → post on Instagram/Facebook weekly. Use as trust signals in Google Ads copy.
+
+### Medium-Term (Months 2–3)
+9. **Run 90-day velocity sprint** — Goal: close gap to #1 competitor review count within 90 days. Calculate gap: if competitor has 150 reviews and client has 60 → need 90 reviews → 30/month → intensify SMS campaign + personal outreach from owner.
+10. **Build review diversity** — Aim for reviews that mention: specific services (40%+), location/neighborhood (25%+), staff names (15%+), specific outcomes (20%+). These keyword-rich reviews improve local ranking and AI citation likelihood.
+
+---
+
 ## Scoring
 
-| Category | Weight |
-|----------|--------|
-| Google review count vs. competitors | 20% |
-| Average rating (target: 4.5+) | 25% |
-| Review velocity (≥4/month) | 20% |
-| Response rate (100% = perfect) | 20% |
-| Multi-platform presence | 15% |
+| Category | Weight | Score |
+|----------|--------|-------|
+| Google review count vs. competitors | 20% | /20 |
+| Average rating (target: ≥4.5) | 25% | /25 |
+| Review velocity (≥4/month for mid-market) | 20% | /20 |
+| Response rate (100% = perfect) | 20% | /20 |
+| Multi-platform presence (3+ platforms complete) | 15% | /15 |
 
-**Veto:** Average rating < 3.5 → maximum score 40/100 regardless of other factors.
+**Veto:** Average rating <3.5 → maximum score 40/100 regardless of other factors.
+**Veto:** Average rating <4.0 → flag as AIO exclusion risk; note in report.
 
 ---
 
@@ -262,17 +330,30 @@ business: [Business Name]
 url: [URL]
 score: [X/100]
 status: [healthy|needs-attention|critical]
+google_rating: [X.X]
+google_review_count: [X]
+review_velocity_monthly: [X]
+response_rate_pct: [X%]
+aio_eligible: [yes|no|borderline]
+veto_triggered: [yes|no]
 ---
 ```
 
 Include:
-- Score X/100 with veto status
-- Review inventory table (all platforms)
-- 2025 benchmark comparison table
-- Competitor benchmarking table
-- Positive/negative theme extraction
-- Review generation system assessment (8-point checklist)
-- Fake review flagging (if any)
-- AI visibility review assessment
-- Priority recovery roadmap (Impact × Feasibility scored)
-- 30/90-day reputation improvement plan
+- Score X/100 with per-category breakdown + veto status
+- Review inventory table (all platforms with count, rating, response rate)
+- 2025 benchmark comparison table (client vs. Strong/Competitive/Weak/Critical)
+- Competitor benchmarking table (client vs. 3 competitors × 5 metrics)
+- Market-size-adjusted velocity targets (small/mid/major metro × niche)
+- Positive/negative theme extraction from actual review text
+- Review generation system assessment (8-point checklist with gap analysis)
+- Fake review flagging (if any — document patterns)
+- AI visibility review assessment (AIO + ChatGPT + Perplexity citation status)
+- Priority recommendations table (Impact × Feasibility scored, 10 actions)
+- 30/90-day reputation improvement plan with numbered steps
+
+**Key consumers:**
+- `cross-cutting/local-impact-auditor` — Online Reviews dimension (O in LOCAL-IMPACT)
+- `local/local-seo` — shares review baseline data
+- `local/brand-serp` — reputation signals affect Knowledge Panel trust
+- `output/report-generation` — reputation section in master report
