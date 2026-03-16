@@ -10,6 +10,20 @@ description: >
 
 # Content Audit — Phase 4
 
+## Executive Summary
+
+Content quality is the primary differentiator between sites that rank and sites that don't in 2025. Google's Helpful Content System (HCS), integrated into the core algorithm in March 2024, actively penalizes template-based, AI-generated-without-expert-review, and thin location pages. The key thresholds: ≥60% unique content per location page (hard floor — below this risks HCS penalty), ≥80% unique (competitive target). FAQPage schema on service pages triggers AIO citations at 3.2× the rate of pages without it (Amsive 2025). Content decay (>20% YoY impressions decline) now affects most sites that haven't refreshed since 2022–2023 — ChatGPT cites pages updated within 30 days at 76.4% vs. 31.2% for 90+ day old content. The fastest wins: add FAQPage schema (30 min/page), refresh decayed content with updated stats, and fix service pages below 800 words.
+
+**2025 content benchmarks:**
+- Service pages: minimum 800 words; competitive 1,200–2,000 words (HCS 2025 standards)
+- Location pages: ≥60% unique (hard floor); ≥80% unique (competitive target)
+- Content decay threshold: >20% YoY click decline → refresh required (GSC comparison)
+- FAQPage schema → 3.2× AIO citation rate (Amsive 2025); HowTo schema = structured step extraction
+- Pillar page threshold: 25+ total articles in cluster = topical authority signal (SEMrush 2024)
+- AI-generated content: acceptable only with documented human expert review (Google Webmaster guidelines 2025)
+
+---
+
 ## Step 1: Read Project Context & Run Crawl
 
 Read `{AUDIT_DIR}/intake-data.md` — business name, services, location, goals.
@@ -272,19 +286,51 @@ AIO and AI assistants cite content that is structured for direct extraction. Che
 
 ---
 
+## Numbered Action Plan
+
+### Immediate (Week 1 — Quick Wins, <2 hrs each)
+1. **Add FAQPage schema to all service pages** — 5 FAQ minimum per service page, answers ≤50 words each, implement JSON-LD FAQPage. Validate at search.google.com/test/rich-results. Effort: 30 min/page. Expected: 3.2× AIO citation rate (Amsive 2025). Priority: 20.
+2. **Rewrite all page intros to include standalone 40–60 word answers** — First paragraph must answer "What is [service] and who needs it?" directly. This is the AIO extraction point. Effort: 20 min/page. Priority: 20.
+3. **Add internal CTAs to all blog posts** — Every blog post should link to ≥1 relevant service page with conversion-focused anchor text. Effort: 15 min/post. Priority: 15.
+4. **Fix content decay pages (>20% YoY decline)** — Add current year stats, update examples, refresh introduction. Even minor updates reset ChatGPT freshness factor. Effort: 1–2 hrs/page. Priority: 16.
+5. **Resolve cannibalization (top priority pairs first)** — For each cannibalized keyword pair: keep strongest page (by traffic + backlinks), 301 redirect weaker version OR canonicalize. Effort: 1–2 hrs per pair. Priority: 16.
+
+### Short-Term (Week 2–4)
+6. **Expand thin service pages to ≥800 words** — For each service page <800 words: add Process section (HowTo schema opportunity), FAQ section (5+ questions), Pricing section (cost range), testimonials from this specific service. Effort: 3–5 hrs/page. Priority: 20.
+7. **Differentiate location pages to ≥60% unique** — For each location page pair with >40% overlap: add local landmarks, area-specific testimonials, neighborhood context, local FAQ. Track unique content % with diff tool. Effort: 3–5 hrs/page. Priority: 15.
+8. **Add HowTo schema to all process pages** — Any page with numbered steps gets HowTo schema. AI extracts step sequences directly for voice + AIO. Effort: 30 min/page. Priority: 16.
+9. **Create missing BOFU content** — If no pricing guide, comparison page, or case study exists: create at least 1 per main service. These pages convert at 3–5× the rate of informational pages. Effort: 4–8 hrs/piece. Priority: 12.
+10. **Run Surfer/Clearscope audit on top 5 service pages** — Score each vs. top competitors. Pages below 70 (Surfer) or B+ (Clearscope) need NLP entity coverage expansion. Effort: 1–2 hrs/page. Priority: 16.
+
+### Medium-Term (Month 2–3)
+11. **Build pillar + cluster structure** — Identify 3 main service pillars. Create/upgrade pillar pages to 2,500+ words. Map cluster pages (1,200+ words each) to each pillar. Target 25+ articles per cluster for topical authority signal. Effort: 8–12 hrs/pillar.
+12. **Create original local data/research content** — Survey 50+ customers or compile local market data → publish as "[City] [Industry] Report 2025". AIO preferentially cites original data. Effort: 20–40 hrs. Expected: 5–15 editorial links + AIO citation priority.
+
+## Competitor Content Benchmark
+
+| Metric | Client | Comp 1 | Comp 2 | Comp 3 | Gap to Leader |
+|--------|--------|--------|--------|--------|---------------|
+| Avg service page word count | | | | | |
+| % service pages with FAQPage schema | | | | | |
+| % location pages (HCS-unique ≥60%) | | | | | |
+| Total blog posts | | | | | |
+| Pillar pages (2,500+ words) | | | | | |
+| Surfer Score avg (top service pages) | | | | | |
+| AIO citations (core service queries) | | | | | |
+
 ## Priority Matrix
 
 | Issue | Impact (1–5) | Feasibility (1–5) | Priority | Effort |
 |-------|-------------|-------------------|---------|--------|
 | Service pages <800 words | 5 | 4 | 20 | 3–5 hrs/page |
-| Location pages <60% unique | 5 | 3 | 15 | 3–5 hrs/page |
 | Missing FAQPage schema on service pages | 4 | 5 | 20 | 30 min/page |
+| No AIO-structured content (no direct answers) | 4 | 5 | 20 | 1–2 hrs/page |
 | Content decay >20% YoY decline | 4 | 4 | 16 | 3–5 hrs/page |
 | Cannibalization (2+ pages same keyword) | 4 | 4 | 16 | 1–2 hrs |
 | Blog posts P4–P10 (quick wins) | 4 | 4 | 16 | 2–4 hrs/post |
-| Missing location pages for served cities | 3 | 4 | 12 | 3–5 hrs/page |
-| No AIO-structured content (no direct answers) | 4 | 5 | 20 | 1–2 hrs/page |
+| Location pages <60% unique | 5 | 3 | 15 | 3–5 hrs/page |
 | Blog posts with no service page CTAs | 3 | 5 | 15 | 15 min/post |
+| Missing location pages for served cities | 3 | 4 | 12 | 3–5 hrs/page |
 
 ---
 

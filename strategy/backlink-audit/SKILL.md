@@ -9,6 +9,20 @@ description: >
 
 # Backlink & Link Profile Audit — Phase 12
 
+## Executive Summary
+
+Backlinks remain a top-3 ranking factor in 2025, but quality has radically displaced quantity since Google's Helpful Content System (HCS, integrated March 2024) reduced the value of thin, low-traffic sites linking out indiscriminately. A single editorial link from a local newspaper (DA 60–80) is worth more than 100 directory submissions. In 2025, the link-AIO connection is direct: Google AI Overviews preferentially cite domains with strong topical authority and editorial links from trusted sources — earning high-quality local/industry links now functions as both a ranking signal AND an AIO citation trigger. For local businesses, the highest-ROI link building activities are: (1) Chamber of Commerce membership (DA 60–70, 1 hr effort), (2) BBB listing (DA 90, free/paid), and (3) local press mentions via digital PR — all achievable within 30 days.
+
+**2025 link building benchmarks:**
+- TF:CF ratio ≥0.5: healthy profile (Trust Flow ≥ Citation Flow = quality signals)
+- Exact-match anchor >15% of dofollow profile: algorithmic penalty risk
+- Unlinked mention outreach conversion: 15–20% success rate (Ahrefs study 2024)
+- Local link impact: one local news editorial link = ~5–10 generic directory links in local pack weight (Whitespark 2024)
+- Google disavow stance (2024+): Google ignores most low-quality links automatically — only disavow confirmed manual-action-level toxicity or coordinated spam attacks
+- AIO editorial signal: domains cited in AIO have median 3× more editorial referring domains than non-cited competitors (Amsive 2025)
+
+---
+
 ## Step 1: Read Project Context
 
 Read `{AUDIT_DIR}/intake-data.md` — business name, URL, location, industry.
@@ -239,6 +253,35 @@ Run Ahrefs → Site Explorer → Pages → filter by Internal Links count — fl
 
 ---
 
+## Numbered Action Plan
+
+### Immediate (Week 1 — Quick Win Links)
+1. **Join Chamber of Commerce** — DA 60–70 local link, instant credibility signal. Most chambers approve within 1–3 business days. Effort: 1–2 hrs + annual membership fee. Priority: 20.
+2. **Claim BBB listing** — DA 90, free basic listing available. Paid membership ($X/yr) adds "Accredited Business" badge + editorial trust. Effort: 1 hr. Priority: 20.
+3. **Submit to city government vendor directory** — Many city websites maintain local business directories for residents. DA 70–80. Search: `site:[city].gov business directory`. Effort: 1 hr. Priority: 20.
+4. **Claim all Tier 1 citation aggregators** — Data Axle, Neustar/Localeze, Acxiom, Foursquare. These generate dofollow links from downstream directories. Effort: 2 hrs. Priority: 16.
+5. **Outreach for unlinked brand mentions** — Run `"[Business Name]" -site:[domain]` in Google. Find 5 mentions → email webmaster: "Thanks for mentioning us — could you add a link?" Expected: 15–20% response rate. Effort: 30 min/mention.
+
+### Short-Term (Month 1)
+6. **Submit to top 5 industry-specific directories** — Use Whitespark Citation Finder for niche list. Each = 30 min. Expected: 5 relevant backlinks with contextual relevance signals. Priority: 15.
+7. **Pitch local newspaper** — Identify a newsworthy angle (local statistic, community contribution, award, notable project). Contact local editor directly. Expected: 1 editorial link = 5–10× value of directory links. Effort: 4–8 hrs. Priority: 15.
+8. **Community sponsorship link** — Sponsor local charity, little league team, or school event → get linked from their thank-you/sponsors page. DA 40–70, highly local and relevant. Effort: $X sponsorship + 2 hrs. Priority: 12.
+9. **Cross-referral links** — Contact 3–5 non-competing complementary businesses (e.g., plumber → electrician → HVAC). Offer to add them to a "trusted partners" page and request reciprocal link. Effort: 2 hrs. Priority: 12.
+10. **Recover lost links** — Ahrefs → Lost Referring Domains → filter last 90 days. For each lost link from a DA 30+ site: check if their linking page moved, identify new URL, outreach. Effort: 30 min/link. Priority: 16.
+
+### Medium-Term (Months 2–3)
+11. **Digital PR: Local market research** — Survey 50+ local customers → publish "[City] [Industry] Study: X Key Findings for [Year]" → pitch to local news, industry publications. Expected: 5–15 editorial links. Effort: 20–40 hrs. Priority: 10 (high impact, low feasibility).
+12. **Broken link building** — Ahrefs → Competing domain → Broken Outbound Links → find dead resources → create replacement content → pitch as replacement. Expected: 1 link per 5–10 outreaches. Effort: 2–4 hrs per target.
+
+## AI Visibility Link Connection (2025)
+| Link Source | AIO Benefit | SEO Benefit |
+|------------|------------|------------|
+| Local news editorial | AIO citations favor domains mentioned by authoritative local sources | High-DA, topical local relevance |
+| Industry association | AI recognizes business entity as industry-certified | Topical authority signal |
+| .edu partnerships | AIO trusts .edu domains as authoritative sources | High-trust domain |
+| BBB Accredited | AI recommendation thresholds often check BBB status | DA 90, trust signal |
+| Google Business Profile | GBP website link counts as citation even if nofollow | Local entity verification |
+
 ## Priority Matrix
 
 | Action | Impact (1–5) | Feasibility (1–5) | Priority | Effort |
@@ -251,6 +294,8 @@ Run Ahrefs → Site Explorer → Pages → filter by Internal Links count — fl
 | Local newspaper pitch | 5 | 3 | 15 | 4–8 hrs |
 | Digital PR original research | 5 | 2 | 10 | 20–40 hrs |
 | Disavow toxic links (if confirmed) | 4 | 4 | 16 | 2–4 hrs |
+| Recover lost DA 30+ links (Ahrefs) | 4 | 4 | 16 | 30 min/link |
+| Cross-referral partner links | 3 | 4 | 12 | 2 hrs |
 
 ---
 
@@ -270,7 +315,7 @@ Run Ahrefs → Site Explorer → Pages → filter by Internal Links count — fl
 
 ## Output
 
-Write to `{AUDIT_DIR}/backlink-findings.md` with YAML frontmatter:
+Write to `{AUDIT_DIR}/backlink-findings.md` with YAML frontmatter. Also write HTML report to `{REPORTS_DIR}/phase-12-backlinks.html` and convert to PDF via `python3 scripts/generate_pdf.py`.
 
 ```yaml
 ---
