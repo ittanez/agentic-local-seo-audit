@@ -1,39 +1,259 @@
 ---
 name: keyword-gaps
 description: >
-  Keyword research and gap analysis. Activates when discussing keywords,
-  keyword gaps, keyword research, search terms, ranking opportunities,
-  low-hanging fruit, keyword mapping, or SERP analysis.
+  Keyword research and gap analysis. Activates when discussing keywords, keyword
+  gaps, keyword research, search terms, ranking opportunities, low-hanging fruit,
+  keyword mapping, or SERP analysis for local businesses.
+  Phase 6. Output: {AUDIT_DIR}/keyword-gaps.md
 ---
 
-# Keyword Gap Analysis Framework
+# Keyword Gap Analysis — Phase 6
 
-## Keyword Universe Mapping
-- Map all client keywords (from titles, H1s, URLs, content)
-- Map all competitor keywords
-- Identify: shared, competitor-only, client-only keywords
+## Step 1: Read Project Context
 
-## Keyword Classification
-Classify every gap keyword by:
-- Length: Head (1-2 words) | Mid-tail (2-3) | Long-tail (4+)
-- Intent: Informational | Commercial | Transactional | Navigational
-- Local modifier: Location-modified? "Near me"? Unmodified?
-- Funnel stage: Awareness | Consideration | Decision
-- Volume: High (1000+) | Medium (100-1000) | Low (<100)
-- Competition: High | Medium | Low
+Read `{AUDIT_DIR}/intake-data.md` — business name, services, location.
+Read `{AUDIT_DIR}/competitor-profiles.md` — competitor keyword strategies.
+Read `{AUDIT_DIR}/content-inventory.md` — client's current page/keyword mapping.
+Read `{AUDIT_DIR}/content-gaps.md` — identified content gaps to inform keyword research.
 
-## Low-Hanging Fruit
-- Position 4-10 (small improvements → top 3)
-- Position 11-20 (moderate effort → page 1)
-- High impressions / low CTR (title/meta optimization)
-- Long-tail high-intent with low competition
-- Local [service] + [neighborhood] with weak competition
+**Tools for this phase:**
+| Tool | Purpose | Cost |
+|------|---------|------|
+| **Ahrefs** | Keyword Explorer, Site Explorer → Organic Keywords, Keywords Gap | Paid |
+| **SEMrush** | Keyword Gap tool, Keyword Magic Tool, Position Tracking | Paid |
+| **Google Search Console** | Actual click/impression data per keyword — real performance | Free (requires access) |
+| **Google Keyword Planner** | Volume estimates, CPC (signals commercial intent), trend data | Free (Google Ads account) |
+| **Ubersuggest** | Keyword ideas, volume, CPC, SEO difficulty — good free tier | Free/Paid |
+| **AlsoAsked.com** | PAA-based question keyword mapping per topic | Freemium |
+| **Google Autocomplete** | Real-time long-tail keyword discovery by typing prefix + letters | Free |
+| **Google Trends** | Keyword momentum — seasonal peaks, rising vs. declining terms | Free |
 
-## Keyword-to-Page Mapping
-- Assign every priority keyword to existing page OR flag for new page
-- Flag all cannibalization
-- Priority = Volume × Intent × Feasibility
+**2025 Keyword Research Context:**
+- "Near me" searches increased 200%+ in 5 years — hyperlocal keywords are non-negotiable for local businesses
+- AI Overview (AIO) changes CTR: position 1 organic CTR drops 30–45% when AIO appears above it — target long-tail and question keywords where AIO is less dominant
+- Voice search accounts for 27% of mobile searches (Google 2024) — conversational long-tail keywords now serve dual purpose: traditional + voice
+- Zero-click searches at 58% of all searches (SparkToro 2024) — featured snippets + AIO citations are increasingly more valuable than traditional rank #5
 
-## SERP Analysis (Top 20-30 Keywords)
-- SERP features present? Who ranks #1-3? Content type/depth?
-- Can client realistically compete? What actions needed?
+---
+
+## Section 1: Keyword Universe Mapping
+
+### Step 1: Extract Client's Current Keywords
+
+From Ahrefs Site Explorer → Organic Keywords → export all:
+- Sort by position (filter: 1–100)
+- Sort by traffic value
+- Identify primary, secondary, and supporting keywords per page
+
+| URL | Primary Keyword | Position | Monthly Clicks | Secondary Keywords |
+|-----|---------------|---------|--------------|-------------------|
+| /services/[slug] | [keyword] | [pos] | [clicks] | [keywords] |
+| /blog/[slug] | [keyword] | [pos] | [clicks] | [keywords] |
+
+### Step 2: Competitor Keyword Extraction
+
+For each competitor (Ahrefs → Site Explorer → enter competitor → Organic Keywords):
+- Export top 200 keywords by traffic
+- Filter: exclude branded keywords
+- Identify which service + location combinations they rank for
+
+### Step 3: Keyword Gap (Venn Diagram Analysis)
+
+Use **Ahrefs Keyword Gap** or **SEMrush Keyword Gap** tool:
+
+| Category | Keywords | Count | Action |
+|----------|---------|-------|--------|
+| Client only (unique — client ranks, competitors don't) | [list top 5] | [X] | Maintain + strengthen |
+| Shared with 1 competitor | [list top 5] | [X] | Improve ranking position |
+| Shared with 2+ competitors (table stakes) | [list top 5] | [X] | Must win — critical priority |
+| Competitor-only gaps (competitors rank, client doesn't) | [list top 10] | [X] | Create content / optimize |
+
+---
+
+## Section 2: Keyword Classification System
+
+For every identified gap keyword, classify along 5 dimensions:
+
+### By Length & Competition
+| Type | Definition | Local Example | Competition | Timeline |
+|------|-----------|-------------|------------|---------|
+| Head (1–2 words) | "plumber [city]" | "plumber chicago" | High — 60–80 KD | 6–18 months |
+| Mid-tail (2–3 words) | "emergency plumber chicago" | "drain cleaning chicago" | Medium — 30–60 KD | 3–9 months |
+| Long-tail (4+ words) | "24 hour emergency plumber lincoln park chicago" | | Low — <30 KD | 1–4 months |
+
+### By Search Intent
+| Intent | Description | Content Match | Conversion Rate |
+|--------|-----------|--------------|----------------|
+| Informational | "how to fix a leaky faucet" | Blog guide, how-to | Low (~1–3%) |
+| Commercial | "best plumber chicago reviews" | Comparison, local | Medium (~3–8%) |
+| Transactional | "hire plumber chicago same day" | Service page + CTA | High (~8–20%) |
+| Navigational | "[brand] chicago plumbing" | About/homepage | High (brand intent) |
+
+### By Local Modifier
+| Pattern | Example | Volume Type | Priority |
+|---------|---------|------------|---------|
+| Location-modified | "plumber chicago" | Medium | Critical |
+| "Near me" variant | "plumber near me" | High | Critical |
+| Neighborhood-specific | "plumber lincoln park" | Low-Medium | High |
+| No modifier | "leak repair" | High (national) | Secondary |
+| "Open now" | "plumber open now" | Medium | High (emergency intent) |
+| "Same day" / "24 hour" | "same day plumber chicago" | Medium | High |
+
+### By Funnel Stage
+| Stage | Examples | Page Type | Priority |
+|-------|---------|----------|---------|
+| TOFU (Awareness) | "signs of a water leak", "why water bill high" | Blog/guide | Medium |
+| MOFU (Consideration) | "plumber vs. DIY", "cost to fix burst pipe" | FAQ/comparison | High |
+| BOFU (Decision) | "hire emergency plumber chicago", "plumber quote" | Service page | Critical |
+
+### By Volume Band (Local Business Benchmarks)
+| Band | Monthly Volume | Strategy |
+|------|--------------|---------|
+| High | 1,000+ | Content + links + GBP optimization |
+| Medium | 100–999 | Optimized service/location page |
+| Low | 10–99 | Long-tail service page or blog section |
+| Micro | <10 | FAQ entry, location page detail, schema |
+
+---
+
+## Section 3: Low-Hanging Fruit Analysis
+
+### Position 4–10 ("Almost There") Keywords — Highest ROI
+From GSC or Ahrefs → filter positions 4–10 + volume >50/month:
+
+| Keyword | Position | URL | Monthly Volume | Action | Effort | Expected Traffic Gain |
+|---------|---------|-----|--------------|--------|--------|----------------------|
+| [keyword] | 5 | [url] | [vol] | Add FAQ + schema + internal links | 1–2 hrs | +[X]/month |
+| [keyword] | 8 | [url] | [vol] | Expand 500 words + Surfer optimize | 2–3 hrs | +[X]/month |
+
+**Impact:** Moving position 5 → position 1 typically 6–10× more clicks (CTR: ~2.5% → ~25–30%).
+
+### Position 11–20 ("Page 2") Keywords — Medium Effort
+From GSC → filter positions 11–20 + volume >100/month:
+
+| Keyword | Position | URL | Volume | Action | Effort |
+|---------|---------|-----|--------|--------|--------|
+| [keyword] | 14 | [url] | [vol] | Rewrite + earn 3–5 local links | 4–6 hrs + link outreach |
+
+### High Impressions / Low CTR (GSC)
+From GSC → Performance → filter: Impressions >100/month, CTR <2%:
+
+| Keyword | Impressions/Month | CTR | Position | Fix | Effort |
+|---------|-----------------|-----|---------|-----|--------|
+| [keyword] | [X] | [X%] | [pos] | Rewrite title — add year/city/benefit | 15 min |
+
+**Potential:** Improving CTR from 1% → 3% on 1,000 impressions = +20 additional monthly clicks.
+
+### Long-Tail High-Intent, Low Competition Goldmines
+| Keyword | Volume | KD (Ahrefs) | Intent | Page Needed |
+|---------|--------|------------|--------|------------|
+| "[service] cost [city] 2025" | 50–200 | <20 | MOFU | Pricing guide page |
+| "[service] vs [alternative] [city]" | 30–100 | <15 | MOFU | Comparison blog post |
+| "best [service] [neighborhood]" | 20–80 | <25 | Commercial | Location content |
+| "emergency [service] [city] open now" | 50–200 | <30 | BOFU | Emergency service page |
+
+---
+
+## Section 4: Keyword-to-Page Mapping
+
+Prevent cannibalization — every keyword should have exactly ONE target page:
+
+| Keyword | Target Page | Status | Action |
+|---------|------------|--------|--------|
+| [keyword 1] | /services/drain-cleaning/ | Under-optimized | Add to title + H1 + schema |
+| [keyword 2] | NEW PAGE | Missing | Create service/location page |
+| [keyword 3] | /services/drains/ + /drain-repair/ | Cannibalization | Merge → redirect weaker |
+
+**Cannibalization detection:** Ahrefs → Site Explorer → Organic Keywords → sort by keyword → look for same keyword appearing on 2+ URLs. Also GSC → Performance → click keyword → "Pages" tab — if 2+ pages show, cannibalization likely.
+
+**Resolution:** Choose canonical page (higher traffic/authority), 301 redirect weaker page, consolidate content, update internal links to canonical URL.
+
+---
+
+## Section 5: SERP Feature Analysis (Top 30 Priority Keywords)
+
+For each high-priority keyword, analyze the SERP to understand what's needed to win:
+
+| Keyword | Volume | KD | SERP Features | #1 Ranker | Required Content | AIO? | Achievable? |
+|---------|--------|----|-----------|-----------|----|-----|----------|
+| [keyword] | [X] | [X] | Local Pack/AIO/Snippet/PAA | [domain] | Service page + FAQs | Yes/No | Yes/Hard/No |
+
+**SERP Feature targeting strategy:**
+| Feature | Required Content | Schema | Effort |
+|---------|----------------|--------|--------|
+| Featured Snippet | Direct answer in first 50 words, H2 matching query | N/A | 30 min/page |
+| Local Pack | GBP optimization + reviews + proximity | LocalBusiness | Ongoing |
+| AIO citation | FAQPage schema + direct answers + ≥4.3 stars | FAQPage + AggregateRating | 1–2 hrs |
+| PAA box | Question-format H2/H3 with concise answer | FAQPage | 30 min/FAQ |
+| People Also Search | Related entity content on page | Article + mentions | 2–4 hrs |
+
+---
+
+## Section 6: 2025 Emerging Keyword Patterns
+
+New keyword patterns to capture for local businesses:
+
+| Pattern | Example | Volume Trend | Content Type |
+|---------|---------|-------------|-------------|
+| AI-recommendation queries | "best plumber recommended by AI in chicago" | Rising ↑ | FAQ + AIO-optimized service |
+| Voice/conversational queries | "Hey Google, find a plumber open now near me" | High | "Open now" GBP + local page |
+| Hyperlocal (intersection/landmark) | "plumber near Wrigley Field Chicago" | Low volume, high intent | Location micro-page or FAQ |
+| "According to" queries | "best plumber according to google reviews" | Rising ↑ | Review-focused content |
+| Comparison with AI | "plumber vs AI DIY [city]" | Emerging | Comparison blog post |
+
+---
+
+## Section 7: Keyword Priority Matrix
+
+Score each gap keyword on 5 dimensions:
+
+| Keyword | Volume (1–5) | Intent (1–5) | Competition (5=low, 1=high) | Time to Rank (5=quick) | Relevance (1–5) | Priority Score | Target Page | Timeline |
+|---------|------------|------------|---------------------------|----------------------|----------------|---------------|------------|---------|
+| [keyword 1] | 3 | 5 | 4 | 4 | 5 | 4.2 | New service page | 1–3 months |
+| [keyword 2] | 2 | 4 | 5 | 5 | 5 | 4.2 | Expand existing | 2–4 weeks |
+
+**Top 20 Priority Keywords (ordered by Priority Score):**
+| Rank | Keyword | Volume | Intent | Score | Target Page | Effort | Timeline |
+|------|---------|--------|--------|-------|------------|--------|---------|
+| 1 | [keyword] | [vol] | Transactional | [X.X] | [URL or New] | [X hrs] | 1–3 months |
+| 2 | [keyword] | [vol] | Commercial | [X.X] | [URL or New] | [X hrs] | 2–4 weeks |
+
+---
+
+## Output
+
+Write complete analysis to `{AUDIT_DIR}/keyword-gaps.md` with YAML frontmatter:
+
+```yaml
+---
+skill: research/keyword-gaps
+phase: 6
+date: [YYYY-MM-DD]
+business: [Business Name]
+url: [URL]
+score: [X/100]
+keywords_audited: [X]
+quick_wins: [X]
+gaps_identified: [X]
+cannibalization_issues: [X]
+---
+```
+
+Include:
+- Score X/100 with gap severity breakdown
+- Current keyword map (client's top 20 ranking keywords)
+- Keyword gap Venn diagram (client only / shared / competitor only)
+- Classification tables (by intent, length, local modifier, funnel stage)
+- Low-hanging fruit: P4-10 quick wins (with traffic gain estimates)
+- High impression / low CTR opportunities (with CTR improvement %s)
+- Long-tail goldmine list (KD <20, transactional intent)
+- Keyword-to-page mapping (including cannibalization fixes)
+- SERP feature analysis (top 30 keywords, schema requirements)
+- 2025 emerging keyword patterns
+- Priority matrix (top 20 keywords scored)
+- 30/90-day keyword capture plan with effort estimates
+
+**Key consumers:**
+- `research/topical-gaps` — keywords inform topical map and cluster structure
+- `output/report-generation` — keyword opportunities in master report section 6
+- `audit/onpage-seo` — keyword-to-page assignments for optimization
