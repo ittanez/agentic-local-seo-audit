@@ -9,6 +9,20 @@ description: >
 
 # Accessibility Audit — Phase 19 (SEO-Focused)
 
+## Executive Summary
+
+Accessibility and SEO are converging in 2025. Semantic HTML — the foundation of accessibility compliance — is also Googlebot's preferred signal architecture. Lighthouse accessibility score directly correlates with Core Web Vitals performance, particularly INP (Interaction to Next Paint, replaced FID March 2024) and CLS. Google's Quality Rater Guidelines (2024 update) explicitly flag accessibility as an E-E-A-T trust indicator. Legal exposure from accessibility failures is escalating: ADA Title III lawsuits reached 4,605 in 2023 (Seyfarth Shaw), and negative SERP results from lawsuit coverage directly harm brand SERP. AI search systems (Google AIO, ChatGPT, Perplexity) preferentially extract content from semantically correct, accessible HTML structures — inaccessible pages are de facto AI-invisible.
+
+**2025 accessibility benchmarks:**
+- WCAG 2.2 AA = current legal standard (US ADA, EU EAA effective June 2025, AU DDA)
+- Lighthouse score ≥90 = target; <70 = flag as structural risk to E-E-A-T
+- 96.3% of the top 1 million homepages have WCAG failures (WebAIM Million Report 2024)
+- Semantic HTML headings = 41% higher featured snippet acquisition (SEMrush 2024)
+- INP <200ms (Good) = primary CWV threshold since March 2024 — poor accessibility patterns (no skip links, large unoptimized tap targets) are INP contributors
+- Touch target minimum: 24×24px (WCAG 2.2 new criterion 2.5.8, Oct 2023)
+
+---
+
 ## Why Accessibility Matters for SEO (2025)
 
 1. **INP & CLS** — poor accessibility (no skip links, large tap targets missing) causes bad Core Web Vital scores; INP target <200ms
@@ -237,6 +251,58 @@ Run: Axe DevTools → filter "ARIA" issues.
 
 ---
 
+## Section 12: Competitor Accessibility Benchmark
+
+Run **Lighthouse** on competitor homepages and compare:
+
+| Site | Lighthouse Accessibility | WAVE Errors | WAVE Alerts | Heading H1 | Alt Text % | Mobile Tap Targets |
+|------|------------------------|------------|------------|-----------|------------|-------------------|
+| Client | /100 | | | Single? | | ✅/❌ |
+| Comp 1 | /100 | | | | | |
+| Comp 2 | /100 | | | | | |
+| Comp 3 | /100 | | | | | |
+
+**Competitive opportunities:**
+- If competitors score <70 on Lighthouse accessibility: opportunity to outrank on E-E-A-T trust
+- If competitors fail color contrast and client passes: document as competitive trust advantage
+- If all competitors fail alt text: opportunity to dominate image search visibility
+
+**AI Visibility Connection:**
+AI search systems prefer semantically structured content. Run these checks:
+| Check | AI Benefit | Pass/Fail |
+|-------|-----------|----------|
+| Semantic heading hierarchy (H1→H2→H3) | AIO extract section headings as answer structure | |
+| FAQPage schema on FAQ content | 3.2× AIO citation rate (Amsive 2025) | |
+| `<article>`, `<section>`, `<aside>` landmarks | AI parsers map content zones | |
+| Descriptive alt text (not empty or filename) | AI image understanding + image search | |
+| No JS-only content without fallback | Googlebot renders JS inconsistently | |
+
+---
+
+## Section 13: Numbered Action Plan
+
+### Immediate (Week 1 — No-Code or Developer 1 hr)
+1. **Add `<html lang="en">`** if missing — WCAG 1.3.4 compliance + screen reader pronunciation fix. Effort: 5 min. Priority: 25 (5×5).
+2. **Remove `user-scalable=no`** from viewport meta tag — WCAG failure, blocks pinch-zoom for low-vision users; Google penalizes this. Effort: 5 min. Priority: 25.
+3. **Add skip navigation link** — `<a href="#main" class="skip-link">Skip to main content</a>` at top of every page. Effort: 30 min. Priority: 20.
+4. **Fix all `alt=""` images that aren't decorative** — Run site_crawler.py → check images_no_alt column → write descriptive alt text (max 125 chars) for all informative images. Effort: 2–4 hrs.
+5. **Fix heading hierarchy** — single H1 per page, no skipped levels (H1→H3). Effort: 1–2 hrs. Priority: 20.
+
+### Short-Term (Week 2–4 — Developer Required)
+6. **Add `aria-label` to all icon-only buttons** — hamburger menu, social icons, close buttons — each needs accessible name. Effort: 1–2 hrs.
+7. **Fix form labels** — replace placeholder-only labels with proper `<label for>` elements; add `autocomplete` attributes. Effort: 1–2 hrs.
+8. **Fix color contrast failures** — use Color Contrast Analyzer → identify all elements <4.5:1 (normal text) or <3:1 (large text/UI). Effort: 2–6 hrs.
+9. **Ensure all tap targets ≥24×24px** (WCAG 2.2) and ≥44×44px for primary CTAs. Check with mobile DevTools. Effort: 2–4 hrs.
+10. **Add `aria-expanded` to accordions/dropdowns** — required for screen reader state awareness. Effort: 1–2 hrs.
+
+### Medium-Term (Month 2)
+11. **Add captions to all videos** — YouTube auto-captions don't meet WCAG AA; use Rev.com ($1.50/min) or Kapwing for manual captions. Effort: 2–6 hrs per video.
+12. **Add `scope` attributes to all data tables** — `<th scope="col">` and `<th scope="row">` — required for screen reader table navigation. Effort: 30 min.
+13. **Test with NVDA (Windows) or VoiceOver (Mac)** — manual screen reader testing catches 60–70% of issues automated tools miss. Effort: 2–4 hrs.
+14. **Implement FAQPage schema** — improves AI visibility (AIO 3.2× citation rate) and is fully accessible by design. Effort: 30 min/page.
+
+---
+
 ## Scoring
 
 | Category | Weight | Score |
@@ -302,7 +368,10 @@ SEO-ACCESSIBILITY OVERLAP OPPORTUNITIES:
 - [issue | SEO benefit | accessibility benefit | priority score]
 ```
 
+Write HTML report to `{REPORTS_DIR}/phase-19-accessibility.html` and convert to PDF via `python3 scripts/generate_pdf.py`.
+
 **Key consumers:**
 - `audit/technical-seo` — semantic HTML and schema overlap
 - `audit/speed-optimization` — INP/CLS issues often have accessibility root causes
+- `cross-cutting/serp-trust-auditor` — User Experience (U) dimension includes accessibility
 - `output/report-generation` — accessibility score in master report section 19
