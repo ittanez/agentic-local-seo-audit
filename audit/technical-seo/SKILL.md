@@ -10,6 +10,40 @@ description: >
 
 # Technical SEO Audit — Phase 2
 
+## Executive Summary
+
+Technical SEO is the infrastructure layer that determines whether all other optimization work is visible to Google. A technically broken site cannot rank regardless of content quality or link authority. In 2025, technical SEO has expanded to include three new critical areas: (1) INP (Interaction to Next Paint), which replaced FID as a Core Web Vital in March 2024 — target <200ms; (2) AI rendering readiness — Googlebot now renders JavaScript pages before indexing, meaning JS-dependent content must be verified as indexable; (3) GenAI citation readiness — structured data (Organization, FAQPage, HowTo) is the primary mechanism by which Google's AI Overviews and third-party LLMs extract and cite site content. A technically clean site is the prerequisite for AI visibility.
+
+**2025 technical SEO benchmarks:**
+- INP (Core Web Vital, replaced FID March 2024): <100ms Excellent; <200ms Good; >500ms Poor
+- LCP: <2.5s Good; <4.0s Needs Improvement; >4.0s Poor
+- CLS: <0.1 Good; <0.25 Needs Improvement; >0.25 Poor
+- TTFB: <800ms Good; <1,800ms Needs Improvement; >1,800ms Poor
+- Crawl budget (large sites): indexed pages should be within 20% of sitemap count
+- HTTPS: required — any HTTP-accessible URL is a trust and ranking signal issue
+- Canonical coverage: every page must have a canonical (self-referencing or pointing to preferred)
+- Structured data: Organization + LocalBusiness schema on homepage; FAQPage on all service pages; HowTo where applicable
+- Hreflang: required for any multi-language or multi-region site — errors cause ranking in wrong country
+- Site speed: Google uses mobile-first indexing — test mobile CWV separately from desktop
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1, No Dev Needed)
+1. **Run site crawler** — `python3 scripts/site_crawler.py --url [URL] --max-pages 100 --output {DATA_DIR}/crawl/ --csv`. Captures all pages, status codes, titles, meta descriptions, H1s, word counts, internal links. Effort: 30 min setup + crawl time.
+2. **Check GSC Coverage report** — identify Excluded, Crawled Not Indexed, and Discovered Not Indexed pages. Flag any page type systematically excluded. Effort: 20 min.
+3. **Validate robots.txt** — `curl https://domain.com/robots.txt`. Check for accidental Disallow: / rule. Verify sitemap URL is listed. Effort: 5 min. Priority: 25 (5×5).
+4. **Validate XML sitemap** — check all sitemap URLs return 200, are in canonical form, and match GSC indexation count. Flag if sitemap includes redirect or noindex URLs. Effort: 15 min.
+5. **Test HTTPS enforcement** — navigate to `http://domain.com` (no https) — should 301 redirect to HTTPS. Check SSL expiry date. Effort: 5 min.
+
+### Short-Term (Week 2–4, Dev Involvement)
+6. **Fix redirect chains** — use `curl -IL [URL]` to trace chains. Any 301→301→200 chain = wasted PageRank. Flatten to direct 301. Effort: 30 min identification + 1–2 hrs dev. Priority: 20.
+7. **Audit canonical tags** — check for: missing canonicals, self-conflicting canonicals, canonicals pointing to redirect URLs, paginated pages with wrong canonical. Effort: 1–2 hrs.
+8. **Fix duplicate content** — www vs non-www, http vs https, trailing slash vs no trailing slash — all should 301 to one canonical version. Check: `site:domain.com -www`. Effort: 1 hr dev.
+9. **Implement missing structured data** — add Organization + LocalBusiness schema to homepage, FAQPage to all service pages, HowTo to process pages. Use Google's Rich Results Test to validate. Effort: 2–4 hrs.
+10. **Test JavaScript rendering** — check key content (services, contact info) via Google Search Console → URL Inspection → "View Tested Page" → rendered HTML. Any missing content = JS rendering issue. Effort: 30 min.
+
+---
+
 ## Step 1: Read Project Context & Run Crawl
 
 Read `{AUDIT_DIR}/intake-data.md` for business name, URL, and project paths.
