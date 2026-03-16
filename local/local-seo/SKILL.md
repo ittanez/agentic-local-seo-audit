@@ -9,6 +9,21 @@ description: >
 
 # Local SEO Audit — Phase 11
 
+## Executive Summary
+
+Local SEO is the highest-ROI channel for brick-and-mortar and service area businesses. The Google local pack (3-pack) captures 44% of clicks for local queries (BrightLocal 2025) — more than organic position 1 for geo-modified searches. In 2025, the local pack algorithm weights three core clusters: GBP signals (36% of local ranking weight per Whitespark 2024 Local Search Ranking Factors survey), Review signals (17%), and On-Page/Website signals (16%). AI Overviews now appear for 20–35% of local service queries; businesses with FAQPage schema are 2.3× more likely to appear in AIO for local queries. This phase audits every dimension of local SEO from GBP optimization to citation health, NAP consistency, local landing pages, and AI visibility across Google, Apple, and Bing.
+
+**2025 local SEO benchmarks:**
+- GBP primary category = #1 local pack ranking factor (Whitespark 2024 survey, cited by 36% of experts)
+- 100+ GBP photos = 1,065% more website clicks vs. businesses with fewer photos (Google internal data, 2024)
+- Review recency: last 60–90 days weighted 3–5× more than older reviews
+- NAP consistency threshold: ≥95% = acceptable; <85% = critical ranking signal dilution
+- FAQPage schema → 2.3× AIO inclusion rate for local service queries (Amsive 2025)
+- Proximity signal weight (2025): ~35% of local ranking for mobile (up from ~25% in 2023)
+- Q&A content on GBP feeds Google AI Overviews for local queries (confirmed Google I/O 2024)
+
+---
+
 ## Step 1: Read Project Context
 
 Read `{AUDIT_DIR}/intake-data.md` — business name, URL, services, locations, GBP URL.
@@ -27,13 +42,17 @@ Read `{AUDIT_DIR}/technical-findings.md` — schema and indexation status.
 | **Data Axle** | Tier 1 citation aggregator — feeds 200+ downstream directories | Paid |
 | **Google Search Console** | Local landing page performance — clicks, impressions per location keyword | Free |
 
-**2025 Local SEO Context — Whitespark Local Search Ranking Factors (2024 Survey):**
-1. GBP primary category — #1 ranking signal for local pack
-2. Review count and rating velocity — top 3 signal
-3. Physical proximity to searcher — ~35% weight on mobile (increased 2025)
-4. Keyword relevance of GBP description and services
-5. NAP consistency across citations
-6. Website authority + local landing page quality
+**Whitespark 2024 Local Search Ranking Factors — Top Signals by Category:**
+| Rank | Signal | Category | Weight |
+|------|--------|---------|--------|
+| 1 | GBP primary category | GBP Signals | 36% total weight |
+| 2 | Physical proximity to searcher | Behavioral | ~35% mobile |
+| 3 | Review count + velocity + rating | Review Signals | 17% total weight |
+| 4 | Keyword in GBP business title | GBP Signals | High |
+| 5 | NAP consistency across citations | Citation Signals | 11% total weight |
+| 6 | Website authority + local landing page | On-Page/Website | 16% total weight |
+| 7 | Behavioral signals (CTR, clicks, check-ins) | Behavioral | Growing |
+| 8 | Link signals (quality + local relevance) | Link Signals | 11% total weight |
 
 ---
 
@@ -324,6 +343,34 @@ Use **Local Falcon** geographic grid to map pack position across the entire city
 
 ---
 
+## Section 8b: Competitor Local SEO Benchmark
+
+Use PlePer (free) to extract competitor GBP data. Use Local Falcon for grid rank comparison.
+
+| Metric | Client | Comp 1 | Comp 2 | Comp 3 | Gap to Leader |
+|--------|--------|--------|--------|--------|---------------|
+| Primary GBP category | | | | | |
+| Secondary categories (#) | | | | | |
+| Total photos | | | | | |
+| Google review count | | | | | |
+| Google average rating | | | | | |
+| Review velocity (last 90 days) | | | | | |
+| Response rate | | | | | |
+| Weekly GBP posts | | | | | |
+| Q&A seeded answers | | | | | |
+| Local Falcon avg grid rank | | | | | |
+| AIO appearances (5 queries) | | | | | |
+| Apple Maps claimed | | | | | |
+| Bing Places claimed | | | | | |
+
+**Competitive opportunities:**
+- Which competitor has the weakest category optimization? → Easiest to outrank with correct category
+- Which competitor has fewest photos? → Quick win with photo investment
+- Which competitor responds to <80% of reviews? → Win trust signal with 100% response rate
+- Which competitor is not in AIO? → FAQPage schema may vault client ahead
+
+---
+
 ## Section 9: Priority Recommendations
 
 | Issue | Impact (1–5) | Feasibility (1–5) | Priority Score | Effort |
@@ -338,6 +385,32 @@ Use **Local Falcon** geographic grid to map pack position across the entire city
 | No weekly GBP posts | 3 | 5 | 15 | 30 min/week |
 | Apple Maps / Bing Places unclaimed | 3 | 5 | 15 | 30 min each |
 | No local links (Chamber, press, etc.) | 4 | 3 | 12 | 2–8 hrs |
+
+---
+
+### Immediate Action Steps (Numbered — Prioritized by ROI)
+
+1. **Fix GBP primary category** (if suboptimal) — Change to highest-relevance category; cross-check against top 3 competitors via PlePer. Effort: 5 min. Expected impact: category is #1 ranking factor — wrong category = structural ranking ceiling.
+2. **Add secondary categories** — Add up to 9 secondary categories to capture adjacent service queries. Effort: 15 min. Expected: 15–30% broader keyword coverage in local pack.
+3. **Upload photos to 100+ target** — Schedule weekly photo upload sessions (10 photos/week) until 100+ reached. Geotag all photos with business location. Effort: 30 min/week. Expected: 1,065% more website clicks (Google 2024 data).
+4. **Seed 5+ Q&A pairs** — Owner adds keyword-rich Q&A pairs that answer common local queries. Example: "Do you service [suburb]?" "Yes, we cover [suburb, area1, area2]." Effort: 30 min. AIO feeds from Q&A content.
+5. **Fix Tier 1 aggregators** — Submit corrections to Data Axle, Neustar/Localeze, Acxiom, Foursquare. These cascade to 100s of directories automatically within 2–8 weeks. Effort: 2 hrs.
+6. **Publish weekly GBP posts** — Schedule 4 posts/month minimum: 1 service update, 1 offer, 1 team/behind-the-scenes, 1 Q&A/tip. Effort: 30 min/week. Expected: 42% more GBP views (social proof signal).
+7. **Claim Apple Maps + Bing Places** — Both take 30 min each; Bing allows direct GBP import. Together = 15–20% additional local search coverage. Effort: 1 hr total.
+8. **Optimize local landing pages** — Ensure each service area page is ≥60% unique content (HCS hard floor), has embedded Google Map, LocalBusiness schema with areaServed, click-to-call CTA. Effort: 3–5 hrs/page.
+9. **Add FAQPage schema to service pages** — Implement on top 5 service pages first. Each FAQ = potential AIO citation trigger. 2.3× AIO inclusion rate for pages with FAQPage schema. Effort: 30 min/page.
+10. **Deploy SMS review request system** — Set up Podium/Birdeye automated SMS: triggered 2 hrs post-service → link to GBP review → follow-up if no response in 48 hrs. Expected: 4–8 reviews/month from month 1. Effort: 2 hrs setup.
+
+### 30-Day Local SEO Quick Win Plan
+**Week 1:** Fix GBP category → upload 30+ photos → seed Q&A (5 pairs) → respond to all unanswered reviews → claim Apple Maps + Bing Places
+**Week 2:** Submit Tier 1 aggregator corrections → fix top NAP inconsistencies → schedule weekly GBP post calendar
+**Week 3:** Add FAQPage schema to top 3 service pages → set up review SMS system → run Local Falcon grid scan
+**Week 4:** Optimize 2 local landing pages (60%+ unique content + schema + CTA) → reach out to Chamber of Commerce for link
+
+### 90-Day Strategic Plan
+- **Month 1:** Foundation — GBP at 100% completeness, 100+ photos, weekly posts live, review system generating 4+/month
+- **Month 2:** Citation — All Tier 1 aggregators corrected, Tier 2 core platforms complete, NAP consistency ≥95%
+- **Month 3:** Content + Links — All service area pages ≥60% unique with schema, 2+ local links earned (Chamber, press, partner)
 
 ---
 
@@ -391,8 +464,11 @@ Include:
 - Priority recommendations table (Impact × Feasibility scored)
 - 30/90-day local SEO improvement plan
 
+Write HTML report to `{REPORTS_DIR}/phase-11-local-seo.html` and convert to PDF via `python3 scripts/generate_pdf.py`.
+
 **Key consumers:**
 - `local/entity-audit` — reads for entity and sameAs signals
 - `local/reputation-audit` — reads for review baseline
 - `local/multi-location-seo` — uses single-location baseline for comparison
 - `cross-cutting/local-impact-auditor` — all dimensions use local findings
+- `output/report-generation` — local SEO section in master report
