@@ -9,6 +9,36 @@ description: >
 
 # Social Media Audit — Phase 13 (SEO Lens)
 
+## Executive Summary
+
+Social media is an indirect but measurable SEO amplifier in 2025. The direct impacts: social profiles rank in branded SERPs (positions 2–6), verified profiles add sameAs entity signals to the Knowledge Graph, and active Facebook/Instagram feeds directly influence GBP performance — businesses with weekly posts receive 42% more GBP clicks (BrightLocal 2024). The AI visibility angle is new and critical: ChatGPT, Gemini, and Perplexity train on and reference social profiles when describing businesses to users — incomplete or abandoned profiles lead to inaccurate AI descriptions. TikTok video content has been indexed in Google Search results with VideoObject schema since 2024. YouTube SEO is separate from traditional SEO but competes directly in the same SERPs for "how to" and service queries.
+
+**2025 social SEO benchmarks:**
+- GBP clicks boost: 42% more clicks for businesses with weekly social posts (BrightLocal 2024)
+- YouTube: #2 search engine globally — video content ranks in Google for "how to" + service queries
+- TikTok VideoObject: Google indexes TikTok content since 2024 — VideoObject schema required for eligibility
+- Engagement rate benchmarks: Instagram 2–5% = good; Facebook 1–3% = good; LinkedIn 0.5–1.5% = good; TikTok 5–10% = good
+- OG image dimensions: 1200×630px (Facebook/LinkedIn), 1200×600px (Twitter/X)
+- AI description training: ChatGPT, Gemini, Perplexity reference active social profiles for business descriptions
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1 — <1 hr total)
+1. **Add sameAs links for all social profiles in LocalBusiness schema** — Every active social URL → add to `sameAs` array in JSON-LD on homepage. Each is an entity consolidation signal. Effort: 30 min. Priority: 20.
+2. **Add OG tags to homepage + top service pages** — `og:title`, `og:description`, `og:image` (1200×630px), `og:url`, `og:type`. Use Facebook Sharing Debugger to validate. Effort: 1–2 hrs. Priority: 20.
+3. **Configure primary CTA on Facebook Business page** — "Call Now" button linked to business phone. Missed conversion point on most local business pages. Effort: 10 min. Priority: 15.
+4. **Optimize Instagram bio** — "[Service] in [City] | [Key differentiator] | 📞 [Number] | [Link in bio to service page]". Add location to profile. Effort: 15 min. Priority: 15.
+5. **Claim Nextdoor Business page** — Direct neighbor recommendation channel = hyperlocal social signal. 30 min to claim + verify. Priority: 15.
+
+### Short-Term (Month 1)
+6. **Set up weekly posting schedule** — Minimum 1 post/week on Facebook, 3/week on Instagram. Create 1-month content calendar: 40% service showcases, 30% before/after, 20% testimonials, 10% educational. Effort: 2 hrs planning + 1 hr/week. Expected: 42% more GBP clicks.
+7. **Add VideoObject schema to all video-embedded pages** — Any page with YouTube/Vimeo embed: add VideoObject schema with name, description, uploadDate, thumbnailUrl. Enables video rich results in Google. Effort: 30 min/page.
+8. **Claim Google Business Profile in YouTube** — Link YouTube channel to GBP for cross-platform entity consolidation. Effort: 15 min.
+9. **Create first YouTube service explainer video** — 3–5 min: "How [Service] works in [City]" — targets "how to" queries + educates pre-purchase audience. Add target keyword to title, description (first 200 chars), tags. Effort: 4–8 hrs. Priority: 12.
+10. **Add Twitter Card meta tags** — `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`. Improves CTR when content shared on X/Twitter. Effort: 30 min. Priority: 10.
+
+---
+
 ## Social Media's Role in SEO (2025)
 
 Social media does NOT directly pass PageRank — but it powerfully influences SEO through:

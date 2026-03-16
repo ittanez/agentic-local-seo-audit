@@ -9,6 +9,36 @@ description: >
 
 # Topical Authority Audit — Phase 8
 
+## Executive Summary
+
+Topical authority is the long-term competitive moat in local SEO and the primary determinant of AI visibility in 2025–2026. Google's Helpful Content System (integrated March 2024) explicitly rewards depth over breadth — sites that comprehensively cover a narrow topic cluster outrank sites that superficially cover many topics. The measurable threshold: 25+ articles in a cluster begins accumulating topical authority signals in GSC (SEMrush 2024). AI Overviews cite topically authoritative brands 2–3× more than generalist sites. The 58% AIO surge across 9 industries in early 2026 (Amsive) is directly correlated with businesses that achieved complete cluster coverage vs. those with fragmented content. For local businesses, topical authority on 3–5 core service clusters is more valuable than shallow coverage of 15+ topics.
+
+**2025 topical authority benchmarks:**
+- Pillar pages: minimum 3,000 words; target 4,000–6,000 words; Surfer Score ≥80; Clearscope A-
+- Cluster pages: minimum 1,500 words; target 2,000–3,000 words; Surfer Score ≥70; Clearscope B+
+- Article threshold per cluster: 25+ = authority signal building; 50+ = competitive; 100+ = dominant
+- Content decay: >20% YoY click decline = refresh required (ChatGPT freshness: 30-day update = 76.4% citation rate)
+- AIO topical citation: 58% AIO surge for businesses with full cluster coverage (Amsive early 2026)
+- SEMrush Topical Authority score: ≥70 in core topic = competitive; ≥85 = market leader
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1)
+1. **Run Ahrefs Content Gap vs. top 3 competitors** — Filter for keywords competitors rank for in top 10 that client doesn't. Export all, sort by traffic value. Identify top 20 cluster gaps to fill first. Effort: 2 hrs.
+2. **Audit existing pillar pages** — Check each pillar page: word count vs. 3,000 minimum, Surfer Score vs. 80 target, last updated date vs. 90-day freshness window. Flag any failing ≥2 criteria as critical refresh. Effort: 1 hr.
+3. **Fix orphaned cluster pages** — Run site_crawler.py → find pages with <3 inbound internal links that should be cluster pages → add links from pillar page and 2 related cluster pages. Effort: 15 min/page. Priority: 20 (5×4).
+4. **Add FAQPage schema to all cluster pages** — 5 FAQ minimum per page, answers ≤50 words. AIO citation 3.2× higher with FAQPage. Effort: 30 min/page.
+5. **Refresh top content decay pages (>20% YoY decline)** — Update statistics, add current year examples, add FAQPage schema, update publish date. Even minor updates reset ChatGPT 30-day freshness. Effort: 1–2 hrs/page.
+
+### Short-Term (Month 1)
+6. **Expand thin pillar pages** — Pillar pages <3,000 words: add Surfer-recommended NLP entities, expand subtopic sections, add HowTo schema for process steps, build to 3,000–4,500 words. Effort: 6–10 hrs/pillar.
+7. **Build next 5 cluster pages** — For highest-gap cluster topic identified in step 1: create 1,500-word pages targeting one subtopic each. Link each back to pillar. Effort: 3–5 hrs/page.
+8. **Add expert author bylines** — Every piece of topic content should have a named author with credentials, linked author page, and Person schema. E-E-A-T author entity = measurable trust signal. Effort: 1–2 hrs setup.
+9. **Add `knowsAbout` to Organization schema** — List 5–7 specific topic entities the business is authoritative on. Directly signals topical domain expertise to Google NLP. Effort: 15 min.
+10. **Earn topical editorial links** — Pitch 2 local publications with topic-specific expert commentary. Each editorial mention from an authority source strengthens topical entity co-citation. Effort: 4–8 hrs/pitch.
+
+---
+
 ## Step 1: Read Project Context
 
 Read `{AUDIT_DIR}/intake-data.md` — business name, URL, services, location.
