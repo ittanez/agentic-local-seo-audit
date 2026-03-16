@@ -22,6 +22,22 @@ A Google penalty is a multiplier against zero — no amount of on-page optimizat
 - TF:CF ratio <0.3 = high unnatural link risk; brand anchors should be 40–60% of link profile
 - AI Overviews: sites with active penalties or domain trust <30 DA rarely appear in AIO citations
 
+**Numbered Action Plan:**
+
+### Immediate (Week 1)
+1. **Check GSC Manual Actions** — GSC → Security & Manual Actions → Manual Actions. If any present: stop all other optimization, begin recovery immediately. Effort: 5 min. Priority: 25 (5×5).
+2. **Run `site:[domain]` search** — if result count is <50% of sitemap count, immediate deindexation flag. Compare month-over-month if GSC unavailable. Effort: 5 min. Priority: 20.
+3. **Cross-reference traffic drop dates with algorithm update timeline** — use Semrush Sensor or Algoroo to identify if drops align with known updates (Mar 2024 Core, Aug 2024 Core, Mar 2025 Core). Effort: 15 min.
+4. **Check link profile health via Majestic** — TF:CF ratio <0.3 + exact-match anchors >10% = automatic disavow candidate. Run free check at Majestic.com. Effort: 20 min. Priority: 20 (4×5).
+5. **Check competitor clean profiles** — compare client's organic traffic trend (SimilarWeb) against 2–3 confirmed-clean competitors in same niche to establish "what healthy looks like." Effort: 15 min.
+
+### Short-Term (Week 1–2)
+6. **Audit thin/duplicate content** — run Screaming Frog crawl (free up to 500 pages) → filter for pages <300 words → flag for noindex or expansion. Any pages with identical titles/metas = duplicate content risk. Effort: 30 min crawl + 1 hr analysis.
+7. **Run technical deception check** — compare Googlebot UA vs. user UA with curl commands. Check for redirect chains. Search `"[business name]" -site:[domain]` for scraped copies. Effort: 20 min.
+8. **Audit scaled content abuse risk** — if site has >50 programmatic pages (location × service combinations) with near-identical content: flag immediately. Google's March 2024 Spam Update specifically targets this pattern. Effort: 30 min.
+9. **Submit disavow file if needed** — only if manual action confirmed OR TF:CF <0.3 with +500% referring domain spike. Use domain: prefix format. Effort: 1–2 hrs to build + 15 min to submit.
+10. **Document and prioritize recovery roadmap** — if penalty confirmed: write recovery plan with realistic timelines (manual action: 4–8 weeks; algorithmic: 3–6 months; HCS: 3–12 months). Share with client before any other optimization work. Effort: 1 hr.
+
 ## Why Run First (Wave 1)
 
 A penalty makes 90% of other audit findings irrelevant until resolved.
@@ -181,16 +197,23 @@ domain.com penalized                → Community penalty reports
 
 Compare the target site's signals against confirmed-clean competitor sites. This establishes what a healthy local business looks like in this niche.
 
+**Tools:** SimilarWeb (traffic trends), Ahrefs (referring domains, anchor distribution), Majestic (TF:CF), Screaming Frog (indexed count)
+
 | Signal | Client | Top Competitor | 2nd Competitor | Healthy Benchmark |
 |--------|--------|----------------|----------------|-------------------|
 | Organic traffic trend (6mo) | ±% | ±% | ±% | Stable or growing |
 | Referring domains (total) | # | # | # | Industry average |
+| TF:CF ratio | ratio | ratio | ratio | ≥0.5 healthy; <0.3 = toxic risk |
 | Avg anchor text: branded | % | % | % | 50–60% |
 | Avg anchor text: exact match | % | % | % | <10% |
 | Indexed pages vs. sitemap | ratio | ratio | ratio | Within 20% |
 | Pages <300 words | % | % | % | <5% of crawled |
+| E-E-A-T signals (author bios) | Yes/No | Yes/No | Yes/No | Present on all content |
+| INP Core Web Vital | ms | ms | ms | <200ms Good (replaced FID March 2024) |
 | Manual actions | Yes/No | Yes/No | Yes/No | None |
 | GSC coverage errors | # | n/a | n/a | <1% of indexed |
+
+**Confirm competitor is "clean"** before using as benchmark: stable organic traffic, ranks for branded name, site: count ≈ sitemap count.
 
 ---
 
