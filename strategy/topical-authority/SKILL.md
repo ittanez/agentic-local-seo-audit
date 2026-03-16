@@ -13,13 +13,25 @@ description: >
 
 Topical authority is the long-term competitive moat in local SEO and the primary determinant of AI visibility in 2025–2026. Google's Helpful Content System (integrated March 2024) explicitly rewards depth over breadth — sites that comprehensively cover a narrow topic cluster outrank sites that superficially cover many topics. The measurable threshold: 25+ articles in a cluster begins accumulating topical authority signals in GSC (SEMrush 2024). AI Overviews cite topically authoritative brands 2–3× more than generalist sites. The 58% AIO surge across 9 industries in early 2026 (Amsive) is directly correlated with businesses that achieved complete cluster coverage vs. those with fragmented content. For local businesses, topical authority on 3–5 core service clusters is more valuable than shallow coverage of 15+ topics.
 
-**2025 topical authority benchmarks:**
-- Pillar pages: minimum 3,000 words; target 4,000–6,000 words; Surfer Score ≥80; Clearscope A-
+**2025–2026 topical authority benchmarks:**
+- Pillar pages: minimum 3,000 words; competitive 5,000–10,000 words; Surfer Score ≥80; Clearscope A-
 - Cluster pages: minimum 1,500 words; target 2,000–3,000 words; Surfer Score ≥70; Clearscope B+
 - Article threshold per cluster: 25+ = authority signal building; 50+ = competitive; 100+ = dominant
-- Content decay: >20% YoY click decline = refresh required (ChatGPT freshness: 30-day update = 76.4% citation rate)
+- Minimum viable cluster for AIO eligibility: 1 pillar + 10–15 cluster pages
+- Content decay: >20% YoY click decline = refresh; >50% = rewrite or consolidate + 301
+- ChatGPT freshness: 30-day update = 76.4% citation rate; AI Overviews prefer content <3–6 months old
 - AIO topical citation: 58% AIO surge for businesses with full cluster coverage (Amsive early 2026)
+- Clustered content performance: 30% more organic traffic; holds rankings 2.5× longer (HireGrowth 2025)
 - SEMrush Topical Authority score: ≥70 in core topic = competitive; ≥85 = market leader
+- First ranking improvements: 2–3 months after cluster launch; significant gains: 6–12 months
+- December 2025 Core Update: focused on E-E-A-T depth; June 2025 update targeted link authority — combined enforcement is most aggressive post-HCU cycle
+
+**Local business cluster size benchmarks:**
+| Business Type | Minimum Cluster | Growth Target | Notes |
+|--------------|----------------|--------------|-------|
+| Single-location local | 10–15 pages | 25–30 in 12 months | Service + location pillar structure |
+| Multi-location regional | 1 pillar + 5–8 pages/location | 25+ pages per core location | Unique content per location required |
+| Enterprise/national | 25+ pages per topic cluster | 50–100+ per cluster | No duplicate SAP content (HCU risk) |
 
 **Numbered Action Plan:**
 
@@ -185,12 +197,33 @@ Does Google associate this business with its core topics?
 3. Search `[core topic] [city]` → does Knowledge Panel or AIO mention this business?
 4. Ask ChatGPT: `Who are the top [service] providers in [city]?` → is business mentioned?
 
+### Measuring Topical Authority (Tool Methods)
+
+**Ahrefs — Traffic Share Proxy (manual formula):**
+> Topical Authority Proxy = Traffic Share for Target Topic ÷ Total Traffic from Topic Keywords
+- Ahrefs → Keyword Explorer → enter seed keyword → "Traffic Share by Domains" → compare your share vs. top 3 competitors
+- Use Competing Domains report to find true topical competitors (not just DR-similar sites)
+- Content Gap: Competitive Analysis → Content Gap → export → cluster by topic → gaps where all competitors rank but you don't = highest-priority content needs
+
+**SEMrush — Topical Authority Score:**
+- Keyword Gap → sort by "Missing" (full cluster gaps) vs. "Weak" (depth gaps, positions 11–50)
+- Apply Intent filter: "Informational" = missing educational content; "Commercial" = missing comparison content
+- Focus: KD ≤40 + Volume ≥100/month = quick-win cluster gaps
+- AI Visibility Toolkit: identify LLM prompts where competitors are cited but client isn't
+
+**Knowledge Graph / Entity Authority:**
+- Create or claim Wikidata Q-ID entry — directly recognized by Google Knowledge Graph (54 billion+ entities indexed)
+- Wikidata Q-ID URL → add to `sameAs` in Organization schema → directly feeds entity resolution
+- NAP citation consistency across Yelp, BBB, industry associations, Chamber of Commerce → entity authority signal
+- Co-citation pattern: earn mentions on authoritative third-party domains with consistent entity terminology
+
 ### Building Topic Association (Sequence)
 1. Publish minimum 25 articles on target topic cluster (threshold for authority accumulation)
-2. Add Schema.org `knowsAbout` to Organization schema with core topic entities
-3. Earn editorial links from authoritative sites mentioning business in topic context
-4. Submit updated sitemap after publishing cluster content
-5. Ensure all cluster pages link to pillar with consistent anchor text (no generic "click here")
+2. Create or claim Wikidata entry with Q-ID → add Q-ID URL to Organization schema `sameAs`
+3. Add Schema.org `knowsAbout` to Organization schema with 5–7 core topic entities
+4. Earn editorial links from authoritative sites mentioning business in topic context
+5. Submit updated sitemap after publishing cluster content
+6. Ensure all cluster pages link to pillar with descriptive anchor text (varied, not exact-match on all — avoid repetitive anchor text to same page)
 
 ---
 
@@ -278,3 +311,38 @@ Include:
 - `research/topical-gaps` — gap analysis informs authority building priorities
 - `research/keyword-gaps` — keyword opportunities mapped to authority clusters
 - `output/report-generation` — topical authority score in master report section 8
+
+**Output files:**
+- `{AUDIT_DIR}/topical-authority.md` — primary findings with score, matrix, roadmap
+- `{REPORTS_DIR}/phase-8-topical-authority.pdf` — auto-generated PDF after phase completes
+
+---
+
+## Recommendations Checklist
+
+### Quick Wins (Week 1, <2 hrs each)
+- [ ] Add FAQPage schema to all pillar pages — AIO citation 3.2× higher — Effort: 30 min/page
+- [ ] Fix orphaned cluster pages (no link to pillar) — Effort: 15 min/page — Priority: 20
+- [ ] Add `knowsAbout` to Organization schema (5–7 topic entities) — Effort: 15 min
+- [ ] Update publish date + add current-year stat to top 3 decay pages — Effort: 30 min/page
+- [ ] Add HowTo schema to all service/process pages — Effort: 30 min/page
+
+### Topical Authority by Cluster Stage
+
+| Cluster Stage | Article Count | Actions Needed | Timeline |
+|--------------|--------------|----------------|---------|
+| Not started | 0 | Build pillar + 5 cluster pages | Month 1 |
+| Below threshold | 1–24 | Reach 25-article minimum | Month 1–3 |
+| Building | 25–49 | Add depth, fix orphans, refresh decay | Month 2–4 |
+| Authority | 50+ | Lateral linking, original data, AI citation optimization | Ongoing |
+
+### E-E-A-T Implementation Table
+
+| Signal | How to Implement | Effort | Impact |
+|--------|-----------------|--------|--------|
+| Expert author bylines | Named author + credentials on all content | 1–2 hrs setup | High |
+| Author schema | `author` property linking to author entity page | 30 min/page | High |
+| Original research | Local survey, proprietary pricing data, case studies | 8–16 hrs/piece | Very High |
+| Wikidata entity | Create Q-ID entry → add to Organization sameAs | 1–2 hrs | Medium |
+| Expert source citations | Link to government, research, trade association data | 30 min/page | Medium |
+| Real project photos | Before/after, on-site images with schema | 1 hr/gallery | High |
