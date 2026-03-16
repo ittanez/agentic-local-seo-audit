@@ -10,6 +10,18 @@ description: >
 
 # Penalty & Manual Action Check — Phase 20
 
+## Executive Summary
+
+A Google penalty is a multiplier against zero — no amount of on-page optimization, content creation, or link building can overcome an active manual action or severe algorithmic penalty. Run this phase FIRST in Wave 1. In 2025, penalties have expanded beyond traditional link spam: Google's Scaled Content Abuse policy (March 2024) specifically targets bulk AI-generated pages without human editorial oversight, and Site Reputation Abuse (May 2024) penalizes sites hosting low-quality third-party content for ranking purposes. Additionally, algorithmic penalties from the Helpful Content System (HCS, integrated March 2024) are not marked in GSC — they require traffic pattern analysis correlated against known update dates. Penalty status also directly affects AI visibility: penalized or low-trust domains are excluded from Google AI Overviews and are rarely cited by ChatGPT or Perplexity.
+
+**2025 penalty benchmarks:**
+- Manual action recovery: 2–8 weeks after reinclusion request (Google states 2–4 weeks; reality: 4–8 weeks)
+- Algorithmic recovery: must wait for next Core Update to take effect — typically 3–6 month cycles
+- HCS recovery: documented cases show 3–12 months after removing unhelpful content
+- Disavow threshold (2024 guidance): Google auto-ignores most low-quality links — only disavow if confirmed manual action or +500% spam spike
+- TF:CF ratio <0.3 = high unnatural link risk; brand anchors should be 40–60% of link profile
+- AI Overviews: sites with active penalties or domain trust <30 DA rarely appear in AIO citations
+
 ## Why Run First (Wave 1)
 
 A penalty makes 90% of other audit findings irrelevant until resolved.

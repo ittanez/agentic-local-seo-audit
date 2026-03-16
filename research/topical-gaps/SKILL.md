@@ -178,10 +178,23 @@ Identify which pillars need more depth for AI citation:
 | Missing location × service intersection page | 3 | 4 | 12 | 2–4 hrs |
 
 ### Immediate Priority (Next 30 Days)
-1. Fix all orphaned cluster pages — add internal links to pillar — Effort: 30 min each — Priority: 20
-2. Create/improve pillar pages for top 2 service clusters (3,000+ words) — Effort: 8–12 hrs each
-3. Fill "red" cluster gaps (all competitors cover, client doesn't) — Effort: 3–5 hrs each
-4. Answer top 10 PAA questions as FAQ content on relevant service pages — Effort: 1–2 hrs
+1. **Fix orphaned cluster pages** — add `<a href="/[pillar-url]">` internal link from every cluster page to its parent pillar. Also add cluster link from pillar. Effort: 30 min each. Priority: 20 (4×5). Expected: direct PageRank flow improvement.
+2. **Create/upgrade pillar pages to 3,000+** words — For top 2 service clusters with missing or thin pillars: build comprehensive pillar pages using Surfer SEO (target score ≥80) + Clearscope (target A-). Include: all subtopics, 5+ FAQs, HowTo schema, unique local data/statistics. Effort: 8–12 hrs each.
+3. **Fill "red" cluster gaps** — Clusters where ALL competitors have pages but client doesn't: create 1,500+ word cluster pages, link to pillar immediately after publish. Effort: 3–5 hrs each.
+4. **Answer top 10 PAA questions** — Use AlsoAsked.com for each pillar topic → extract top 10 PAA questions → add as FAQ entries on relevant service pages + FAQPage schema. Effort: 1–2 hrs. Expected: AIO citation + PAA box wins.
+5. **Add FAQPage schema to ALL cluster pages** — AIO cites pages with FAQPage at 3.2× rate. Add 5 FAQ minimum per page. Effort: 30 min/page. Priority: 20.
+
+### Numbered Action Steps (Comprehensive)
+| Step | Action | Effort | Priority | Expected Impact |
+|------|--------|--------|---------|----------------|
+| 1 | Fix orphaned cluster links (pillar ↔ cluster) | 30 min/page | 20 | PageRank distribution |
+| 2 | Expand thin pillar to 3,000+ words + Surfer ≥80 | 8–12 hrs each | 15 | Rankings lift + AIO |
+| 3 | Create missing cluster pages (red gaps) | 3–5 hrs each | 16 | New keyword rankings |
+| 4 | Add PAA-based FAQ content + FAQPage schema | 1–2 hrs | 15 | AIO + PAA boxes |
+| 5 | Refresh content decay pages (>20% YoY) | 2–4 hrs each | 16 | Traffic recovery |
+| 6 | Build original data/statistics page per pillar | 8–16 hrs | 12 | AI citation priority |
+| 7 | Create location × service intersection pages | 2–4 hrs each | 12 | Local long-tail rankings |
+| 8 | Monitor Google Trends weekly for emerging topics | 30 min/week | 10 | First-mover advantage |
 
 ### Medium-Term (Days 31–90)
 1. Build out secondary clusters topic-by-topic using Ahrefs Content Gap data
@@ -229,7 +242,7 @@ Estimated time to topical authority: [X months]
 
 ## Output
 
-Write complete topical map and gap analysis to `{AUDIT_DIR}/topical-gaps.md` with YAML frontmatter:
+Write complete topical map and gap analysis to `{AUDIT_DIR}/topical-gaps.md` with YAML frontmatter. Write HTML report to `{REPORTS_DIR}/phase-7-topical-gaps.html` and convert to PDF via `python3 scripts/generate_pdf.py`.
 
 ```yaml
 ---

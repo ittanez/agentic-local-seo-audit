@@ -9,6 +9,36 @@ description: >
 
 # Brand SERP & Knowledge Panel Audit — Phase 16
 
+## Executive Summary
+
+The Brand SERP is the most visited and least optimized page for most local businesses. When prospects, journalists, or partners search the business name, the result page forms their first impression in <0.5 seconds. In 2025, AI Overviews appear for ~15% of branded queries — adding a new layer of brand narrative that businesses must actively influence. A complete Knowledge Panel requires the same entity signals that drive local pack performance: GBP completion, sameAs connections (7+), Wikidata entity, and consistent NAP across platforms. Negative results on page 1 reduce brand CTR by 22% (Reputation X, 2024). Google's Quality Rater Guidelines (2024) explicitly score E-E-A-T based partly on what appears in branded searches — a strong brand SERP directly influences ranking trust signals.
+
+**2025 brand SERP benchmarks:**
+- AIO on branded queries: ~15% of branded searches now trigger AI Overviews (growing in 2025–2026)
+- Knowledge Panel trigger: 7+ sameAs sources = eligibility threshold (Google's Knowledge Vault)
+- sameAs minimum for competitive brand SERP: 5 properties (GBP, Facebook, LinkedIn, Yelp, Wikidata)
+- Negative result impact: any negative result at P1–P3 → reduce brand score to maximum 50/100
+- Sitelinks appear: when homepage has strong internal link structure + clear brand signal on anchor text
+- AggregateRating schema: triggers star rating display in branded SERP = +17–25% CTR
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1 — ≤1 hr each)
+1. **Add AggregateRating schema to homepage** — `ratingValue`, `reviewCount`, `bestRating:5` using Google review data. Triggers star ratings in SERP. Effort: 30 min. Priority: 20.
+2. **Add `sameAs` links in LocalBusiness schema** — GBP URL, Facebook, LinkedIn, Yelp, BBB, Instagram, Wikidata (if exists). Each = entity consolidation signal. Effort: 30 min. Priority: 25.
+3. **Set up Google Alerts** — Create alerts for: "[Business Name]", "[Business Name] reviews", "[Business Name] complaints". Effort: 10 min. Free.
+4. **Complete GBP profile to 100%** — All fields: description (750 chars), hours, services, 100+ photos, Q&A seeded. GBP completion directly affects Knowledge Panel data. Effort: 2–4 hrs.
+5. **Complete + optimize all social profiles** — Facebook, Instagram, LinkedIn: consistent brand name, description, website URL, cover photo. Each complete profile = potential P1–P5 brand SERP slot. Effort: 30 min/platform.
+
+### Short-Term (Week 2–4)
+6. **Create Wikidata entity** — Wikidata is the #1 trigger for Knowledge Panel appearance and the primary source for ChatGPT/Perplexity business descriptions. Requires: 3+ external source citations. Effort: 2–4 hrs.
+7. **Publish structured "About" page** — Include: founded year, founder name, specialties, awards, service area, Person schema for owner. Google and AI assistants pull from About page for entity descriptions. Effort: 2–3 hrs.
+8. **Pitch local news** — 1–2 press features per quarter creates news box in brand SERP and provides AI citation sources. Effort: 4–8 hrs/pitch.
+9. **Launch brand protection Google Ads campaign** — Bidding on own brand terms costs $0.10–0.50/click; prevents competitor ads from appearing above organic brand results. Effort: 1 hr setup.
+10. **Suppress negative page-1 content** — For any negative result P1–10: publish new content targeting those keywords (YouTube video, press piece, case study, positive review platform). Effort: 4–20 hrs depending on severity.
+
+---
+
 ## What Is the Brand SERP? (2025)
 
 The Brand SERP is everything that appears when someone searches the business name. It's the business's "digital trust snapshot" — prospects, journalists, investors, and potential partners form their first impression in <0.5 seconds.
