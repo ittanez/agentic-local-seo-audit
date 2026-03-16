@@ -13,7 +13,31 @@ description: >
 
 ## Executive Summary
 
-Phase 0 is the foundation of the entire 21-phase audit. The quality of intake data directly determines audit accuracy. Every subsequent phase reads `{AUDIT_DIR}/intake-data.md` — incomplete intake = cascading errors across all phases. Average intake time: 10–15 minutes for a well-prepared client; 20–30 minutes if competitor research is required.
+Phase 0 is the foundation of the entire 21-phase audit. The quality of intake data directly determines audit accuracy. Every subsequent phase reads `{AUDIT_DIR}/intake-data.md` — incomplete intake = cascading errors across all phases. In 2025–2026, intake has expanded beyond basic data collection: AI search now accounts for an estimated 25–40% of zero-click query resolution (Semrush 2025), meaning business goals must explicitly address AI Overviews, ChatGPT, Perplexity, and Gemini visibility — not just traditional organic rankings. GBP signals are confirmed as the #1 local ranking factor (Whitespark 2024), making GBP URL and review count collection at intake critical for Phase 11 benchmarks. Competitor landscape snapshot at intake saves 2–3 hours later by pre-populating Phase 1.
+
+**2025–2026 intake benchmarks:**
+- Average intake completion: 10–15 min (prepared client); 20–30 min (requires competitor research)
+- TTFB threshold: <800ms Good; >1,800ms Critical — flag for Phase 10 immediately
+- Minimum competitors to collect: 3 (local pack top-3); ideal 5 (3 local + 2 organic)
+- GSC access impact: phases 6 (keyword gaps), 7 (topical gaps), 20 (penalty check) all degraded without GSC — flag clearly
+- Domain age <6 months: automatically flag Phase 12 backlinks as "authority building" priority, not penalty recovery
+- AI search context (2025): businesses without GBP presence, review velocity, or E-E-A-T content are excluded from AIO local pack citations
+
+**Numbered Action Plan:**
+
+### Immediate (First 15 Minutes)
+1. **Present intake form** — collect items 1–6 (required) before any other work. Missing even one required field = defer audit start. Effort: 5–10 min.
+2. **Run URL validation** — `python3 scripts/check_url.py --url [URL] --full`. Captures HTTP status, SSL validity, redirect chain, TTFB, basic on-page signals (H1, title). Effort: 2 min. Flag if TTFB >800ms, SSL error, or 4xx/5xx.
+3. **Create project directory** — `python3 scripts/setup_project.py --name "..." --url "..." --location "..."`. Sets all path variables used by all 21 phases. Effort: 1 min. Priority: 25 (5×5).
+4. **Auto-identify competitors** — if item 7 skipped: run 3-search protocol (service+city; best+service+city; service+city+reviews) → extract top-3 local pack + top-2 organic non-directories. Effort: 10–15 min.
+5. **Collect competitor intelligence** — for each competitor: name, URL, GBP URL, star rating, review count, approximate DR from Ahrefs/Moz free check. Effort: 5 min (3–5 competitors).
+
+### Short-Term (Before Launching Phase 1)
+6. **Run initial business intelligence checks** — `site:[domain]` indexed count; branded search Knowledge Panel check; BuiltWith.com for CMS detection. Effort: 5 min. Priority: 15 (3×5).
+7. **Pre-flag issues for downstream phases** — note any flags in intake-data.md: TTFB, no Knowledge Panel, Wix/Squarespace CMS, domain <6 months, no GBP. Each flag fast-tracks a finding in the relevant phase. Effort: 5 min.
+8. **Confirm GSC/GA4 access status** — GSC access unlocks accurate data in 5+ phases. If unavailable, note: Ahrefs/Semrush estimates will substitute (with lower confidence). Effort: 2 min.
+9. **Check for immediate penalty signals** — quick scan: `site:[domain]` count dramatically lower than expected? Any manual actions visible in GSC? Rank for branded name? Flag for Phase 20. Effort: 3 min.
+10. **Write and confirm intake-data.md** — write complete file to `{AUDIT_DIR}/intake-data.md` with YAML frontmatter. Display confirmation summary. Launch Phase 1. Effort: 5 min.
 
 ---
 
@@ -327,3 +351,17 @@ After intake completes, `{AUDIT_DIR}/intake-data.md` is the **single source of t
 - `research/competitor-analysis` — reads competitor list, begins profiling
 - All 21 phases — read business name, URL, location, project paths
 - `cross-cutting/local-impact-auditor` — reads goal context for weight adjustment
+- `audit/penalty-check` — reads previous SEO history for penalty risk flags
+- `output/report-generation` — reads project metadata for master report cover page
+
+**Output files:**
+- `{AUDIT_DIR}/intake-data.md` — primary output, source of truth for all phases
+- `{REPORTS_DIR}/phase-0-intake.pdf` — auto-generated summary PDF after intake completes
+- `{DATA_DIR}/crawl/` — populated later by site_crawler.py (Phase 2)
+
+**2025 intake quality gate:** Before launching Phase 1, confirm all 5 items are complete:
+- [ ] Items 1–6 collected (required fields)
+- [ ] URL validated (HTTP 200, SSL valid, TTFB recorded)
+- [ ] Project directory created (projects/[slug]/ exists with all subdirs)
+- [ ] 3+ competitors identified with name, URL, rating, DR
+- [ ] intake-data.md written with YAML frontmatter and all fields populated
