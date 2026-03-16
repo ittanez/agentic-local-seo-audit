@@ -9,6 +9,20 @@ description: >
 
 # UX & CRO Audit — Phase 17
 
+## Executive Summary
+
+CRO is the multiplier on all SEO investment: doubling conversion rate at constant traffic = doubling revenue without additional marketing spend. For local businesses, the average top-quartile performer converts at 10–15% (home services) vs. an average of 3–7% — a 3–5× gap achievable without any additional traffic. In 2025, behavioral signals are confirmed local ranking factors: Google's Navboost system weights dwell time, pogo-stick rate, and return visits — meaning poor UX literally suppresses rankings. AI Overviews drive 2–4× higher conversion intent on click-through than standard organic results (users who arrive via AI are further in the decision process). GBP conversion signals (direction clicks, call clicks, website clicks) now feed Google's local ranking algorithm directly, making on-site and GBP CRO inseparable.
+
+**2025 CRO benchmarks for local businesses:**
+- Click-to-call: 70% of mobile searchers use it for local businesses (Google Consumer Insights 2024)
+- Form fields: each additional field beyond 5 reduces submission rate by 10–20% (Formstack 2024)
+- LCP delay: 1-second LCP increase = 20% conversion drop (Google/SOASTA study)
+- Trust signal impact: star rating badge near CTA increases CVR 15–25% (Baymard Institute 2024)
+- Sticky mobile CTA bar: 15–40% more calls than static header number alone
+- GA4 veto: no conversion tracking installed = maximum CRO score 60/100 (can't optimize what can't be measured)
+
+---
+
 ## SEO-CRO Connection (2025)
 
 Traffic without conversions is wasted authority. In 2025–2026:
@@ -244,6 +258,56 @@ Without tracking, CRO improvement is guesswork.
 
 ---
 
+## Step 10b: Competitor CRO Benchmark
+
+Visit top 3 competitor sites (desktop + mobile) and audit their CRO elements:
+
+| Metric | Client | Comp 1 | Comp 2 | Comp 3 |
+|--------|--------|--------|--------|--------|
+| Click-to-call in header | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+| Sticky mobile CTA bar | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+| Review badge near CTA | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+| Form field count | | | | |
+| Live chat / chatbot | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+| GA4 installed (BuiltWith check) | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+| Mobile PageSpeed (PSI) | /100 | /100 | /100 | /100 |
+| Price transparency on site | ✅/❌ | ✅/❌ | ✅/❌ | ✅/❌ |
+
+**AI CRO Signals:**
+| Check | Why It Matters | Pass/Fail |
+|-------|---------------|----------|
+| FAQPage schema on service pages | AIO citations drive 2–4× higher intent visitors | |
+| HowTo schema on process pages | Attracts comparison-stage searchers closer to conversion | |
+| Structured pricing/estimate content | AI cites specific pricing → pre-qualifies leads | |
+| GBP booking button / appointment URL | Direct conversion from GBP without website visit | |
+| Review count in GBP (50+) | AIO prominently features review counts as trust proxy | |
+
+---
+
+## Step 10c: Numbered Action Plan
+
+### Immediate (Week 1 — Quick Wins, ≤2 hrs each)
+1. **Make all phone numbers click-to-call** — wrap every phone in `<a href="tel:+1XXXXXXXXXX">`. Test on mobile. Effort: 30 min. Expected: 20–30% more call clicks from mobile.
+2. **Add sticky mobile bar** — fixed bottom bar with phone icon + "Call Now" + primary CTA ("Get Quote"). Effort: 2 hrs developer. Expected: 15–40% more calls.
+3. **Install Microsoft Clarity** (free) — enables heatmaps + session recordings to identify friction points. Effort: 30 min (add tracking code). No cost.
+4. **Add star rating badge near primary CTA** — "★★★★★ 4.8 from 127 Google reviews" with schema AggregateRating. Effort: 30 min. Expected: 15–25% CVR lift.
+5. **Set up GA4 form submission events** — if not tracking form submits, install GA4 event on thank-you page or form submit trigger. Effort: 1–2 hrs. Critical for all future optimization.
+
+### Short-Term (Week 2–4)
+6. **Reduce form fields to ≤5** — consolidate: Name, Phone, Service needed, Zip code, Message = 5 fields max. Remove: Last name (call them), Company (not needed for B2C), How did you hear about us (ask on call). Effort: 1 hr. Expected: 20–35% more form submissions.
+7. **Add guarantee statement near CTA** — "100% satisfaction guarantee — no obligation estimate" reduces purchase anxiety. Effort: 15 min. Expected: 10–20% CVR lift.
+8. **Add response time commitment** — "We respond within 2 hours" or "Same-day service available" next to form CTA. Effort: 15 min. Expected: 5–15% lift.
+9. **Fix CTA button text** — change "Submit" → "Get My Free Estimate" or "Book a Free Inspection". Effort: 15 min. Expected: 5–15% lift.
+10. **Set up call tracking** — install CallRail or WhatConverts to attribute calls to channel (Organic/GBP/Paid). Effort: 2 hrs. Required for data-driven CRO.
+
+### Medium-Term (Month 2–3)
+11. **Run A/B test on hero section** — test CTA button color, headline text, and hero image using VWO or Optimizely. Statistical significance at 500+ conversions. Effort: 4–8 hrs setup.
+12. **Add live chat or chatbot** — Tidio (free tier) or Intercom for after-hours lead capture. Effort: 2 hrs setup. Expected: 10–20% more leads from non-business-hours traffic.
+13. **Create video testimonial** — 60-second customer video on homepage + service pages. Expected: 15–30% CVR lift vs. text testimonials alone. Effort: 1–2 days including filming + editing.
+14. **Implement GBP booking integration** — add appointment URL in GBP profile + website for direct GBP-to-booking conversion flow.
+
+---
+
 ## Step 11: Quick CRO Wins (Priority Matrix)
 
 | Win | Expected Conversion Lift | Impact (1–5) | Feasibility (1–5) | Priority | Effort |
@@ -278,7 +342,7 @@ Without tracking, CRO improvement is guesswork.
 
 ## Output
 
-Write to `{AUDIT_DIR}/cro-findings.md` with YAML frontmatter:
+Write to `{AUDIT_DIR}/cro-findings.md` with YAML frontmatter. Also write HTML report to `{REPORTS_DIR}/phase-17-cro.html` and convert to PDF via `python3 scripts/generate_pdf.py`.
 
 ```yaml
 ---
