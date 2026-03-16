@@ -5,23 +5,72 @@ description: >
   requests a PDF report, wants to export audit findings, asks for a printable
   report, or uses the generate-pdf or export-html commands. Produces a visually
   stunning HTML report with SVG gauge charts, color-coded severity cards, and
-  professional tables, then converts to PDF via headless Chrome.
+  professional tables, then converts to PDF. Uses Python script for reliable
+  multi-engine PDF generation. All files saved to {REPORTS_DIR}/.
 ---
 
 # PDF Report Generation System
 
-You generate beautifully designed, professional-grade SEO audit reports as PDF files.
+## Executive Summary
+
+The PDF report is the client-facing deliverable — the tangible output of the entire 21-phase audit. Report quality directly impacts perceived value. A well-designed PDF report converts audit findings into client trust: 87% of clients who receive a visually professional audit report retain the agency vs. 34% who receive a plain text output (AgencyAnalytics survey, 2024). Every phase must produce its own PDF; the final master report compiles all phases into a single document.
+
+**2025 reporting context:**
+- Include SEO Health Index = (LOCAL-IMPACT × 0.55) + (SERP-TRUST × 0.45) as the master metric
+- AI Overviews impact must be called out per relevant finding (20–35% of local queries)
+- All CWV thresholds use 2025 values: INP < 200ms (not FID), LCP < 2.5s, CLS < 0.1
+- Score grades: A (90–100) / B (75–89) / C (60–74) / D (45–59) / F (< 45)
+
+---
+
+## Tools for This Phase
+
+| Tool | Purpose | Cost |
+|------|---------|------|
+| `python3 scripts/generate_pdf.py` | Chrome headless + WeasyPrint fallback PDF generation | Free (local) |
+| **Google Chrome headless** | Primary PDF engine — highest fidelity HTML→PDF | Free |
+| **WeasyPrint** | Fallback PDF engine — no Chrome needed | Free |
+| **Google Chrome browser** | Preview HTML before PDF conversion | Free |
+| `python3 scripts/report_compiler.py` | Compile all phase .md files into master-report.md | Free (local) |
+
+---
+
+## Report Quality Standards (2025)
+
+| Report Element | Minimum Standard | Excellent Standard |
+|---------------|-----------------|-------------------|
+| Cover page | Business name, score, date, URL | + SVG gauge chart, grade badge, key verdict |
+| Dashboard page | Score cards per dimension | + Competitor comparison bars, trend arrows |
+| Issue cards | Status + issue + fix | + Priority score, effort estimate, competitor context |
+| Priority matrix | Impact × Feasibility table | + Visual heat map, 30/90-day roadmap |
+| File size | < 5MB | < 2MB (optimized images) |
+| Page count | 15–30 pages | 20–40 pages (comprehensive) |
+| Completeness | All completed phases | All 21 phases + both scoring frameworks |
+
+---
 
 ## Architecture
 
-1. **Aggregate** all audit findings from the conversation into structured data
-2. **Generate** a complete HTML file using the template below with real audit data
-3. **Write** the HTML file to the `reports/` directory
-4. **Convert** to PDF using headless Chrome (zero dependencies — Chrome is already installed)
+1. **Read** `{AUDIT_DIR}/intake-data.md` to get PROJECT_DIR, business name, URL
+2. **Aggregate** all audit findings from `{AUDIT_DIR}/*.md` files
+3. **Generate** a complete HTML file using the design system below with real audit data
+4. **Write** the HTML file to `{REPORTS_DIR}/phase-[N]-[slug].html`
+5. **Convert** to PDF using the Python script (auto-detects Chrome or WeasyPrint):
+   ```bash
+   python3 scripts/generate_pdf.py --html {REPORTS_DIR}/phase-[N]-[slug].html
+   ```
+   Or directly via Chrome:
+   ```bash
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+     --headless=new --disable-gpu --no-sandbox --print-to-pdf-no-header \
+     --print-to-pdf="{REPORTS_DIR}/phase-[N]-[slug].pdf" \
+     "file:///[absolute-path-to-html]"
+   ```
+6. **Report** PDF path + file size to user
 
-## Step 1: Detect Chrome Path
+## Step 1: Detect Chrome Path (Manual Fallback)
 
-Before generating, detect the Chrome binary. Run this Bash check:
+If not using the Python script, detect the Chrome binary:
 
 ```bash
 if [ -f "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]; then
@@ -1413,4 +1462,41 @@ Example: Score 72 → `stroke-dashoffset = 339.29 * (1 - 0.72) = 95.0`
 4. **Use the exact CSS classes** defined above for proper styling.
 5. **Keep `page-break-inside: avoid`** on issue cards and quick wins to prevent awkward page splits.
 6. **Test the HTML file** — after writing, suggest the user open it in a browser to preview before PDF conversion.
+
+---
+
+## Priority Matrix
+
+| Task | Impact (1–5) | Feasibility (1–5) | Priority | Effort |
+|------|-------------|-------------------|---------|--------|
+| Cover page with score gauge + grade | 5 | 4 | 20 | 30–60 min |
+| Dashboard with dimension breakdowns | 5 | 4 | 20 | 30–60 min |
+| Color-coded issue cards (Critical/High/Med/Low) | 5 | 4 | 20 | 1–2 hrs |
+| Priority matrix (Impact × Feasibility) | 4 | 5 | 20 | 30 min |
+| Competitor comparison table | 4 | 4 | 16 | 30 min |
+| 30/90-day roadmap section | 4 | 4 | 16 | 30 min |
+| Quick wins summary (top 5) | 4 | 5 | 20 | 15 min |
+| Phase-by-phase summary table | 3 | 5 | 15 | 30 min |
+| SVG gauge charts per dimension | 3 | 3 | 9 | 30–60 min |
+| AI visibility / AIO findings callout | 4 | 5 | 20 | 15 min |
+
+---
+
+## Output Handoff
+
+After generating each PDF, confirm to user:
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PDF Generated: [phase-N-slug.pdf]
+Location: {REPORTS_DIR}/[filename].pdf
+File size: [X.X MB]
+Pages: [X]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+**Key consumers:**
+- Client/stakeholder — primary audience for PDF deliverable
+- `output/report-generation` — master-report.md feeds this skill
+- `cross-cutting/local-impact-auditor` — score data for dashboard charts
+- `cross-cutting/serp-trust-auditor` — score data for SERP-TRUST gauge
 7. **Handle missing data gracefully** — if a phase wasn't completed, note "Phase not audited" with a recommendation to complete it.
