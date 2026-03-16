@@ -9,6 +9,19 @@ description: >
 
 # Topical Gap Analysis — Phase 7
 
+## Executive Summary
+
+Topical authority is the #1 long-term competitive moat in local SEO. Google's Helpful Content System (integrated into core algorithm March 2024) rewards businesses that comprehensively cover a topic cluster vs. those that superficially mention many topics. The 25-article threshold signal: sites with 25+ articles in a cluster receive significantly stronger topical authority signals than sites with 10 or fewer (SEMrush 2024). AI Overviews (AIO) cite topically authoritative sources 2–3× more than shallow coverage sites. This phase maps the client's topical universe, identifies coverage gaps vs. top competitors, and produces a prioritized content roadmap.
+
+**2025 topical authority benchmarks:**
+- Pillar pages: minimum 2,500 words; competitive 4,000–6,000 words
+- Cluster pages: minimum 1,200 words; competitive 1,800–2,500 words
+- Content decay: > 20% YoY click decline = refresh required (GSC comparison)
+- AIO topical citation: 58% AIO surge for businesses with full topic cluster coverage (Amsive early 2026)
+- ChatGPT freshness factor: pages updated within 30 days cited at 76.4% rate
+
+---
+
 ## Step 1: Read Project Context
 
 Read `{AUDIT_DIR}/intake-data.md` — business name, services, location.
