@@ -40,6 +40,7 @@ Stay current on these confirmed ranking changes:
 - **FAQPage schema** = primary AIO citation trigger — implement on all service + location pages
 - **`branchOf` deprecated** in Schema.org — use `parentOrganization` for multi-location businesses
 - **GBP Chat deprecated** July 2024 — remove references to this feature
+- **GBP 2025 features**: Q&A (monitored and answered by business), Service menus (detailed service listings with prices), Review velocity (last 60–90 days weighted 3–5× more than older reviews), Product catalog (for product-based local businesses), Booking integration (Google Reserve)
 - **ChatGPT freshness factor**: pages updated within 30 days cited at 76.4% rate vs. 31.2% for 90+ days old
 - **Review recency weighting**: last 60–90 days = 3–5× more weight than older reviews in local ranking
 - **Navboost** (leaked via DOJ antitrust docs) — click data from Chrome is a confirmed ranking signal
@@ -168,6 +169,50 @@ status: complete
 ```
 
 If a required prior-phase file is missing: note it, mark affected items N/A, continue — never block.
+
+---
+
+## Competitor Research Standards
+
+Every phase must include competitive context. Follow this protocol:
+
+### Competitor Data Collection (for Each Phase)
+| Data Point | Source | Phase Used |
+|-----------|--------|-----------|
+| Organic traffic trend | SimilarWeb (free) or Ahrefs | All phases |
+| Domain Rating | Ahrefs free / Moz | Phases 1, 12 |
+| GBP star rating + review count | Google Maps | Phases 1, 11, 15 |
+| Top ranking pages for target keywords | Ahrefs / SEMrush | Phases 2, 5, 6, 7 |
+| Page word count + Surfer Score | Screaming Frog + Surfer | Phases 3, 4, 7, 8 |
+| Structured data types used | Google Rich Results Test | Phases 2, 3, 9 |
+| Core Web Vitals scores | PageSpeed Insights | Phase 10 |
+| Social media following + engagement rate | Platform natively | Phase 13 |
+
+### Competitor Comparison Rules
+1. **Always compare to top 3 local pack competitors** (not just domain-level competitors)
+2. **Identify the "clean" leader** — the competitor with cleanest signals in each category becomes the benchmark
+3. **Flag competitor weaknesses** — gaps where ALL competitors underperform = fastest competitive opportunity
+4. **Never benchmark against national chains** without flagging — different competitive dynamics
+
+---
+
+## Recommendations Checklist Template
+
+Every phase output must include recommendations structured as:
+
+### Recommended Action Plan Format
+| Priority | Action | Current State | Target State | Effort | Impact |
+|----------|--------|--------------|-------------|--------|--------|
+| 🔴 Critical | [specific action] | [current metric] | [target metric] | [time] | [X/5] |
+| 🟠 High | [specific action] | [current metric] | [target metric] | [time] | [X/5] |
+| 🟡 Medium | [specific action] | [current metric] | [target metric] | [time] | [X/5] |
+
+**Effort estimate standards:**
+- Quick win: 15–30 min (no developer needed)
+- Low: 1–2 hrs (content editor or developer)
+- Medium: 2–4 hrs (developer)
+- High: 1–2 days (developer + content)
+- Complex: 1+ week (multiple stakeholders)
 
 **Key handoff chain:**
 ```

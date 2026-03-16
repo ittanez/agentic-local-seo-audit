@@ -10,7 +10,40 @@ description: >
 
 # SERP-TRUST Auditor
 
-You are executing the proprietary SERP-TRUST scoring framework — a 50-item assessment of search engine trust signals and authority.
+## Executive Summary
+
+The SERP-TRUST framework is a 50-item proprietary scoring system that measures how much Google trusts a domain to appear and rank in competitive search results. Trust is distinct from authority — a site can have high Domain Rating (authority) but low SERP trust due to thin content, missing schema, poor CWV, or inconsistent NAP signals. In 2025–2026, SERP trust has a direct AI visibility component: Google's AI Overviews and third-party LLMs (ChatGPT, Perplexity) apply their own trust filters before citing sources. Sites scoring <50 on SERP-TRUST are rarely cited in AI answers regardless of organic ranking. The framework evaluates 5 dimensions: Technical Foundation (T), Ranking Signals (R), User Experience (U), Search Authority (S), and Trust & AI Readiness (A) — 10 items × 4-point scale per dimension = 200 raw points, normalized to 0–100.
+
+**2025 SERP-TRUST benchmarks:**
+- Overall score ≥80: competitive (citeable by AI Overviews); ≥90: market leader
+- Technical Foundation: HTTPS enforced, INP <200ms (replaced FID March 2024), no crawl errors
+- Ranking Signals: pillar pages with Surfer Score ≥80, FAQPage schema on all service pages
+- User Experience: Core Web Vitals all "Good" (LCP <2.5s, INP <200ms, CLS <0.1)
+- Search Authority: Domain Rating ≥30 for local; TF:CF ratio ≥0.5; branded anchor 50–60%
+- Trust & AI Readiness: Organization schema + sameAs on homepage; GBP verified; 5+ review platforms
+- Veto rule: any single Critical failure (e.g., active manual action, no HTTPS, score = 0 on T dimension) caps total score at ≤40 regardless of other dimensions
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1, High Impact/Low Effort)
+1. **Validate all Technical Foundation items** — run `python3 scripts/check_url.py --url [URL] --full` for HTTPS, redirect chain, TTFB. Run Lighthouse → record LCP, INP, CLS scores. Effort: 30 min. Priority: 25.
+2. **Check for critical veto triggers** — active manual actions (GSC), HTTP accessible URL, 4xx/5xx homepage, no HTTPS = automatic score cap. Effort: 10 min.
+3. **Score all 50 items** — work through each dimension in order (T→R→U→S→A), applying 0–4 scale. Note evidence for every score ≠ 4. Effort: 1–2 hrs. Use `python3 scripts/score_calculator.py --st` to compute.
+4. **Identify veto check failures** — each dimension has a veto check that caps the dimension score. Flag any failures immediately as Critical blockers. Effort: 15 min.
+5. **Generate competitor comparison** — score at least 2 top competitors on the same 50 items (abbreviated: focus on T and A dimensions). Gap = priority list. Effort: 45 min/competitor.
+
+### Short-Term (Week 2–4)
+6. **Fix all T dimension failures first** — Technical Foundation is the prerequisite layer; fixing T items produces the highest dimension ROI. Target: T dimension score ≥8/10 (80%) before moving to other dimensions. Effort: varies.
+7. **Add missing structured data** — Organization schema (homepage), LocalBusiness subtype (homepage), FAQPage (all service pages), HowTo (process pages). Effort: 2–4 hrs.
+8. **Improve UX dimension** — fix largest CWV failures first: LCP (often image optimization or render-blocking resources), INP (event listener optimization), CLS (reserve space for images/embeds). Effort: 4–8 hrs dev.
+9. **Build Trust & AI Readiness** — verify GBP, claim all sameAs properties, add review widget with AggregateRating schema, add author bylines with Person schema. Effort: 2–4 hrs.
+10. **Write SERP-TRUST findings to `{AUDIT_DIR}/serp-trust-scores.md`** — YAML frontmatter + full 50-item scorecard + Priority Matrix + competitor comparison. Run `python3 scripts/score_calculator.py --st` to generate final score. Effort: 1 hr.
+
+**Output files:**
+- `{AUDIT_DIR}/serp-trust-scores.md` — 50-item scorecard with scores and evidence
+- `{REPORTS_DIR}/serp-trust-score.pdf` — auto-generated PDF via `python3 scripts/generate_pdf.py`
+
+---
 
 ## Prerequisites
 

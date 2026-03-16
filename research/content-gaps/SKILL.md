@@ -9,6 +9,40 @@ description: >
 
 # Content Gap Analysis — Phase 5
 
+## Executive Summary
+
+Content gap analysis is the systematic identification of topics, formats, and pages that competitors have and your client doesn't — or where competitors outperform significantly in depth. In 2025, content gaps operate on 3 layers: (1) keyword gaps (traditional — competitor ranks for keyword, client doesn't); (2) topical cluster gaps (competitor has full pillar+cluster architecture on a service, client has one thin page); (3) AI visibility gaps (competitor's content is cited in AI Overviews or by ChatGPT/Perplexity, client's isn't). The third layer is new in 2025 and often the highest-value gap: AI Overviews appear for 20–35% of queries, and being excluded from AIO = losing 30–45% of potential CTR on those queries (Dataslayer 2025). FAQPage schema is the single highest-leverage fix: sites with FAQPage are cited in AIO at 3.2× the rate of pages without it (Amsive 2025).
+
+**2025 content gap benchmarks:**
+- AIO content gap: if competitor appears in AIO for core service queries and client doesn't — highest priority gap
+- Format gaps: competitor has video (VideoObject schema), FAQ (FAQPage), HowTo (HowToSchema) — client has text only
+- Cluster completeness threshold: competitor at 10+ pages per service cluster vs. client at 1–3 pages = full cluster gap
+- Word count gap: competitor pillar page 3,000+ words vs. client 800 words = depth gap (flagged as High priority)
+- INP gap: competitor pages INP <200ms vs. client >500ms = UX gap that affects rankings and AIO eligibility
+- Freshness gap: competitor pillar updated in last 30 days vs. client not updated in 12+ months = AI citation disadvantage (76.4% freshness advantage)
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1, No New Content)
+1. **Run Ahrefs Content Gap** — Competitive Analysis → Content Gap → enter client domain + 3 competitors → export all "Missing" keywords (all competitors rank, client doesn't). Sort by traffic value. Effort: 1 hr. Priority: 25 (5×5).
+2. **Run SEMrush Keyword Gap** — apply Intent filter: Missing + Informational = missing educational content; Missing + Commercial = missing comparison pages. Focus: KD ≤40 + Volume ≥100/month. Effort: 30 min.
+3. **Map AIO citation gaps** — for each main service keyword: check if AI Overviews appear (search in Chrome incognito). Is client cited? Which competitors are? Each uncited service = AIO content gap. Effort: 30 min.
+4. **Audit format gaps** — check if competitors have: FAQPage schema (use Google Rich Results Test), HowTo schema, VideoObject (embedded video), price comparison tables, local stats. Effort: 20 min/competitor.
+5. **Cluster completeness audit** — for each service topic: count client pages vs. competitor pages. Any cluster where competitor has 5+ pages and client has <2 = full cluster gap (Critical). Effort: 30 min.
+
+### Short-Term (Week 2–4)
+6. **Add FAQPage schema to all existing service pages** — highest ROI fix: 3.2× AIO citation rate, minimal effort. Add 5 FAQ minimum per page, answers ≤50 words. Effort: 30 min/page. Priority: 20.
+7. **Create missing comparison/alternative pages** — "X vs. Y in [city]", "Best [service] [city]" — competitor ranks, client doesn't. Effort: 2–3 hrs/page.
+8. **Build pillar pages for full cluster gaps** — where competitor has full 10+ page cluster and client has nothing: create pillar page first (3,000+ words, Surfer Score ≥80), then build 3–5 cluster pages. Effort: 8–12 hrs/pillar.
+9. **Add HowTo schema to all process pages** — "How to [service]", "How to fix [problem]" pages without HowTo schema = missed AIO + featured snippet opportunity. Effort: 30 min/page.
+10. **Fill PAA question gaps** — AlsoAsked.com for each service → identify top 10 PAA questions → add unanswered ones as FAQ entries on relevant pages. Effort: 1–2 hrs. Expected: PAA box wins + AIO citations.
+
+**Output files:**
+- `{AUDIT_DIR}/content-gaps.md` — gap analysis with priority matrix
+- `{REPORTS_DIR}/phase-5-content-gaps.pdf` — auto-generated PDF after phase completes
+
+---
+
 ## Step 1: Read Project Context
 
 Read `{AUDIT_DIR}/intake-data.md` — business name, services, location, goals.
