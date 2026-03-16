@@ -342,7 +342,36 @@ Include:
 - Priority matrix (Impact × Feasibility scored)
 - 30/90-day social media SEO action plan
 
+**Output files:**
+- `{AUDIT_DIR}/social-findings.md` — findings with score and platform-by-platform audit
+- `{REPORTS_DIR}/phase-13-social.pdf` — auto-generated PDF after phase completes
+
 **Key consumers:**
 - `local/entity-audit` — sameAs connections feed entity strength
 - `local/brand-serp` — social profiles appear in branded SERP
 - `output/report-generation` — social score in master report section 13
+
+---
+
+## Recommendations Checklist
+
+### Platform Optimization Priority Table
+
+| Platform | Local Business Relevance | 2025 SEO Signal | Priority |
+|---------|------------------------|----------------|----------|
+| Google Business Profile | Critical (primary entity) | GBP posts, Q&A, review responses = ranking signal | 25 (5×5) |
+| Facebook | High (local trust signal) | `sameAs` entity, reviews, local awareness ads | 20 (4×5) |
+| LinkedIn | High (B2B + E-E-A-T) | Author entity, expertise signals for Knowledge Graph | 16 (4×4) |
+| Instagram | Medium-High (visual services) | `sameAs` entity; VideoObject schema for Reels | 12 (3×4) |
+| YouTube | High (if video content) | VideoObject schema, auto-transcription for SEO | 16 (4×4) |
+| TikTok | Medium (2025 emerging) | VideoObject schema; AI-description training data | 9 (3×3) |
+
+### Quick Wins (Week 1, <30 min each)
+- [ ] Add all active social profiles to Organization schema `sameAs` array — Effort: 15 min — Priority: 20
+- [ ] Standardize NAP (Name/Address/Phone) across all social profiles — Effort: 20 min — Priority: 20
+- [ ] Answer all unanswered GBP Q&A questions — Effort: 20 min — Priority: 20
+- [ ] Add business description to all social profiles (consistent with homepage) — Effort: 30 min
+- [ ] Enable Google Reserve/Booking on GBP (if applicable) — Effort: 15 min — Priority: 16
+
+### INP + Technical Notes
+GBP and social profiles are entity signals, not direct technical SEO. However, social-driven traffic quality (dwell time, return visits) feeds Navboost behavioral signals. High-quality social content that sends engaged traffic = indirect INP/CWV improvement via reduced bounce rate and longer sessions.

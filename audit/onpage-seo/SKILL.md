@@ -338,8 +338,46 @@ Include:
 - Priority matrix (all issues, Impact × Feasibility scored)
 - 30/90-day on-page improvement plan with effort estimates
 
+**Output files:**
+- `{AUDIT_DIR}/onpage-findings.md` — on-page audit findings with score
+- `{REPORTS_DIR}/phase-3-onpage-seo.pdf` — auto-generated PDF after phase completes
+
 **Key consumers:**
 - `research/content-gaps` — reads for content quality gaps to address
 - `strategy/ux-cro-audit` — reads for CTA gaps and conversion opportunities
 - `cross-cutting/serp-trust-auditor` — Ranking Signals (R) dimension
 - `ai-visibility/ai-seo` — AIO readiness signals feed AI audit
+
+---
+
+## On-Page SEO Priority Action Table
+
+### Issue Priority by Type
+
+| Issue Type | Impact | Feasibility | Priority | Avg Effort | Expected Lift |
+|-----------|--------|-------------|----------|-----------|--------------|
+| Missing FAQPage schema on service pages | 5 | 5 | 25 | 30 min/page | 3.2× AIO citation rate |
+| Title tag missing primary keyword | 4 | 5 | 20 | 5 min/page | +5–15% CTR |
+| Missing or duplicate H1 | 4 | 5 | 20 | 5 min/page | Crawl clarity |
+| Meta description too long (>155 chars) or missing | 3 | 5 | 15 | 5 min/page | +3–8% CTR |
+| Thin page content (<500 words on service page) | 5 | 3 | 15 | 4–8 hrs/page | Rankings lift |
+| Missing HowTo schema on process pages | 4 | 4 | 16 | 30 min/page | Featured snippet + AIO |
+| Internal links: orphaned pages (<3 inbound links) | 4 | 5 | 20 | 15 min/page | PageRank distribution |
+| Image alt text missing | 3 | 5 | 15 | 30 min (bulk) | Accessibility + image search |
+| Keyword cannibalization (2+ pages targeting same keyword) | 4 | 4 | 16 | 1–2 hrs | Consolidates ranking power |
+
+### Numbered Action Plan
+
+#### Immediate (Week 1, No Dev Required)
+1. **Add FAQPage schema to all service pages** — highest ROI action: 3.2× AIO citation rate, 30 min/page, no developer needed via JSON-LD script block. Effort: 30 min/page. Priority: 25.
+2. **Fix title tags** — ensure primary keyword in first 50 characters; title length 50–60 characters; unique per page. Use Screaming Frog to batch-identify. Effort: 5 min/page. Priority: 20.
+3. **Fix duplicate or missing H1s** — each page must have exactly one H1. Check with Screaming Frog → filter "Missing H1" and "Multiple H1". Effort: 5 min/page. Priority: 20.
+4. **Optimize meta descriptions** — 120–155 characters, includes primary keyword, has a CTA ("Call us today", "Get a free quote"). Missing meta = Google auto-generates (usually suboptimal). Effort: 5 min/page. Priority: 15.
+5. **Fix orphaned pages** — run site_crawler.py → identify pages with <3 inbound internal links → add contextual links from related pages (not navigation). Effort: 15 min/page. Priority: 20.
+
+#### Short-Term (Week 2–4, Content + Developer)
+6. **Add HowTo schema to process pages** — "How to [service]" pages without HowTo schema miss featured snippet + AIO opportunities. Effort: 30 min/page. Priority: 16.
+7. **Expand thin content** — service pages <800 words: expand with: local pricing context, process steps, FAQs, local testimonials, before/after. Target Surfer Score ≥70. Effort: 2–4 hrs/page. Priority: 15.
+8. **Resolve keyword cannibalization** — 2+ pages targeting same keyword: pick the stronger one (more links, better CTR), 301 redirect the weaker, consolidate content. Effort: 1–2 hrs per pair. Priority: 16.
+9. **Add bulk image alt text** — use Screaming Frog to export all images missing alt text → add descriptive alt text (keyword-included where relevant, descriptive always). Effort: 30 min bulk. Priority: 15.
+10. **Audit and fix duplicate title tags** — Screaming Frog → filter Duplicate Title Tags → rewrite each to be unique and keyword-specific. Effort: 5 min/page. Priority: 20.

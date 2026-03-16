@@ -340,7 +340,33 @@ Include:
 - Priority optimization strategy (Impact × Feasibility scored)
 - 30/90-day Brand SERP improvement plan
 
+**Output files:**
+- `{AUDIT_DIR}/brand-serp-findings.md` — findings with score and SERP element inventory
+- `{REPORTS_DIR}/phase-16-brand-serp.pdf` — auto-generated PDF after phase completes
+
 **Key consumers:**
 - `local/entity-audit` — entity schema and sameAs overlap
 - `local/reputation-audit` — negative content on brand SERP
 - `output/report-generation` — brand SERP score in master report section 16
+
+---
+
+## Recommendations Checklist
+
+### Quick Wins (Week 1, <1 hr each)
+- [ ] Claim and verify Google Business Profile if unclaimed — Effort: 30 min — Priority: 25
+- [ ] Add `sameAs` array to Organization schema (LinkedIn, Facebook, Yelp, Wikidata, industry directory) — Effort: 30 min
+- [ ] Add AggregateRating schema to homepage (triggers star display = +17–25% CTR) — Effort: 30 min
+- [ ] Verify GBP name/address/phone matches website exactly — Effort: 15 min
+
+### Brand SERP Element Optimization Table
+
+| SERP Element | Current State | Target State | Action | Effort |
+|-------------|--------------|-------------|--------|--------|
+| Knowledge Panel | Present / Absent / Partial | Full panel with logo, hours, services | Add sameAs + Wikidata entity | 1–2 hrs |
+| Sitelinks | None / 2-4 / 6+ | 6 sitelinks with descriptive labels | Add sitelinks schema; improve site structure | 2–4 hrs |
+| AIO on branded query | Absent / Present | Cited in AIO summary | Add FAQPage, HowTo, Organization schema | 2–3 hrs |
+| Review stars | None / Present | Present (4.0+ star display) | Add AggregateRating schema | 30 min |
+| Social profiles on P1 | 0–1 / 2–3 / 4+ | 4+ social properties ranking P1 | Optimize LinkedIn, Facebook About pages | 1 hr |
+| Negative result | None / 1 / 2+ | Zero P1 negative results | ORM strategy + content displacement | Varies |
+| GBP 2025 features | Missing / Partial / Complete | Q&A active, service menu, booking | Add Q&A, services, book via Google Reserve | 1–2 hrs |

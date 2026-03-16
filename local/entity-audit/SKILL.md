@@ -351,7 +351,40 @@ Include:
 - Priority matrix (all actions, Impact × Feasibility scored)
 - 30/90/180-day entity optimization roadmap
 
+**Output files:**
+- `{AUDIT_DIR}/entity-findings.md` — entity audit with score and schema gap list
+- `{REPORTS_DIR}/phase-9-entity-audit.pdf` — auto-generated PDF after phase completes
+
 **Key consumers:**
 - `local/brand-serp` — Knowledge Panel and sameAs directly feed brand SERP
 - `local/local-seo` — entity signals strengthen GBP and local pack
 - `output/report-generation` — entity score in master report section 9
+
+---
+
+## Entity Optimization Quick Reference
+
+### sameAs Source Priority Table
+
+| Source | Entity Signal Strength | Effort to Add | Priority |
+|--------|----------------------|--------------|---------|
+| Google Business Profile (verified) | Critical (primary entity) | 30 min to verify | 25 (5×5) |
+| Wikidata Q-ID | High (KG direct pathway) | 1–2 hrs to create entry | 20 (5×4) |
+| LinkedIn Company Page | High (E-E-A-T, B2B) | 30 min | 16 (4×4) |
+| Facebook Business Page | High (local trust) | 30 min | 16 (4×4) |
+| Yelp Business Listing | High (local NAP citation) | 15 min | 16 (4×4) |
+| BBB Accreditation | Medium (trust signal) | 1–2 hrs | 12 (4×3) |
+| Industry association directory | Medium (topical entity) | 30 min | 12 (4×3) |
+| Wikipedia article | High (if business qualifies) | 4–8 hrs | 20 (5×4) |
+| Chamber of Commerce | Medium (local trust) | 30 min | 12 (3×4) |
+
+### GBP 2025 Entity Signals
+GBP is the #1 entity signal for local businesses (Whitespark 2024). For maximum entity recognition:
+- Primary category must match your core service (plumber → "Plumber", not "Contractor")
+- Add all relevant secondary categories (5+ where applicable)
+- Enable Q&A — unanswered questions weaken entity completeness
+- Add service menu with prices — Google uses service data for Knowledge Panel display
+- Enable Google Reserve/Booking if applicable — feeds into entity completeness score
+
+### INP + Entity Note
+Entity strength affects Knowledge Panel display which appears for branded searches. Better entity recognition → stronger branded SERP → higher branded CTR. INP <200ms is required for all pages with entity schema to be fully crawled and processed.

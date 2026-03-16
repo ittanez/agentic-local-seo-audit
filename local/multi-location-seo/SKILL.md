@@ -26,6 +26,22 @@ Multi-location SEO is exponentially more complex than single-location — each a
 | Citations per location | 40 | 75–100 | 150+ |
 | NAP consistency | 85% | 95% | 99–100% |
 
+**Numbered Action Plan:**
+
+### Immediate (Week 1, Per-Location Wins)
+1. **Run NAP consistency audit** — BrightLocal or Whitespark → check all active citations for each location → identify and flag inconsistencies (wrong address, old phone, variant business names). Effort: 30 min/location. Priority: 25 (5×5).
+2. **Verify all GBPs are claimed and verified** — each location must have its own GBP with verified address. Unclaimed GBP = competitor can claim it. Effort: 30 min/location.
+3. **Audit location page unique content** — Screaming Frog → compare content similarity across location pages. Any page <60% unique vs. template = HCS penalty risk. Flag for immediate rewrite. Effort: 1 hr.
+4. **Check schema isolation** — each location page must have its own `LocalBusiness` schema with unique `@id`, `address`, `telephone`, `geo`. Check with Google Rich Results Test. Effort: 15 min/location.
+5. **Check GBP 2025 features per location** — verify Q&A seeded with keywords, service menu complete, review velocity ≥2/month, photos ≥25. Effort: 20 min/location.
+
+### Short-Term (Week 2–4)
+6. **Fix duplicate SAP (Service Area Pages)** — any location page ranking for the same keyword in the same city = cannibalization. Implement canonical to strongest page or differentiate content significantly. Effort: 1–2 hrs.
+7. **Add AI search optimization per location** — each location page needs: FAQPage schema (5 FAQ min, local questions), LocalBusiness + areaServed schema, local review AggregateRating, GBP Q&A with service + location keywords. AIO appears for ~35% of local queries. Effort: 1 hr/location.
+8. **Implement `parentOrganization` schema** — each location page's `LocalBusiness` schema must include `parentOrganization` pointing to the main brand's Organization schema. This is the correct replacement for deprecated `branchOf`. Effort: 30 min dev.
+9. **Build or optimize location landing pages** — each location needs: 1,000+ words unique content, local photos (not stock), local testimonials, local team/staff mention, local landmarks/context. Target Surfer Score ≥70. Effort: 4–6 hrs/location.
+10. **Set up BrightLocal Grid Tracker per location** — track each location's GBP rank across 5×5 geogrid to identify proximity score gaps within the service area. Effort: 30 min setup/location. Expected: identifies which zones need additional GBP optimization.
+
 ---
 
 ## Applicability Check
@@ -360,6 +376,10 @@ Include:
 - Priority recommendations per location (Impact × Feasibility scored)
 - Competitor comparison table
 - 30/90-day multi-location improvement plan
+
+**Output files:**
+- `{AUDIT_DIR}/multi-location-findings.md` — findings with per-location scores
+- `{REPORTS_DIR}/phase-21-multi-location.pdf` — auto-generated PDF after phase completes
 
 **Key consumers:**
 - `local/local-seo` — single-location baseline for comparison

@@ -323,8 +323,46 @@ Include:
 - Priority matrix (all actions, Impact × Feasibility scored)
 - 30/90-day AI SEO action plan with effort estimates
 
+**Output files:**
+- `{AUDIT_DIR}/ai-seo-findings.md` — AI visibility audit with score and citation gap analysis
+- `{REPORTS_DIR}/phase-14-ai-seo.pdf` — auto-generated PDF after phase completes
+
 **Key consumers:**
 - `ai-visibility/voice-search` — voice and AIO share optimization signals
 - `audit/onpage-seo` — AIO structure requirements inform on-page optimization
 - `cross-cutting/serp-trust-auditor` — Trust & AI Readiness (T2) dimension
 - `output/report-generation` — AI visibility section in master report
+
+---
+
+## AI Visibility Quick Reference
+
+### Schema Markup Priority for AI Citation
+
+| Schema Type | AIO Citation Boost | Implementation | Effort |
+|------------|-------------------|----------------|--------|
+| FAQPage | 3.2× citation rate | Add to all service + location pages (5 FAQ min) | 30 min/page |
+| HowTo | 2.1× for process queries | Add to any "how to" or process service pages | 45 min/page |
+| Organization + sameAs | Entity confidence boost | Homepage only; include 7+ sameAs URLs | 30 min |
+| AggregateRating | +17–25% branded CTR | All pages with real review data | 30 min |
+| LocalBusiness subtype | Local AIO eligibility | Homepage + key service pages | 30 min |
+| BreadcrumbList | Navigation context for AI | Sitewide (via CMS plugin often) | 1 hr |
+
+### 2025 AI Search Platform Benchmarks
+
+| Platform | Local Coverage | Citation Criteria | Update Frequency |
+|---------|---------------|------------------|-----------------|
+| Google AI Overviews | 20–35% of local queries | E-E-A-T + schema + topical authority | Real-time (Gemini-based) |
+| ChatGPT (web search) | 15–25% of local queries | Freshness (76.4% cite <30-day pages) | Weekly crawl |
+| Perplexity AI | 10–20% of local queries | Source authority + content depth | Real-time |
+| Google Gemini (assistant) | Growing rapidly | Knowledge Graph entity strength | Real-time |
+| Bing Copilot | 5–15% of local queries | Bing indexation + content trust | Daily crawl |
+
+### GBP + AIO Local Pack Integration
+GBP-driven AI Overviews for local queries: "best [service] near me" queries now show AIO with local pack. To appear:
+1. GBP must be verified and have 4.0+ star rating with 20+ reviews
+2. Business category must exactly match query intent
+3. Website must have LocalBusiness schema with areaServed matching the user's location
+4. Q&A section must have keyword-relevant answers seeded
+
+INP for AI search: Googlebot renders pages before indexing for AIO inclusion. Pages with INP >500ms may have content not fully extracted for AI citations. Target INP <200ms on all schema-rich pages.

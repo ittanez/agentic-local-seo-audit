@@ -283,7 +283,35 @@ Include:
 - Priority matrix (top 20 keywords scored)
 - 30/90-day keyword capture plan with effort estimates
 
+**Output files:**
+- `{AUDIT_DIR}/keyword-gaps.md` — keyword gap analysis with priority matrix
+- `{REPORTS_DIR}/phase-6-keyword-gaps.pdf` — auto-generated PDF after phase completes
+
 **Key consumers:**
 - `research/topical-gaps` — keywords inform topical map and cluster structure
 - `output/report-generation` — keyword opportunities in master report section 6
 - `audit/onpage-seo` — keyword-to-page assignments for optimization
+
+---
+
+## Keyword Gap Reference Table
+
+### Priority Tiers by Keyword Type
+
+| Keyword Type | Volume Range | KD Target | AIO Risk | Priority | Action |
+|-------------|-------------|----------|---------|---------|--------|
+| P4–10 existing rankers | Any | Ranked | Low | 25 (5×5) | On-page optimization (no new content) |
+| Long-tail transactional | 50–500/mo | <20 | Low | 20 (5×4) | Create 800–1,200 word page |
+| "Near me" variants | 100–2,000/mo | <30 | Medium | 20 (4×5) | GBP optimization + location page |
+| Voice search queries | 10–200/mo | <15 | High | 15 (5×3) | FAQ pages with FAQPage schema |
+| High-volume head terms | 1,000+/mo | >50 | High | 12 (4×3) | Long-term cluster building |
+| Featured snippet targets | 50–500/mo | <40 | Medium | 16 (4×4) | Add structured response block to page |
+
+### GBP 2025 Keyword Signals
+GBP keywords now feed directly into local pack visibility. Add top-priority keywords to:
+- GBP business description (first 200 characters most important)
+- GBP service names and service descriptions
+- GBP Q&A (seed with keyword-rich questions and answers)
+- GBP review response templates (encourage keyword-rich reviews)
+
+INP note: keyword-optimized pages must also meet INP <200ms threshold (replaced FID March 2024) — fast pages with good keyword targeting outrank slow pages with identical targeting.
