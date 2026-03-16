@@ -13,12 +13,40 @@ description: >
 
 Topical authority is the #1 long-term competitive moat in local SEO. Google's Helpful Content System (integrated into core algorithm March 2024) rewards businesses that comprehensively cover a topic cluster vs. those that superficially mention many topics. The 25-article threshold signal: sites with 25+ articles in a cluster receive significantly stronger topical authority signals than sites with 10 or fewer (SEMrush 2024). AI Overviews (AIO) cite topically authoritative sources 2–3× more than shallow coverage sites. This phase maps the client's topical universe, identifies coverage gaps vs. top competitors, and produces a prioritized content roadmap.
 
-**2025 topical authority benchmarks:**
-- Pillar pages: minimum 2,500 words; competitive 4,000–6,000 words
-- Cluster pages: minimum 1,200 words; competitive 1,800–2,500 words
-- Content decay: > 20% YoY click decline = refresh required (GSC comparison)
+**2025–2026 topical authority benchmarks:**
+- Pillar pages: minimum 3,000 words; competitive 5,000–10,000 words for high-competition topics
+- Cluster pages: minimum 1,500 words; competitive 2,000–2,500 words; Surfer Score ≥70
+- Supporting/spoke pages: 800–1,500 words; 3–5 internal links per 1,000 words
+- Minimum viable cluster: 1 pillar + 5 cluster pages (starting point); 10–15 = AIO eligibility threshold
+- Authority threshold: 25+ articles per cluster = topical authority signal begins accumulating (SEMrush 2024)
+- Content decay trigger: >20% YoY click decline → refresh required; >50% → full rewrite or consolidate
 - AIO topical citation: 58% AIO surge for businesses with full topic cluster coverage (Amsive early 2026)
-- ChatGPT freshness factor: pages updated within 30 days cited at 76.4% rate
+- ChatGPT freshness factor: pages updated within 30 days cited at 76.4% rate; AI Overviews prefer content <3–6 months old
+- Clustered content vs. standalone: 30% more organic traffic; holds rankings 2.5× longer (HireGrowth 2025)
+- Early ranking improvements: 2–3 months after cluster launch; significant topical authority gains: 6–12 months
+
+**Pillar-to-cluster ratio benchmarks:**
+| Stage | Pillar : Cluster | Use Case |
+|-------|-----------------|----------|
+| Starting point | 1 + 3–5 | Small teams, new businesses |
+| AIO-eligible | 1 + 10–15 | Local business growth stage |
+| Authority building | 1 + 20–30+ | Competitive niches, multi-service businesses |
+
+**Numbered Action Plan:**
+
+### Immediate (Week 1)
+1. **Map the complete topical universe** — list all Level 1 pillars (main services), Level 2 clusters (subtopics), Level 3 supporting angles. Use AlsoAsked.com for PAA tree and SEMrush Topic Research for visual cluster map. Effort: 2–3 hrs.
+2. **Run Ahrefs Content Gap vs. top 3 competitors** — Competitive Analysis → Content Gap → enter your domain + 3 competitors → export and cluster by topic. Identify full clusters you're entirely missing vs. individual keyword gaps. Effort: 1–2 hrs.
+3. **Audit existing cluster completeness** — for each service, count: pillar page? cluster pages? supporting pages? Flag clusters below 5 pages as "not started." Effort: 1 hr.
+4. **Fix orphaned cluster pages** — run site_crawler.py → find cluster pages with <3 inbound internal links → add contextual link from pillar (within body copy, not just navigation). Effort: 15 min/page. Priority: 20 (4×5).
+5. **Add FAQPage schema to all pillar pages** — AIO cites pages with FAQPage schema at 3.2× rate. 5 FAQ minimum per pillar, answers ≤50 words. Effort: 30 min/page.
+
+### Short-Term (Week 2–4)
+6. **Create missing high-priority cluster pages** — gaps where all competitors have pages but client doesn't. Target 1,500+ words, link to pillar immediately on publish. Effort: 3–5 hrs/page. Priority: 16 (4×4).
+7. **Expand thin pillar pages to 3,000+ words** — use Surfer SEO (target score ≥80) to identify missing NLP entities and sections. Add HowTo schema for process steps. Effort: 6–10 hrs/pillar.
+8. **Answer top 10 PAA questions per pillar** — AlsoAsked.com → extract top 10 questions → add as FAQ entries on relevant service pages + FAQPage schema. Effort: 1–2 hrs. Expected: AIO citation + PAA box wins.
+9. **Map semantic gaps** — identify missing entities (service types, local landmarks, certifications) and concepts (industry jargon vs. customer language, regional naming variants). Effort: 1 hr.
+10. **Build original data/statistics page per pillar** — original research = primary AI citation trigger. Local survey, real project data, proprietary pricing benchmarks. Effort: 8–16 hrs. Priority: 12 (4×3).
 
 ---
 
@@ -42,16 +70,25 @@ Read `{AUDIT_DIR}/keyword-gaps.md` — keyword opportunities.
 | **Surfer SEO** | NLP-based content brief with entity coverage | Paid |
 | **Google Search Console** | Which topics drive clicks (existing authority) | Free |
 
-**2025 Topical Authority Context:**
-Google's Helpful Content system (2024+) and AI Overviews reward demonstrable expertise across a topic cluster. Surface-level coverage of many topics is penalized; deep coverage of fewer topics ranks. The goal is topic clusters where every subtopic links to a pillar, and every pillar is internally linked from cluster pages.
+**2025–2026 Topical Authority Context:**
+Google's Helpful Content system (folded into core algorithm March 2024) and AI Overviews reward demonstrable expertise across a topic cluster. Surface-level coverage of many topics is penalized; deep coverage of fewer topics ranks. The goal is topic clusters where every subtopic links to a pillar, and every pillar is internally linked from cluster pages. Google's December 2025 Core Update focused heavily on E-E-A-T and expertise signals; the June 2025 update targeted link authority — the two together now enforce topical depth more aggressively than any prior update cycle.
 
 **Content Depth Thresholds (2025 benchmarks):**
-| Page Type | Minimum Words | Target Words | Internal Links |
-|-----------|-------------|-------------|---------------|
-| Pillar page | 2,500 | 4,000–6,000 | 5–15 cluster links out |
-| Cluster page | 1,200 | 1,800–2,500 | 1 pillar link + 2–3 cluster links |
-| Supporting page | 700 | 1,000–1,500 | 1 cluster or pillar link |
-| FAQ entry | 150 | 250–400 | 1 relevant service link |
+| Page Type | Minimum Words | Target Words | Surfer Score | Internal Links |
+|-----------|-------------|-------------|-------------|---------------|
+| Pillar page | 3,000 | 5,000–10,000 | ≥80 | 8–15 cluster links out |
+| Cluster page | 1,500 | 2,000–2,500 | ≥70 | 1 pillar link + 2–3 cluster links |
+| Supporting page | 800 | 1,000–1,500 | ≥65 | 1 cluster or pillar link |
+| FAQ entry | 200 | 300–500 | N/A | 1 service/pillar link |
+
+**Content Decay by Content Type (Research 2025):**
+| Content Type | Typical Decay Timeline | Update Frequency |
+|-------------|----------------------|-----------------|
+| Technology/software | 4–6 months | Quarterly |
+| Local service content | 12–24 months | Semi-annually minimum |
+| List/roundup pages | 3–4 months | Quarterly (new entrants change landscape) |
+| Educational/evergreen | 12–18 months | Annually + on stat change |
+| AI-heavy niches | 2–4 months | Quarterly (rapid evolution) |
 
 ---
 
