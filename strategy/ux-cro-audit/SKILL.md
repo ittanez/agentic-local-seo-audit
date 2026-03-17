@@ -374,4 +374,44 @@ Include:
 **Key consumers:**
 - `audit/speed-optimization` — LCP/INP/CLS data feeds CRO impact assessment
 - `local/local-seo` — GBP click-to-call and conversion tracking overlap
+
+---
+
+## CRO Quick Reference
+
+### CRO Issue Priority Table (2025)
+
+| Issue | Severity | Effort | Priority | Tool to Diagnose |
+|-------|---------|--------|---------|-----------------|
+| No click-to-call on mobile | Critical | 15 min | 25 | GA4 + GSC mobile usability |
+| GA4 not installed / no conversion tracking | Critical | 1–2 hrs | 25 | Screaming Frog JS check |
+| Form > 5 fields (10–20% submission drop per field) | High | 1–2 hrs | 20 | Hotjar / Clarity heatmap |
+| No trust signals above fold | High | 30–60 min | 20 | Ahrefs / SimilarWeb (check competitor CTAs) |
+| CTA buried below 2 screen scrolls | High | 30 min | 20 | Clarity session recordings |
+| LCP >2.5s (20% conversion drop per second) | High | 2–8 hrs | 20 | PageSpeed Insights / Ahrefs audit |
+| INP >200ms (interaction lag hurts engagement) | High | 2–8 hrs | 16 | PageSpeed Insights (INP replaced FID March 2024) |
+| No sticky header with phone/CTA on mobile | Medium | 1–2 hrs | 15 | Manual mobile review |
+| Missing star rating badge near CTA | Medium | 30 min | 15 | SEMrush / Rank Math review schema |
+| No social proof on service pages | Medium | 1–2 hrs | 12 | Manual content audit |
+
+### AI Overviews + CRO (2025)
+
+AI Overviews (AIO) now appear for 20–35% of local service queries. Users clicking through from AIO convert at 2–4× the rate of standard organic results — they arrive further in the buying decision. CRO implications:
+- **Landing page must answer the AIO question immediately** — the visitor already "knows the answer" and is evaluating the business, not researching the topic
+- **Social proof above fold** — AIO click-throughs respond to "Why this business?" signals: reviews, certifications, years in business
+- **GEO/AEO content on service pages** — structured Q&A content (FAQPage schema) that earns AIO citation also increases post-click conversion by confirming expertise
+- **Rank Math / Yoast** — use to add FAQPage + LocalBusiness schema that drives both AIO citations and CRO trust signals
+
+### GBP Conversion Signals (2025 Direct Ranking Factors)
+
+GBP conversion clicks now feed Google's local ranking algorithm directly:
+| GBP Conversion Type | CRO Optimization | Expected Impact |
+|--------------------|-----------------|----------------|
+| Direction clicks | Add parking info, landmark reference | +15–25% direction clicks |
+| Call clicks (mobile) | Verify phone number is call-tracking enabled (CallRail) | Measurable attribution |
+| Website click → booking | Add Google Reserve / booking link to GBP | 20–35% more direct bookings |
+| Q&A (2025 feature) | Pre-seed 5+ questions; high-intent Q&A reduces friction | Reduced pre-call friction |
+| Review velocity (last 60–90 days) | Request reviews from recent customers | 3–5× weight in local ranking |
+
+**Write `{REPORTS_DIR}/phase-17-cro.html` → `python3 scripts/generate_pdf.py --html {REPORTS_DIR}/phase-17-cro.html`**
 - `output/report-generation` — CRO score + quick wins in master report section 17

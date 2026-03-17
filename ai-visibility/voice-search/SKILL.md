@@ -300,4 +300,43 @@ Include:
 - `ai-visibility/ai-seo` — voice and AIO share many optimization signals
 - `local/local-seo` — GBP completeness feeds both voice + local pack
 - `audit/speed-optimization` — mobile speed is voice prerequisite
+
+---
+
+## Voice Search Quick Reference
+
+### 10-Step Voice Optimization Action Plan
+
+1. **Audit GBP completeness** — all 9 checks (name, address, phone, hours, description, services, booking link, Q&A, verification). Effort: 30–45 min. Priority: 25 (5×5).
+2. **Add FAQPage schema to all service pages** — each page needs 3–5 FAQs ≤50 words each. AIO reads FAQPage for 80%+ of voice answers. Effort: 30 min/page. Priority: 25 (5×5).
+3. **Fix mobile PSI score to ≥70** — voice results pulled from pages scoring ≥70 at 97% rate (Backlinko 2024). Use PageSpeed Insights to identify LCP/INP/CLS issues. Effort: 2–16 hrs depending on root cause.
+4. **Seed GBP Q&A with 5+ question/answer pairs** — focus on "hours", "parking", "cost", "emergency service" patterns. Effort: 30 min. Priority: 20 (5×4).
+5. **Write conversational FAQ content** — 10 FAQ answers using AnswerThePublic clusters. Each ≤50 words, starts with a direct answer. Effort: 1–2 hrs. Priority: 20 (5×4).
+6. **Add Speakable schema to FAQ sections** — targets Google Assistant audio readout. Use `speakable` property on FAQ container. Effort: 1–2 hrs.
+7. **Test across 5 AI platforms** — run all 4 test queries on ChatGPT, Perplexity, Gemini, Google AIO, Siri. Document results in Voice Opportunity Matrix. Effort: 30 min.
+8. **Add HowTo schema to process pages** — "how to [service]" voice queries trigger HowTo schema readout. Effort: 30 min/page.
+9. **Optimize content for E-E-A-T voice signals** — voice assistants prefer content from established entities. Add author bio, business credentials, years-in-business signals to FAQ pages. Effort: 1–2 hrs.
+10. **Write 30-day voice optimization plan** — record voice-findings.md to `{AUDIT_DIR}/voice-findings.md` + save PDF report to `{REPORTS_DIR}/phase-18-voice.pdf`. Effort: 30 min.
+
+### INP + Voice Search Connection (2025)
+
+Voice platforms extract answers from fast-rendering pages. **INP (Interaction to Next Paint, replaced FID March 2024)** is a ranking signal that also affects voice eligibility:
+- INP <200ms = Good (voice-eligible tier)
+- INP 200–500ms = Needs Improvement
+- INP >500ms = Poor (de-prioritized by voice ranking systems)
+
+High INP on FAQ pages is caused by: heavy JS frameworks blocking interaction, lazy-loaded FAQ accordions, and third-party chat widgets. Fix by deferring non-critical JS and using static HTML FAQ sections.
+
+### E-E-A-T + Voice Authority (2025)
+
+Voice assistants prefer cited entities with strong E-E-A-T signals:
+| Signal | Voice Impact | Implementation |
+|--------|-------------|---------------|
+| Schema `sameAs` (GBP + LinkedIn + Wikipedia) | High | Entity schema on homepage |
+| Author bio with credentials | Medium | On all FAQ pages |
+| Business established date | Medium | `foundingDate` in LocalBusiness schema |
+| Review count ≥50 on GBP | High | Review velocity strategy |
+| GBP description 900–1,000 chars | Critical | Edit GBP description |
+
+**Write HTML report to `{REPORTS_DIR}/phase-18-voice.html` and convert to PDF via `python3 scripts/generate_pdf.py --html {REPORTS_DIR}/phase-18-voice.html`.**
 - `output/report-generation` — voice score in master report section 18

@@ -354,6 +354,27 @@ After intake completes, `{AUDIT_DIR}/intake-data.md` is the **single source of t
 - `audit/penalty-check` — reads previous SEO history for penalty risk flags
 - `output/report-generation` — reads project metadata for master report cover page
 
+---
+
+## Recommendations Checklist
+
+After completing Phase 0, ensure the following are noted in `{AUDIT_DIR}/intake-data.md` as recommendations for downstream phases:
+
+| Flag | Condition | Downstream Phase | Recommended Action | Effort |
+|------|----------|-----------------|-------------------|--------|
+| 🔴 TTFB >800ms | check_url.py result | Phase 10 Speed | Server-level optimization, CDN, caching | High (1–3 days) |
+| 🔴 No GBP URL | Item 8 not provided | Phase 11 Local | Create or claim GBP listing immediately | Medium (1–3 days) |
+| 🔴 SSL error / no HTTPS | check_url.py result | Phase 2 Technical | Install SSL certificate, 301 HTTP→HTTPS | Medium (1 day) |
+| 🟠 Domain <6 months | WHOIS check | Phase 12 Backlinks | Focus on link building vs. penalty recovery | Low (30 min note) |
+| 🟠 No GSC access | Item 10 not provided | Phases 6, 7, 20 | Request GSC access; Ahrefs estimates as substitute | Low (10 min) |
+| 🟠 Wix / Squarespace CMS | BuiltWith result | Phase 2 Technical | Note schema/speed limitations upfront | Low (15 min note) |
+| 🟡 No GA4 | check_url.py / manual | Phase 17 CRO | Install GA4 before Phase 17; no baseline = CRO score capped at 60 | Medium (2–4 hrs) |
+| 🟡 Review count <10 | Google Maps check | Phase 15 Reputation | Launch review velocity campaign immediately | Low (30 min plan) |
+| 🟡 INP >200ms on homepage | check_url.py / PSI | Phase 10 Speed | INP replaced FID March 2024 — flag for urgent fix | Medium (2–8 hrs) |
+
+### INP Intake Note (March 2024 Update)
+INP (Interaction to Next Paint) replaced FID as a Core Web Vital. If `python3 scripts/check_url.py --url [URL] --full` returns INP >200ms, pre-flag Phase 10 as critical priority in intake-data.md. INP >500ms = Poor (ranking suppression confirmed across competitive keywords).
+
 **Output files:**
 - `{AUDIT_DIR}/intake-data.md` — primary output, source of truth for all phases
 - `{REPORTS_DIR}/phase-0-intake.pdf` — auto-generated summary PDF after intake completes

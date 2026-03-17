@@ -314,4 +314,24 @@ GBP keywords now feed directly into local pack visibility. Add top-priority keyw
 - GBP Q&A (seed with keyword-rich questions and answers)
 - GBP review response templates (encourage keyword-rich reviews)
 
+### INP + Page Experience as Keyword Ranking Factor (March 2024+)
+
+INP (Interaction to Next Paint) replaced FID as a Core Web Vital in March 2024. It is a confirmed page experience signal that affects keyword rankings:
+- INP <200ms = Good — full ranking benefit from page experience signal
+- INP 200–500ms = Needs Improvement — partial suppression
+- INP >500ms = Poor — ranking penalty from page experience, compounded on competitive keywords
+
+**Keyword targeting implication:** For competitive keywords (KD >40) where page experience is a tiebreaker, poor INP on target pages directly suppresses keyword potential. When prioritizing keyword opportunities in this phase, flag any target page with INP >200ms as needing simultaneous technical fix (Phase 10) to unlock ranking potential.
+
+### Keyword Gap vs. Competitor Benchmark Table
+
+Use this structure when reporting gaps found via Ahrefs / SEMrush keyword gap tool:
+
+| Gap Keyword | Client Position | Comp 1 Position | Comp 2 Position | Monthly Searches | KD | Intent | Priority Action |
+|------------|----------------|----------------|----------------|-----------------|-----|--------|----------------|
+| [service keyword] | Not ranking | P3 | P5 | [volume] | [KD] | BOFU | Create service page |
+| [near me variant] | P12 | P2 | P4 | [volume] | [KD] | Local | GBP + location page |
+| [question keyword] | Not ranking | P1 (snippet) | P8 | [volume] | [KD] | MOFU | FAQ page + FAQPage schema |
+| [cost/price query] | Not ranking | P2 | P6 | [volume] | <20 | MOFU | Pricing guide page |
+
 INP note: keyword-optimized pages must also meet INP <200ms threshold (replaced FID March 2024) — fast pages with good keyword targeting outrank slow pages with identical targeting.
