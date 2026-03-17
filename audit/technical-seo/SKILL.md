@@ -386,3 +386,40 @@ Sections to include:
 - `audit/penalty-check` — reads for technical manipulation signals
 - `local/multi-location-seo` — URL architecture for multi-location
 - `cross-cutting/serp-trust-auditor` — Technical Foundation dimension
+
+---
+
+## Technical SEO Recommendations Checklist
+
+### Issue Priority Table (2025 Standards)
+
+| Issue | Severity | Effort | Priority | Tool |
+|-------|---------|--------|---------|------|
+| No HTTPS / HTTP accessible | 🔴 Critical | 1–2 hrs dev | 25 | check_url.py + curl |
+| Active manual action (GSC) | 🔴 Critical | 2–8 weeks recovery | 25 | Google Search Console |
+| Robots.txt blocking crawl | 🔴 Critical | 15 min | 25 | curl robots.txt |
+| Missing XML sitemap | 🔴 Critical | 30 min | 20 | Screaming Frog |
+| INP >500ms (Core Web Vital) | 🔴 Critical | 4–8 hrs dev | 20 | PageSpeed Insights |
+| Duplicate content (www/non-www/http/https) | 🟠 High | 1 hr dev | 20 | Screaming Frog |
+| Canonical tag missing or wrong | 🟠 High | 1–2 hrs | 20 | Screaming Frog |
+| Redirect chains (3+ hops) | 🟠 High | 2 hrs dev | 16 | curl -IL |
+| JavaScript content not rendering | 🟠 High | 4–8 hrs dev | 16 | GSC URL Inspection |
+| Missing structured data (LocalBusiness/FAQPage) | 🟠 High | 2–4 hrs | 16 | Rich Results Test |
+| Broken internal links (4xx) | 🟡 Medium | 30 min | 15 | Screaming Frog |
+| Missing hreflang (multi-region) | 🟡 Medium | 2–4 hrs dev | 12 | Screaming Frog |
+| LCP >4.0s | 🟠 High | 2–4 hrs | 16 | PageSpeed Insights |
+| CLS >0.25 | 🟡 Medium | 1–2 hrs | 15 | PageSpeed Insights |
+
+### E-E-A-T Technical Signals (2025)
+Technical SEO directly affects E-E-A-T trust scoring:
+- **Author schema** on all content pages → Person entity with credentials
+- **Organization schema** on homepage → name, logo, address, sameAs (7+ properties)
+- **Article/BlogPosting schema** on editorial content → datePublished + dateModified
+- **Breadcrumb schema** → site hierarchy clarity for Googlebot and AIO extraction
+- **INP <200ms** → fast interaction response = positive behavioral signal (Navboost)
+
+### GBP Technical Integration
+GBP "Website" button sends high-intent traffic. Technical issues on the landing page lose this traffic:
+- Ensure GBP links to the most technically optimized page (homepage or primary service page)
+- Page receiving GBP traffic must pass Core Web Vitals (LCP <2.5s, INP <200ms, CLS <0.1)
+- LocalBusiness schema on GBP-linked page must match GBP name/address/phone exactly

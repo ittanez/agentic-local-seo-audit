@@ -387,3 +387,38 @@ Include:
 - `research/topical-gaps` — maps topical coverage using this inventory
 - `cross-cutting/serp-trust-auditor` — Ranking Signals dimension
 - `output/report-generation` — content score in master report section 4
+
+---
+
+## Content Audit Quick Reference
+
+### Content Quality Decision Table (2025 HCS Standards)
+
+| Page State | Signal | Decision | Action | Effort |
+|-----------|--------|---------|--------|--------|
+| <300 words, no unique value | Thin content | Noindex or delete + 301 | Redirect to stronger page | 15 min |
+| 300–600 words, some value | Borderline thin | Expand or consolidate | Merge with related page | 2–4 hrs |
+| 600–1,500 words, good content | Acceptable | Monitor | Add FAQPage schema, internal links | 30 min |
+| 1,500–3,000 words, optimized | Good | Maintain | Refresh stats quarterly | 1 hr/quarter |
+| 3,000+ words, original data | Excellent | Protect | Build cluster around it | Ongoing |
+| Duplicate of another page | Duplicate | Canonical or 301 | Add canonical pointing to original | 15 min |
+| AI-generated, no editorial review | HCS risk | Rewrite or add expert review | Add author byline + unique insights | 2–4 hrs |
+
+### GBP + Content Audit Connection (2025)
+GBP reviews contain keyword signals Google uses to understand business topics. During content audit:
+- Compare GBP review language (common words customers use) with page content language
+- If customers say "emergency plumber" but pages say "urgent plumbing" → misaligned terminology → update page content to match customer language
+- GBP Q&A unanswered = topic signal Google sees as weak coverage → answer all Q&A + create page for recurring questions
+
+### INP + Content Rendering
+Content-heavy pages (3,000+ words) with embedded images, videos, and widgets often have high INP — heavy DOM causes slow interactions. During content audit, flag pages that are both content-thin AND INP >500ms for dual-priority treatment (content expansion + performance fix simultaneously).
+
+### Content Decay by Type (2025 Benchmarks)
+
+| Content Type | Decay Rate | Refresh Trigger | Update Frequency |
+|-------------|-----------|----------------|-----------------|
+| Service pages (local) | Slow (12–24 mo) | >20% YoY click drop | Annually + on price/service change |
+| Blog posts (news/trends) | Fast (3–6 mo) | >30% YoY click drop | Quarterly |
+| FAQ pages | Medium (6–12 mo) | New PAA questions appear | Semi-annually |
+| Location pages | Slow (18–24 mo) | Competitor adds stronger page | Annually |
+| Comparison/alternative pages | Fast (4–8 mo) | New competitors enter market | Quarterly |

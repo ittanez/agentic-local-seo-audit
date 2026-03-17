@@ -346,3 +346,25 @@ Include:
 | Wikidata entity | Create Q-ID entry → add to Organization sameAs | 1–2 hrs | Medium |
 | Expert source citations | Link to government, research, trade association data | 30 min/page | Medium |
 | Real project photos | Before/after, on-site images with schema | 1 hr/gallery | High |
+
+### Topical Authority Specific Thresholds Table
+
+| Metric | Below Threshold | Competitive | Market Leader | Tool to Measure |
+|--------|----------------|-------------|--------------|----------------|
+| Pillar page word count | <2,000 words | 3,000–5,000 words | 5,000–10,000 words | Screaming Frog word count |
+| Surfer Content Score (pillar) | <65 | 70–79 | ≥80 | Surfer SEO Content Editor |
+| Clearscope grade (pillar) | C or lower | B+ | A- or higher | Clearscope |
+| Articles per cluster | <10 | 10–24 | 25+ (authority threshold) | Ahrefs Site Explorer |
+| Internal links (cluster → pillar) | 0 | 1 | 2–3 (varied anchors) | Screaming Frog inlinks |
+| Content freshness | >12 months old | 3–12 months | Updated within 90 days | GSC Performance filter |
+| Featured snippets owned (per cluster) | 0 | 1–3 | 5+ | Ahrefs SERP Features filter |
+| AIO citations (manual test) | 0/5 queries | 1–2/5 queries | 3+/5 queries | Manual search + incognito |
+| SEMrush Topical Authority score | <50 | 50–69 | ≥70 (competitive); ≥85 (leader) | SEMrush Domain Overview |
+| INP (Core Web Vital) | >500ms Poor | 200–500ms Needs Work | <200ms Good | PageSpeed Insights |
+
+### GBP Integration with Topical Authority (2025)
+GBP service listings directly feed AI Overviews for local topical queries. For each topic cluster:
+- Add matching services to GBP service menu (name + description keyword-rich)
+- Seed GBP Q&A with topical questions from AlsoAsked.com PAA research
+- Ensure GBP business description mentions core topic clusters (first 150 chars indexed)
+- Review responses: naturally incorporate service keywords (e.g., "Thank you for choosing us for your emergency plumbing repair in [city]")

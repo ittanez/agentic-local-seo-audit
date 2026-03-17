@@ -340,3 +340,34 @@ Write output to `{AUDIT_DIR}/penalty-findings.md`.
 **If clean:** Note clean status — proceed with remaining phases. Include any mild risk factors as preventive actions.
 
 **Key consumers:** `audit/technical-seo` (links to technical issues), `strategy/backlink-audit` (link profile detail), `output/report-generation` (master report integration).
+
+---
+
+## Penalty Quick Reference
+
+### Penalty Type vs. Recovery Timeline Table
+
+| Penalty Type | Detection Method | Avg Recovery | Required Action | Priority |
+|-------------|-----------------|-------------|----------------|---------|
+| Manual: Unnatural links (inbound) | GSC Manual Actions | 3–6 months after disavow | Disavow file + reinclusion request | 25 (5×5) |
+| Manual: Thin content | GSC Manual Actions | 1–3 months after rewrite | Rewrite all flagged pages to 800+ words | 25 (5×5) |
+| Manual: Site reputation abuse | GSC Manual Actions | 3–6 months | Remove/noindex all 3rd-party low-quality content | 25 (5×5) |
+| Algorithmic: HCS (Helpful Content) | Traffic drop correlated to HCU dates | 3–12 months | Remove/improve unhelpful content; improve E-E-A-T | 20 (5×4) |
+| Algorithmic: Core Update | Traffic drop at Core Update date | 3–6 months (next Core Update) | Improve content quality, topical depth, E-E-A-T | 20 (5×4) |
+| Algorithmic: Scaled content abuse | Traffic drop + many thin programmatic pages | 3–6 months | Consolidate/delete thin pages; add unique content | 20 (5×4) |
+| Algorithmic: Spam (links) | TF:CF <0.3 + exact-match anchors >10% | 2–4 months | Build disavow file; earn natural links | 20 (4×5) |
+
+### Rank-Specific Competitor Benchmark Table
+
+Compare client vs. top-3 competitors at specific rank positions:
+
+| Metric | Client | #1 Ranked Competitor | #2 Ranked Competitor | #3 Ranked Competitor | Healthy Benchmark |
+|--------|--------|---------------------|---------------------|---------------------|------------------|
+| Manual actions | Y/N | Y/N | Y/N | Y/N | None |
+| Organic traffic trend (6mo) | ↑/↓ % | ↑/↓ % | ↑/↓ % | ↑/↓ % | Stable or ↑ |
+| TF:CF ratio (Majestic) | ratio | ratio | ratio | ratio | ≥0.5 |
+| Exact-match anchors | % | % | % | % | <10% |
+| Indexed pages vs. sitemap | ratio | n/a | n/a | n/a | Within 20% |
+| GBP rating (trust proxy) | stars | stars | stars | stars | ≥4.0 |
+| INP (Core Web Vital) | ms | ms | ms | ms | <200ms Good |
+| E-E-A-T: expert bylines | Y/N | Y/N | Y/N | Y/N | Present on all |

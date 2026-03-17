@@ -300,3 +300,39 @@ gaps_identified: [X]
 - `strategy/topical-authority` — uses map for authority building strategy
 - `research/keyword-gaps` — maps keyword data onto topical gaps
 - `output/report-generation` — topical coverage % in master report section 7
+
+---
+
+## Topical Gap Quick Reference
+
+### Cluster Completeness Scoring Table
+
+| Cluster Status | Page Count | Pillar? | Cluster Pages? | AIO Eligible? | Action |
+|---------------|-----------|---------|---------------|--------------|--------|
+| Not started | 0 | No | No | No | Build pillar + 5 cluster pages first |
+| Minimal | 1–4 | Maybe | 1–3 | No | Expand to 10+ pages, add FAQPage schema |
+| Building | 5–14 | Yes | 4–13 | Maybe | Fill cluster gaps, fix orphaned pages |
+| AIO threshold | 15–24 | Yes | 14–23 | Yes | Add supporting pages, original data |
+| Authority | 25+ | Yes | 20+ | Yes (priority) | Maintain freshness, earn editorial links |
+
+### Content Decay Detection Table (INP + Freshness)
+
+| Signal in GSC | Interpretation | Action | Effort |
+|--------------|----------------|--------|--------|
+| Impressions ↓ >20% YoY, position stable | Topical coverage weakening | Add depth, update stats, expand subtopics | 2–4 hrs/page |
+| Impressions ↓ >50% YoY | Severe authority loss | Full rewrite or consolidate + 301 | 4–8 hrs/page |
+| CTR ↓, impressions stable | Title/meta mismatch with search intent | Rewrite title + meta; check SERP features | 30 min/page |
+| Position slipping from P1→P3 | Competitor added stronger content | Expand word count, add original data, add FAQPage | 3–6 hrs/page |
+| Zero impressions on new page | Indexation or orphan issue | Check GSC URL Inspection; add internal links | 30 min |
+
+### E-E-A-T Signals by Content Tier
+
+| Tier | Page Type | Required E-E-A-T Signal | How to Add |
+|------|-----------|------------------------|-----------|
+| Tier 1 | Pillar page | Expert author byline + original data/research | Add `author` schema + local case study/survey |
+| Tier 2 | Cluster page | Specific expertise signals + cited sources | Link to government/trade association sources |
+| Tier 3 | Supporting/FAQ | Real-world examples or testimonials | Add quote from client or specific local context |
+| All tiers | Any content | Updated within 90 days | Update stats, add current-year examples |
+
+### GBP + Topical Authority Connection (2025)
+GBP Q&A is an underused topical authority signal. Seed GBP Q&A with questions matching your cluster topics — Google pulls GBP Q&A content into AI Overviews for local service queries. Each seeded Q&A pair that appears in AIO = measurable topical authority signal for that cluster.
