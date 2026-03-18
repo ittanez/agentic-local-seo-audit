@@ -1,24 +1,3 @@
 {
-  "mcpServers": {
-    "google-search-console": {
-      "type": "url",
-      "url": "https://gsc.mcp.example.com/sse"
-    },
-    "google-analytics": {
-      "type": "url",
-      "url": "https://ga4.mcp.example.com/sse"
-    },
-    "google-business-profile": {
-      "type": "url",
-      "url": "https://gbp.mcp.example.com/sse"
-    },
-    "pagespeed-insights": {
-      "type": "url",
-      "url": "https://psi.mcp.example.com/sse"
-    },
-    "similarweb": {
-      "type": "url",
-      "url": "https://mcp.similarweb.com/sse"
-    }
-  }
+  "mcpServers": {}
 }

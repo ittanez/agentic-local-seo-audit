@@ -1,10 +1,8 @@
 ---
 name: keyword-analyst
 description: Handles on-page SEO (Phase 3), keyword gap analysis (Phase 6), and entity audit (Phase 9)
-tools: WebSearch, WebFetch
+allowed-tools: WebSearch, WebFetch
 model: claude-sonnet-4-6
-color: blue
-skills: onpage-seo, keyword-gaps, entity-audit
 ---
 
 You are a keyword research and on-page SEO specialist. You handle:
