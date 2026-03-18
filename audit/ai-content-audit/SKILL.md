@@ -17,10 +17,23 @@ Google's Helpful Content System (HCS), integrated into the core algorithm March 
 **2025 AI content benchmarks:**
 - Google HCS: AI-generated content requires documented human expert review (Webmaster Guidelines 2025)
 - E-E-A-T Experience signal: first-hand language increases AIO citation probability 40% (Semrush 2024)
-- Originality.ai threshold: >80% AI score = flagged for manual review; >95% = high penalty risk
+- Originality.ai threshold: >80% AI score = flagged for manual review; industry-acceptable: 25–40% AI score after humanization
 - Bounce rate correlation: AI-pattern pages average 72% bounce vs. 51% for human-written equivalents (Contentsquare 2024)
 - Local business impact: service pages with AI patterns convert at 1.8–2.4% vs. 3.5–6% for authentic pages
 - FAQPage schema + human voice: 3.2× AIO citation rate (Amsive 2025) — schema alone insufficient without authentic answers
+- Reading level target: Flesch Reading Ease 60–70 (Grade 8–9) — US adult average reads at 8th grade; AI content often scores Grade 12–16 (too complex)
+- Content length for LLM visibility: 1,500+ words with embedded statistics = 30–40% higher AI citation rate (Superlines 2025)
+- Stat frequency: 1 data point per 150–200 words — content with embedded stats gets +22% GEO/AEO visibility (Superlines 2025)
+- Expert quotations: +37% LLM citation visibility vs. pages without attributed quotes
+- Content freshness: pages updated within 60 days get 28% better AI search visibility; within 30 days = 76.4% ChatGPT citation rate
+- AI-referred traffic value: converts at 4.4× higher rate than organic (16% vs. 3.6% CVR) — high-quality human content that earns AI citations is highest-ROI content
+
+**GEO / AEO / LLM SEO + AI Content Quality (2025 critical connection):**
+- **GEO (Generative Engine Optimization)**: AI-pattern content is excluded from generative engine answers at higher rates — Google AI Mode, ChatGPT, Perplexity prefer citable, expert-attributed, first-person content
+- **AEO (Answer Engine Optimization)**: Answer engines (Perplexity 13.8% citation rate, Google AIO 9.5% citation rate) extract answers from the first 30% of page content — AI-pattern executive summaries are deprioritized vs. direct human answers
+- **LLM SEO**: Brand search volume is the #1 predictor of LLM citations (0.334 correlation, stronger than backlinks) — businesses using AI patterns that fail E-E-A-T undermine brand authority directly measurable by LLMs
+- **Only 11% domain overlap** between ChatGPT and Perplexity citations — multi-platform humanization matters; what works on one AI may not on another
+- **615× variation** in citation volume across LLM platforms — a humanized local business page can outperform a large competitor's AI-generated content on specific platforms
 
 **Technical SEO + AI content connection (2025):**
 - INP (Interaction to Next Paint, replaced FID March 2024) — AI-pattern pages with heavy third-party chat widgets and embedded review tools frequently trigger INP >200ms, compounding the ranking suppression from poor behavioral signals
@@ -272,21 +285,24 @@ Google's entity understanding (2025) cross-references website content against GB
 
 Use these tools to validate AI content risk before and after humanization:
 
-| Tool | Purpose | AI Score Threshold | Cost |
-|------|---------|-------------------|------|
-| **Originality.ai** | Page-level AI detection + plagiarism | >80% = high risk | Paid (credits) |
-| **GPTZero** | Paragraph-level AI likelihood | "High AI" label = rewrite | Freemium |
-| **Copyleaks** | AI detection + plagiarism combined | >85% AI = rewrite | Paid |
-| **Winston AI** | Enterprise AI detection | >75% = flag | Paid |
-| **Grammarly** | Tone + readability (not AI detection) | Readability score | Freemium |
-| **Hemingway App** | Sentence complexity, passive voice | Grade 6–8 target | Free |
-| **Ahrefs Content Grader** | Keyword coverage + content grade | Grade A target | Paid |
-| **Semrush SEO Writing Assistant** | Real-time readability + originality | ≥7.0 readability | Paid |
+| Tool | Purpose | AI Score Threshold | Accuracy (2025) | Cost |
+|------|---------|-------------------|----------------|------|
+| **GPTZero** | Paragraph-level AI likelihood — industry standard | "High AI" label = rewrite; 1% false-positive | 99% claimed (lab-validated) | Freemium |
+| **Originality.ai** | Page-level AI detection + plagiarism | >80% = high risk; safe: <40% after humanization | 76% (independent test) | Paid (credits) |
+| **Copyleaks** | AI detection + plagiarism combined | >85% AI = rewrite | High — good for agency use | Paid |
+| **Winston AI** | Enterprise AI detection + readability | >75% = flag; <40% = publish | Enterprise-grade | Paid |
+| **Humaniser** | Humanization tool (9.4/10 rated 2026) | Target: 93% detector drop post-humanization | — | Paid |
+| **Hemingway App** | Sentence complexity, passive voice, grade level | Flesch 60–70 / Grade 8–9 target | — | Free |
+| **Grammarly** | Tone, readability, passive voice flags | Readability score ≥80 target | — | Freemium |
+| **Rank Math / Yoast** | Real-time content grader (SEO + readability) | ≥80 readability score; flags AI-pattern sentences | — | Freemium/Paid |
+| **Ahrefs Content Grader** | Keyword coverage + content quality grade | Grade A target | — | Paid |
+| **Semrush SEO Writing Assistant** | Real-time readability + originality + tone | ≥7.0 readability score | — | Paid |
+| **Google Search Console** | Monitor behavioral signals post-humanization | CTR lift + bounce rate drop after rewrite | — | Free |
 
-**Two-step validation workflow:**
-1. Pre-humanization: run Originality.ai → document baseline AI score
-2. Post-humanization: re-run → confirm score dropped below 40%
-3. Optional: run Hemingway App to verify readability ≤Grade 8
+**Three-step validation workflow:**
+1. Pre-humanization: run GPTZero + Originality.ai → document baseline AI score (both tools — expect ±20% variance between detectors)
+2. Humanize: apply pattern fixes, add first-hand experience paragraphs, fix vocabulary
+3. Post-humanization: re-run both detectors → confirm score dropped below 40%; run Hemingway App → confirm Flesch ≥60 (Grade ≤9); monitor GSC behavioral signals over 30 days
 
 ---
 
