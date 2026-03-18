@@ -5,16 +5,14 @@
     "url": "https://github.com/mshahiddigital"
   },
   "metadata": {
-    "description": "Complete 21-phase local business SEO audit system with project-based directory structure, 7 Python automation scripts, LOCAL-IMPACT (60-item) and SERP-TRUST (50-item) proprietary scoring frameworks, and AI visibility auditing.",
-    "version": "3.4.0",
+    "description": "Complete 22-phase local business SEO audit system with project-based directory structure, 7 Python automation scripts, LOCAL-IMPACT (60-item) and SERP-TRUST (50-item) proprietary scoring frameworks, AI content detection & humanization, and AI visibility auditing.",
     "repository": "https://github.com/mshahiddigital/local-seo-audit"
   },
   "plugins": [
     {
       "name": "local-seo-audit",
       "source": "./",
-      "description": "Complete 21-phase local business SEO audit system for Claude Code. Project-based audit directory (projects/[business-slug]/). 7 Python automation scripts: site crawler, PDF generator, URL validator, score calculator, status tracker, report compiler, project setup. LOCAL-IMPACT (60-item) + SERP-TRUST (50-item) proprietary scoring with SEO Health Index. 28 auto-activating skills, 43 slash commands, 6 sub-agents. Covers technical SEO, on-page, content strategy, keyword gaps, competitor analysis, GBP, AI visibility (AI Overviews, ChatGPT, Perplexity, Gemini, Copilot), entity optimization, backlinks, voice search, accessibility. NEW: AI content detection & humanization audit (Phase 4a) — 24 AI writing pattern taxonomy based on Wikipedia WikiProject AI Cleanup. PDF reports with SVG gauge charts. 30/90/180/365-day action plans.",
-      "version": "3.4.0",
+      "description": "Complete 22-phase local business SEO audit system for Claude Code. Project-based audit directory (projects/[business-slug]/). 7 Python automation scripts: site crawler, PDF generator, URL validator, score calculator, status tracker, report compiler, project setup. LOCAL-IMPACT (60-item) + SERP-TRUST (50-item) proprietary scoring with SEO Health Index. 28 auto-activating skills, 43 slash commands, 6 sub-agents. Covers technical SEO, on-page, content strategy, keyword gaps, competitor analysis, GBP, AI visibility (AI Overviews, ChatGPT, Perplexity, Gemini, Copilot), entity optimization, backlinks, voice search, accessibility. AI content detection & humanization audit (Phase 4a) — 24 AI writing pattern taxonomy based on Wikipedia WikiProject AI Cleanup. PDF reports with SVG gauge charts. 30/90/180/365-day action plans.",
       "category": "marketing",
       "tags": [
         "seo",
@@ -31,37 +29,9 @@
         "local-impact",
         "serp-trust",
         "pdf-report",
-        "schema-markup"
-      ],
-      "skills": [
-        "./cross-cutting/seo-audit-identity",
-        "./cross-cutting/local-impact-auditor",
-        "./cross-cutting/serp-trust-auditor",
-        "./research/audit-intake",
-        "./research/competitor-analysis",
-        "./research/keyword-gaps",
-        "./research/content-gaps",
-        "./research/topical-gaps",
-        "./audit/technical-seo",
-        "./audit/onpage-seo",
-        "./audit/content-audit",
-        "./audit/ai-content-audit",
-        "./audit/speed-optimization",
-        "./audit/penalty-check",
-        "./audit/accessibility-audit",
-        "./local/local-seo",
-        "./local/entity-audit",
-        "./local/multi-location-seo",
-        "./local/reputation-audit",
-        "./local/brand-serp",
-        "./ai-visibility/ai-seo",
-        "./ai-visibility/voice-search",
-        "./strategy/topical-authority",
-        "./strategy/backlink-audit",
-        "./strategy/social-media-audit",
-        "./strategy/ux-cro-audit",
-        "./output/report-generation",
-        "./output/pdf-report"
+        "schema-markup",
+        "ai-content-detection",
+        "humanization"
       ]
     }
   ]

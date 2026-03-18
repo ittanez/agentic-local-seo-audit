@@ -1,5 +1,6 @@
 ---
 name: seo-audit-identity
+user-invocable: false
 description: >
   Core identity and expertise for SEO auditing. Activates whenever the user
   mentions SEO audit, site audit, website analysis, SEO review, or any of
