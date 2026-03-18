@@ -1,7 +1,7 @@
 {
   "name": "local-seo-audit",
-  "version": "2.0.3",
-  "description": "Complete 21-phase local business SEO audit system with LOCAL-IMPACT (60-item) and SERP-TRUST (50-item) proprietary scoring frameworks. Competitive analysis, technical SEO, content gaps, AI visibility, and professionally designed PDF reports.",
+  "version": "3.4.0",
+  "description": "Complete 21-phase local business SEO audit system. Project-based directory structure (projects/[business-slug]/). 7 Python scripts for automation (setup, crawl, PDF, scoring, status). LOCAL-IMPACT (60-item) and SERP-TRUST (50-item) proprietary scoring frameworks. AI visibility (AIO, ChatGPT, Perplexity, Gemini). AI content detection & humanization (Phase 4a — 24 AI writing patterns). Professional PDF reports.",
   "author": {
     "name": "Muhammad Shahid",
     "email": "info@mshahid.com",
@@ -41,6 +41,7 @@
     "./audit/technical-seo",
     "./audit/onpage-seo",
     "./audit/content-audit",
+    "./audit/ai-content-audit",
     "./audit/speed-optimization",
     "./audit/penalty-check",
     "./audit/accessibility-audit",
@@ -66,6 +67,7 @@
     {"name": "audit-technical", "description": "Run complete technical SEO audit (Phase 2)", "path": "commands/audit-technical.md"},
     {"name": "audit-onpage", "description": "Run on-page SEO audit (Phase 3)", "path": "commands/audit-onpage.md"},
     {"name": "audit-content", "description": "Run content audit (Phase 4)", "path": "commands/audit-content.md"},
+    {"name": "audit-ai-content", "description": "Detect AI-generated content patterns and provide humanization recommendations (Phase 4a)", "path": "commands/audit-ai-content.md"},
     {"name": "audit-content-gaps", "description": "Find content gaps vs competitors (Phase 5)", "path": "commands/audit-content-gaps.md"},
     {"name": "audit-keywords", "description": "Run keyword gap analysis (Phase 6)", "path": "commands/audit-keywords.md"},
     {"name": "audit-topical-gaps", "description": "Build topical map and find gaps (Phase 7)", "path": "commands/audit-topical-gaps.md"},
@@ -98,7 +100,8 @@
     {"name": "citation-list", "description": "Prioritized citation building list", "path": "commands/citation-list.md"},
     {"name": "ai-visibility-check", "description": "AI visibility check across all platforms", "path": "commands/ai-visibility-check.md"},
     {"name": "score-local-impact", "description": "Run 60-item LOCAL-IMPACT scoring audit", "path": "commands/score-local-impact.md"},
-    {"name": "score-serp-trust", "description": "Run 50-item SERP-TRUST scoring audit", "path": "commands/score-serp-trust.md"}
+    {"name": "score-serp-trust", "description": "Run 50-item SERP-TRUST scoring audit", "path": "commands/score-serp-trust.md"},
+    {"name": "auto-improve", "description": "Autonomously improve skill files using quality scoring loop (inspired by karpathy/autoresearch)", "path": "commands/auto-improve.md"}
   ],
   "hooks": "./hooks/hooks.json",
   "mcpServers": "./.mcp.json"
