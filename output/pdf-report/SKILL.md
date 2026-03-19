@@ -15,11 +15,27 @@ description: >
 
 The PDF report is the client-facing deliverable — the tangible output of the entire 21-phase audit. Report quality directly impacts perceived value. A well-designed PDF report converts audit findings into client trust: 87% of clients who receive a visually professional audit report retain the agency vs. 34% who receive a plain text output (AgencyAnalytics survey, 2024). Every phase must produce its own PDF; the final master report compiles all phases into a single document.
 
-**2025 reporting context:**
+**2025–2026 reporting context:**
 - Include SEO Health Index = (LOCAL-IMPACT × 0.55) + (SERP-TRUST × 0.45) as the master metric
 - AI Overviews impact must be called out per relevant finding (20–35% of local queries)
 - All CWV thresholds use 2025 values: INP < 200ms (not FID), LCP < 2.5s, CLS < 0.1
 - Score grades: A (90–100) / B (75–89) / C (60–74) / D (45–59) / F (< 45)
+- Source data for reports comes from: Ahrefs (backlinks, keywords), SEMrush (traffic, gaps), Screaming Frog (technical crawl), Google Search Console (GSC) (coverage, performance), PageSpeed Insights + Lighthouse (CWV), BrightLocal (citations, GBP rank), Majestic (TF:CF), Google Business Profile (GBP), ChatGPT/Perplexity (AI visibility tests)
+- GBP 2025 features to include in reports: Q&A section completeness, service menu with prices, review velocity (last 90 days), Google Reserve/Booking integration, AI Overview local pack eligibility (≥4.3 stars, 50+ reviews), GBP Posts frequency
+- AI crawler access status must be reported in technical findings (14 crawlers, 3 tiers)
+- llms.txt presence/absence should be flagged in AI SEO section
+- Brand mention authority score (YouTube/Reddit/Wikipedia correlation with AI citations) in reputation section
+- Platform-specific AI optimization status (AIO, ChatGPT, Perplexity, Gemini, Copilot) in AI SEO section
+
+**Numbered Action Steps:**
+1. Confirm `{AUDIT_DIR}/` has all required phase `.md` files — run `python3 scripts/audit_status.py --project projects/[slug]` — Effort: 1 min
+2. Run `python3 scripts/report_compiler.py --project projects/[slug]` → generates `{AUDIT_DIR}/master-report.md` — Effort: 2 min
+3. Build HTML report for each phase — use full design system (SVG gauges, color cards, tables) — Effort: 30–60 min per phase
+4. Save HTML to `{REPORTS_DIR}/phase-[N]-[slug].html` — Effort: 1 min per phase
+5. Run `python3 scripts/generate_pdf.py --html {REPORTS_DIR}/phase-[N]-[slug].html` — generates PDF — Effort: 30 sec per phase
+6. Confirm PDF size and page count — alert if <2 pages (likely rendering error) or >30 pages (likely runaway content) — Effort: 1 min
+7. Repeat steps 3–6 for all 21 phases + LOCAL-IMPACT + SERP-TRUST + master report — Effort: varies
+8. Deliver master-report.pdf + all phase PDFs in `{REPORTS_DIR}/` folder to client — Effort: 5 min
 
 ---
 
@@ -48,6 +64,26 @@ The PDF report is the client-facing deliverable — the tangible output of the e
 | Completeness | All completed phases | All 21 phases + both scoring frameworks |
 
 ---
+
+## Required Report Sections by Report Type
+
+| Report Type | Cover Page | Score Gauge | Issue Cards | Priority Matrix | Competitor Table | Quick Wins | Roadmap | AI Visibility Callout |
+|------------|-----------|-----------|-----------|----------------|-----------------|-----------|---------|---------------------|
+| Per-phase PDF | Yes | Yes (phase score) | Yes | Yes | Yes (phase-specific) | Yes (top 3) | No | Yes (if content/on-page/AI phase) |
+| LOCAL-IMPACT PDF | Yes | Yes (composite) | No | No | Yes (benchmarks) | Yes (top 5) | No | Yes (AI readiness dimension) |
+| SERP-TRUST PDF | Yes | Yes (composite) | No | No | Yes (benchmarks) | Yes (top 5) | No | Yes (T2 dimension) |
+| Master Report PDF | Yes | Yes (SEO Health Index) | Yes (all phases) | Yes (master) | Yes (full competitor summary) | Yes (top 10) | Yes (30/90/180-day) | Yes (dedicated section) |
+
+## 2025–2026 Report Content Requirements
+
+| Section | What to Include | Why It Matters |
+|---------|----------------|---------------|
+| AI Visibility Dashboard | AIO citation status, ChatGPT/Perplexity mentions, AI crawler access score | AI search drives 20–35% of local queries; clients need to see their AI presence |
+| GBP Health Summary | Q&A completeness, review velocity (last 90 days), service menu, Google Reserve status, AI Overview eligibility | GBP is the #1 local ranking factor; 2025 features (Q&A, service menu) directly affect AIO inclusion |
+| Brand Mention Authority | YouTube/Reddit/Wikipedia presence, brand mention score vs. backlink profile | Brand mentions correlate 3× more with AI visibility than backlinks (Ahrefs Dec 2025) |
+| AI Crawler Access | Tier 1/2/3 crawler status, llms.txt presence, IndexNow status | Blocked AI crawlers = invisible to that platform regardless of content quality |
+| Platform Readiness | Per-platform scores (AIO, ChatGPT, Perplexity, Gemini, Copilot) | Only 11% of domains cited by both ChatGPT and AIO — platform-specific optimization required |
+| Citability Score | Answer block quality, self-containment, statistical density | AI models cite passages meeting specific structural criteria (134–167 word blocks, answer-first) |
 
 ## Architecture
 
@@ -1499,4 +1535,59 @@ Pages: [X]
 - `output/report-generation` — master-report.md feeds this skill
 - `cross-cutting/local-impact-auditor` — score data for dashboard charts
 - `cross-cutting/serp-trust-auditor` — score data for SERP-TRUST gauge
-7. **Handle missing data gracefully** — if a phase wasn't completed, note "Phase not audited" with a recommendation to complete it.
+
+---
+
+## PDF Generation Tool Reference
+
+### Generation Methods (Priority Order)
+
+| Method | Tool | Command | When to Use | Reliability |
+|--------|------|---------|-------------|-------------|
+| Python script (preferred) | `generate_pdf.py` | `python3 scripts/generate_pdf.py --html [path].html` | Always — handles Chrome detection + fallback | Highest |
+| Chrome headless | Google Chrome | `"/Applications/Google Chrome.app/..." --headless=new --print-to-pdf=[path]` | Chrome confirmed available | High |
+| WeasyPrint | Python library | `weasyprint [input.html] [output.pdf]` | Fallback if Chrome fails | Medium |
+| wkhtmltopdf | System binary | `wkhtmltopdf [input.html] [output.pdf]` | Legacy fallback | Low |
+
+### Per-Phase PDF Naming Convention
+
+| Phase | Phase Name | PDF Filename |
+|-------|-----------|-------------|
+| 0 | Intake | `phase-0-intake.pdf` |
+| 1 | Competitor Analysis | `phase-1-competitors.pdf` |
+| 2 | Technical SEO | `phase-2-technical-seo.pdf` |
+| 3 | On-Page SEO | `phase-3-onpage-seo.pdf` |
+| 4 | Content Audit | `phase-4-content-audit.pdf` |
+| 5 | Content Gaps | `phase-5-content-gaps.pdf` |
+| 6 | Keyword Gaps | `phase-6-keyword-gaps.pdf` |
+| 7 | Topical Gaps | `phase-7-topical-gaps.pdf` |
+| 8 | Topical Authority | `phase-8-topical-authority.pdf` |
+| 9 | Entity Audit | `phase-9-entity-audit.pdf` |
+| 10 | Speed | `phase-10-speed.pdf` |
+| 11 | Local SEO | `phase-11-local-seo.pdf` |
+| 12 | Backlinks | `phase-12-backlinks.pdf` |
+| 13 | Social Media | `phase-13-social.pdf` |
+| 14 | AI SEO | `phase-14-ai-seo.pdf` |
+| 15 | Reputation | `phase-15-reputation.pdf` |
+| 16 | Brand SERP | `phase-16-brand-serp.pdf` |
+| 17 | CRO | `phase-17-cro.pdf` |
+| 18 | Voice Search | `phase-18-voice.pdf` |
+| 19 | Accessibility | `phase-19-accessibility.pdf` |
+| 20 | Penalty Check | `phase-20-penalty-check.pdf` |
+| 21 | Multi-Location | `phase-21-multi-location.pdf` |
+| Scoring | LOCAL-IMPACT | `local-impact-score.pdf` |
+| Scoring | SERP-TRUST | `serp-trust-score.pdf` |
+| Final | Master Report | `master-report.pdf` |
+
+### PDF Quality Checklist
+
+| Element | Required | Design Spec |
+|---------|---------|------------|
+| Cover page | Yes | Phase number, business name, URL, date, score badge |
+| Score gauge chart | Yes | SVG donut chart — green ≥80, amber 60–79, red <60 |
+| Issue cards (Critical/High/Medium/Low) | Yes | Color-coded left border: red/orange/yellow/green |
+| Priority matrix | Yes | Impact × Feasibility table, sorted by priority score |
+| Competitor comparison | Yes | Client vs. top 3 competitors, highlight wins/losses |
+| Quick wins box | Yes | Top 3 actions, effort <1 hr, expected impact |
+| Next phase pointer | Yes | Footer on last page: "Next: Phase [N] — [Name]" |
+| INP/CWV callout | Where relevant | 2025 thresholds: INP <200ms, LCP <2.5s, CLS <0.1 |
