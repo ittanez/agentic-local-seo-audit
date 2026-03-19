@@ -87,7 +87,67 @@ Fetch `[domain]/robots.txt` → check:
 - No accidental `Disallow: /` on production site?
 - Rate limiting: `Crawl-delay` directive set? (optional — Google mostly ignores it)
 
-**2025 note:** Add `Disallow: /` for AI training bots (GPTBot, CCBot, anthropic-ai) if business prefers to opt out of AI training crawls — separate from SEO crawlers.
+### AI Crawler Access Check (14 Crawlers)
+
+AI crawlers are now as important as Googlebot for visibility. Over 35% of top 1,000 websites inadvertently block at least one major AI crawler (Originality.ai 2025). Check robots.txt for all 14 AI crawlers:
+
+**Tier 1 — AI Search (MUST ALLOW for AI visibility):**
+
+| Crawler | User-Agent | Operator | Check Result |
+|---------|-----------|----------|-------------|
+| GPTBot | `GPTBot` | OpenAI (ChatGPT Search, 900M+ users) | Allowed / Blocked / Not Mentioned |
+| OAI-SearchBot | `OAI-SearchBot` | OpenAI (search-only, no training) | |
+| ChatGPT-User | `ChatGPT-User` | OpenAI (user-initiated browsing) | |
+| ClaudeBot | `ClaudeBot` | Anthropic (Claude web search) | |
+| PerplexityBot | `PerplexityBot` | Perplexity (best AI referral traffic) | |
+
+**Tier 2 — AI Ecosystem (RECOMMEND ALLOW):**
+
+| Crawler | User-Agent | Operator | Notes |
+|---------|-----------|----------|-------|
+| Google-Extended | `Google-Extended` | Google — Gemini training. Blocking does NOT affect search ranking or AIO appearance. |
+| GoogleOther | `GoogleOther` | Google — research, experimental features |
+| Applebot-Extended | `Applebot-Extended` | Apple — Apple Intelligence (2B+ devices) |
+| Amazonbot | `Amazonbot` | Amazon — Alexa, Amazon AI |
+| FacebookBot | `FacebookBot` | Meta — Meta AI (3B+ app users) |
+
+**Tier 3 — Training Only (strategy-dependent):**
+
+| Crawler | User-Agent | Recommendation |
+|---------|-----------|---------------|
+| CCBot | `CCBot` | Context-dependent (Common Crawl training data) |
+| anthropic-ai | `anthropic-ai` | Context-dependent (Claude training, separate from ClaudeBot) |
+| Bytespider | `Bytespider` | **BLOCK** for most Western businesses (aggressive, low value) |
+| cohere-ai | `cohere-ai` | Context-dependent (enterprise AI training) |
+
+**Also check for:**
+- `<meta name="robots" content="noai">` on key pages (blocks all AI use)
+- `X-Robots-Tag: noai` HTTP headers
+- Bot-specific meta tags: `<meta name="GPTBot" content="noindex">`
+- JavaScript-rendered content (AI crawlers do NOT execute JS — content invisible to them)
+
+**AI Crawler Access Score:** Tier 1 all allowed = 50 pts; Tier 2 all allowed = 25 pts; no blanket AI blocks = 15 pts; llms.txt present = 10 pts. Total: /100.
+
+### IndexNow Protocol Check
+
+IndexNow enables near-instant indexing on Bing/Copilot when content is published or updated. ChatGPT Search also uses Bing's index, so IndexNow benefits both platforms.
+
+| Check | Status |
+|-------|--------|
+| IndexNow key file at `/.well-known/indexnow-key.txt` or `/[key].txt` | Present / Absent |
+| IndexNow API integration (pings on publish/update) | Active / Not implemented |
+| Bing Webmaster Tools verified | Yes / No |
+| Sitemap submitted to Bing | Yes / No |
+
+**Implementation:** Add IndexNow key file + CMS plugin (WordPress: IndexNow plugin; custom: POST to `https://api.indexnow.org/indexnow` on content change). Effort: 30 min. Impact: near-instant Bing/Copilot indexation vs. waiting days for natural crawl.
+
+### llms.txt Check
+
+Check for `/llms.txt` (emerging standard — tells AI systems what content is most useful):
+- File exists at `[domain]/llms.txt`? → Present / Absent
+- If present: does it list key service pages with descriptions?
+- Extended version at `/llms-full.txt`? → Present / Absent
+- **If absent:** flag as GEO opportunity — fewer than 5% of sites have this (early adopter advantage). See Phase 14 (AI SEO) for generation protocol.
 
 ### XML Sitemap Audit
 Fetch `/sitemap.xml` and `/sitemap_index.xml`:
@@ -328,6 +388,10 @@ Compare technical health against confirmed-clean competitors:
 | Mixed content (HTTP on HTTPS) | 3 | 4 | 12 | 1–4 hrs |
 | Canonical conflicts (canonical + noindex) | 4 | 4 | 16 | 1–2 hrs |
 | JavaScript-only nav (Googlebot can't crawl) | 5 | 3 | 15 | 4–16 hrs |
+| Tier 1 AI crawlers blocked in robots.txt | 4 | 5 | 20 | 15 min |
+| IndexNow not implemented (Bing/Copilot delay) | 3 | 5 | 15 | 30 min |
+| llms.txt missing (AI discoverability gap) | 3 | 4 | 12 | 1–2 hrs |
+| JS-rendered content invisible to AI crawlers | 4 | 3 | 12 | 4–8 hrs |
 
 ---
 
@@ -405,6 +469,9 @@ Sections to include:
 | Redirect chains (3+ hops) | 🟠 High | 2 hrs dev | 16 | curl -IL |
 | JavaScript content not rendering | 🟠 High | 4–8 hrs dev | 16 | GSC URL Inspection |
 | Missing structured data (LocalBusiness/FAQPage) | 🟠 High | 2–4 hrs | 16 | Rich Results Test |
+| Tier 1 AI crawlers blocked (GPTBot/ClaudeBot/PerplexityBot) | 🟠 High | 15 min | 20 | curl robots.txt |
+| IndexNow not configured (Bing/Copilot freshness) | 🟡 Medium | 30 min | 15 | Check /.well-known/indexnow-key.txt |
+| llms.txt absent | 🟡 Medium | 1–2 hrs | 12 | curl /llms.txt |
 | Broken internal links (4xx) | 🟡 Medium | 30 min | 15 | Screaming Frog |
 | Missing hreflang (multi-region) | 🟡 Medium | 2–4 hrs dev | 12 | Screaming Frog |
 | LCP >4.0s | 🟠 High | 2–4 hrs | 16 | PageSpeed Insights |

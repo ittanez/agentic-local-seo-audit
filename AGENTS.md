@@ -1,8 +1,8 @@
-# Sub-Agents
+# Agent Team — Local SEO Audit System
 
-The Local SEO Audit System uses 6 specialized sub-agents for parallel audit execution. Claude spawns these automatically when running a full audit to process multiple phases simultaneously.
+The Local SEO Audit System uses 6 specialized Claude Code agents for parallel audit execution. Agents are defined in `.claude/agents/` and auto-delegated based on task matching or invoked explicitly via `@agent-name`.
 
-## Agent Overview
+## Architecture
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -20,75 +20,82 @@ The Local SEO Audit System uses 6 specialized sub-agents for parallel audit exec
 └──────────────────────────────────────────────────────────┘
 ```
 
-## Agent Specifications
+## Agent Definitions
 
-### 1. Technical Analyst
-- **File**: `agents/technical-analyst.md`
-- **Model**: claude-sonnet-4-6
-- **Handles**: Phase 2 (Technical SEO), Phase 10 (Speed), Phase 19 (Accessibility)
-- **Tools**: WebSearch, WebFetch, Bash
-- **Output**: Technical issue checklist with status/impact/fix/effort per item
+All agent files live in `.claude/agents/` with YAML frontmatter (name, description, tools, model, maxTurns).
 
-### 2. Content Analyst
-- **File**: `agents/content-analyst.md`
-- **Model**: claude-sonnet-4-6
-- **Handles**: Phase 4 (Content), Phase 5 (Content Gaps), Phase 7 (Topical Gaps), Phase 8 (Authority)
-- **Tools**: WebSearch, WebFetch
-- **Output**: Content inventory, gap tables, topical map, authority scores
+### 1. Technical Analyst — `@technical-analyst`
+- **File**: `.claude/agents/technical-analyst.md`
+- **Model**: sonnet | **Max Turns**: 50
+- **Phases**: 2 (Technical SEO), 10 (Speed/CWV), 19 (Accessibility)
+- **Tools**: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch
+- **Output**: `technical-findings.md`, `speed-findings.md`, `accessibility-findings.md`
 
-### 3. Keyword Analyst
-- **File**: `agents/keyword-analyst.md`
-- **Model**: claude-sonnet-4-6
-- **Handles**: Phase 3 (On-Page), Phase 6 (Keywords), Phase 9 (Entities)
-- **Tools**: WebSearch, WebFetch
-- **Output**: Keyword gap tables, on-page checklists, entity matrices
+### 2. Content Analyst — `@content-analyst`
+- **File**: `.claude/agents/content-analyst.md`
+- **Model**: sonnet | **Max Turns**: 50
+- **Phases**: 4 (Content Audit), 5 (Content Gaps), 7 (Topical Gaps), 8 (Topical Authority)
+- **Tools**: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch
+- **Output**: `content-inventory.md`, `content-gaps.md`, `topical-gaps.md`, `topical-authority.md`
 
-### 4. Local SEO Analyst
-- **File**: `agents/local-seo-analyst.md`
-- **Model**: claude-sonnet-4-6
-- **Handles**: Phase 11 (Local SEO), Phase 15 (Reputation), Phase 21 (Multi-Location)
-- **Tools**: WebSearch, WebFetch
-- **Output**: GBP audit, review analysis, citation audit, local SERP rankings
+### 3. Keyword Analyst — `@keyword-analyst`
+- **File**: `.claude/agents/keyword-analyst.md`
+- **Model**: sonnet | **Max Turns**: 50
+- **Phases**: 3 (On-Page SEO), 6 (Keyword Gaps), 9 (Entity Audit)
+- **Tools**: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch
+- **Output**: `onpage-findings.md`, `keyword-gaps.md`, `entity-findings.md`
 
-### 5. AI Visibility Analyst
-- **File**: `agents/ai-visibility-analyst.md`
-- **Model**: claude-sonnet-4-6
-- **Handles**: Phase 14 (AI SEO), Phase 16 (Brand SERP), Phase 18 (Voice Search)
-- **Tools**: WebSearch, WebFetch
-- **Output**: AI visibility comparison table, brand SERP inventory, voice readiness checklist
+### 4. Local SEO Analyst — `@local-seo-analyst`
+- **File**: `.claude/agents/local-seo-analyst.md`
+- **Model**: sonnet | **Max Turns**: 50
+- **Phases**: 11 (Local SEO & GBP), 15 (Reputation & Reviews), 21 (Multi-Location)
+- **Tools**: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch
+- **Output**: `local-findings.md`, `reputation-findings.md`, `multi-location-findings.md`
 
-### 6. Off-Page Analyst
-- **File**: `agents/offpage-analyst.md`
-- **Model**: claude-sonnet-4-6
-- **Handles**: Phase 12 (Backlinks), Phase 13 (Social), Phase 17 (UX/CRO)
-- **Tools**: WebSearch, WebFetch
-- **Output**: Link profile comparison, social scorecard, CRO checklist
+### 5. AI Visibility Analyst — `@ai-visibility-analyst`
+- **File**: `.claude/agents/ai-visibility-analyst.md`
+- **Model**: sonnet | **Max Turns**: 50
+- **Phases**: 14 (AI SEO & GEO), 16 (Brand SERP), 18 (Voice Search)
+- **Tools**: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch
+- **Output**: `ai-seo-findings.md`, `brand-serp-findings.md`, `voice-findings.md`
 
-## Inter-Agent Handoff Protocol
+### 6. Off-Page Analyst — `@offpage-analyst`
+- **File**: `.claude/agents/offpage-analyst.md`
+- **Model**: sonnet | **Max Turns**: 50
+- **Phases**: 12 (Backlinks), 13 (Social Media), 17 (UX & CRO)
+- **Tools**: Read, Write, Edit, Glob, Grep, Bash, WebFetch, WebSearch
+- **Output**: `backlink-findings.md`, `social-findings.md`, `cro-findings.md`
 
-When agents complete their phases, they pass context back to the orchestrator:
+## Wave Execution with Agents
 
-| Context | Format | Example |
-|---------|--------|---------|
-| Phase scores | `{phase}: {score}/100` | `Technical SEO: 62/100` |
-| Critical issues | `[CRITICAL] {issue} — {phase}` | `[CRITICAL] No XML sitemap — Technical SEO` |
-| Quick wins | `[QUICKWIN] {action} — {effort}` | `[QUICKWIN] Add alt text to 12 images — 1hr` |
-| Competitor data | `{competitor}: {dimension} {score}` | `CompetitorA: Reviews 4.8/5 (142 reviews)` |
-| LOCAL-IMPACT items | `{code}{number}: {score}/3` | `L01: 2/3 (GBP claimed but incomplete)` |
-| SERP-TRUST items | `{code}{number}: {score}/4` | `T05: 3/4 (Schema present, missing FAQ)` |
+During a full 21-phase audit, agents are spawned in parallel per wave:
 
-## Parallel Execution Pattern
+| Wave | Agents Spawned | Phases Executed |
+|---|---|---|
+| 2 — Technical | `@technical-analyst`, `@keyword-analyst`, `@content-analyst` | 2, 3, 4, 10 |
+| 3 — Gap Analysis | `@keyword-analyst`, `@content-analyst` | 5, 6, 7 |
+| 4 — Local + Authority | `@keyword-analyst`, `@local-seo-analyst`, `@offpage-analyst` | 9, 11, 12, 13 |
+| 5 — Advanced | `@content-analyst`, `@ai-visibility-analyst`, `@local-seo-analyst`, `@offpage-analyst`, `@technical-analyst` | 8, 14, 15, 16, 17, 18, 19, 21 |
 
-During a full audit, agents run in two waves:
+Waves 1 (Foundation), 6 (Scoring), and 7 (Final Output) run sequentially without agents.
 
-**Wave 1** (Foundation):
-- Technical Analyst → Technical SEO + Speed
-- Local SEO Analyst → GBP + Reviews + Citations
-- Keyword Analyst → On-Page + Keywords
+## Inter-Agent Data Flow
 
-**Wave 2** (After Wave 1 context available):
-- Content Analyst → Content + Gaps + Authority
-- AI Visibility Analyst → AI SEO + Brand SERP + Voice
-- Off-Page Analyst → Backlinks + Social + CRO
+All agents read from and write to `{AUDIT_DIR}/`. The orchestrator ensures wave ordering so downstream agents can read upstream outputs.
 
-The orchestrator compiles all agent outputs into the master report and scoring frameworks.
+| Producer Agent | Output File | Consumer Agents |
+|---|---|---|
+| Orchestrator | `intake-data.md`, `competitor-profiles.md` | All agents |
+| `@technical-analyst` | `technical-findings.md` | `@ai-visibility-analyst`, scoring |
+| `@content-analyst` | `content-inventory.md` | `@keyword-analyst`, `@ai-visibility-analyst` |
+| `@local-seo-analyst` | `local-findings.md` | `@ai-visibility-analyst`, scoring |
+| `@offpage-analyst` | `backlink-findings.md` | `@ai-visibility-analyst`, scoring |
+
+## Invocation
+
+Agents are invoked via the Agent tool during full audit execution:
+```
+Agent tool → subagent_type not needed (Claude Code auto-delegates based on .claude/agents/ descriptions)
+```
+
+Or explicitly referenced in prompts: "Run Phase 2 Technical SEO audit for {business} at {url}" → auto-delegates to `@technical-analyst` based on description match.
