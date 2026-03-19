@@ -42,7 +42,7 @@ The PDF report is the client-facing deliverable — the tangible output of the e
 ## Tools for This Phase
 
 | Tool | Purpose | Cost |
-|------|---------|------|
+|---|---|---|
 | `python3 scripts/generate_pdf.py` | Chrome headless + WeasyPrint fallback PDF generation | Free (local) |
 | **Google Chrome headless** | Primary PDF engine — highest fidelity HTML→PDF | Free |
 | **WeasyPrint** | Fallback PDF engine — no Chrome needed | Free |
@@ -54,7 +54,7 @@ The PDF report is the client-facing deliverable — the tangible output of the e
 ## Report Quality Standards (2025)
 
 | Report Element | Minimum Standard | Excellent Standard |
-|---------------|-----------------|-------------------|
+|---|---|---|
 | Cover page | Business name, score, date, URL | + SVG gauge chart, grade badge, key verdict |
 | Dashboard page | Score cards per dimension | + Competitor comparison bars, trend arrows |
 | Issue cards | Status + issue + fix | + Priority score, effort estimate, competitor context |
@@ -68,7 +68,7 @@ The PDF report is the client-facing deliverable — the tangible output of the e
 ## Required Report Sections by Report Type
 
 | Report Type | Cover Page | Score Gauge | Issue Cards | Priority Matrix | Competitor Table | Quick Wins | Roadmap | AI Visibility Callout |
-|------------|-----------|-----------|-----------|----------------|-----------------|-----------|---------|---------------------|
+|---|---|---|---|---|---|---|---|---|
 | Per-phase PDF | Yes | Yes (phase score) | Yes | Yes | Yes (phase-specific) | Yes (top 3) | No | Yes (if content/on-page/AI phase) |
 | LOCAL-IMPACT PDF | Yes | Yes (composite) | No | No | Yes (benchmarks) | Yes (top 5) | No | Yes (AI readiness dimension) |
 | SERP-TRUST PDF | Yes | Yes (composite) | No | No | Yes (benchmarks) | Yes (top 5) | No | Yes (T2 dimension) |
@@ -77,7 +77,7 @@ The PDF report is the client-facing deliverable — the tangible output of the e
 ## 2025–2026 Report Content Requirements
 
 | Section | What to Include | Why It Matters |
-|---------|----------------|---------------|
+|---|---|---|
 | AI Visibility Dashboard | AIO citation status, ChatGPT/Perplexity mentions, AI crawler access score | AI search drives 20–35% of local queries; clients need to see their AI presence |
 | GBP Health Summary | Q&A completeness, review velocity (last 90 days), service menu, Google Reserve status, AI Overview eligibility | GBP is the #1 local ranking factor; 2025 features (Q&A, service menu) directly affect AIO inclusion |
 | Brand Mention Authority | YouTube/Reddit/Wikipedia presence, brand mention score vs. backlink profile | Brand mentions correlate 3× more with AI visibility than backlinks (Ahrefs Dec 2025) |
@@ -1504,7 +1504,7 @@ Example: Score 72 → `stroke-dashoffset = 339.29 * (1 - 0.72) = 95.0`
 ## Priority Matrix
 
 | Task | Impact (1–5) | Feasibility (1–5) | Priority | Effort |
-|------|-------------|-------------------|---------|--------|
+|---|---|---|---|---|
 | Cover page with score gauge + grade | 5 | 4 | 20 | 30–60 min |
 | Dashboard with dimension breakdowns | 5 | 4 | 20 | 30–60 min |
 | Color-coded issue cards (Critical/High/Med/Low) | 5 | 4 | 20 | 1–2 hrs |
@@ -1543,7 +1543,7 @@ Pages: [X]
 ### Generation Methods (Priority Order)
 
 | Method | Tool | Command | When to Use | Reliability |
-|--------|------|---------|-------------|-------------|
+|---|---|---|---|---|
 | Python script (preferred) | `generate_pdf.py` | `python3 scripts/generate_pdf.py --html [path].html` | Always — handles Chrome detection + fallback | Highest |
 | Chrome headless | Google Chrome | `"/Applications/Google Chrome.app/..." --headless=new --print-to-pdf=[path]` | Chrome confirmed available | High |
 | WeasyPrint | Python library | `weasyprint [input.html] [output.pdf]` | Fallback if Chrome fails | Medium |
@@ -1552,7 +1552,7 @@ Pages: [X]
 ### Per-Phase PDF Naming Convention
 
 | Phase | Phase Name | PDF Filename |
-|-------|-----------|-------------|
+|---|---|---|
 | 0 | Intake | `phase-0-intake.pdf` |
 | 1 | Competitor Analysis | `phase-1-competitors.pdf` |
 | 2 | Technical SEO | `phase-2-technical-seo.pdf` |
@@ -1582,7 +1582,7 @@ Pages: [X]
 ### PDF Quality Checklist
 
 | Element | Required | Design Spec |
-|---------|---------|------------|
+|---|---|---|
 | Cover page | Yes | Phase number, business name, URL, date, score badge |
 | Score gauge chart | Yes | SVG donut chart — green ≥80, amber 60–79, red <60 |
 | Issue cards (Critical/High/Medium/Low) | Yes | Color-coded left border: red/orange/yellow/green |
