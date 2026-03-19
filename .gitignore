@@ -38,3 +38,4 @@ audit/*.md
 
 # Project audit data (generated per-business, contains client data)
 projects/
+__pycache__/
