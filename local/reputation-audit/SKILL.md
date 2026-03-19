@@ -236,6 +236,61 @@ Reviews directly influence AI recommendation engines — not just traditional se
 
 ---
 
+## Step 9b: Brand Mention Scan for AI Visibility
+
+**Critical insight:** Brand mentions correlate **3× more strongly** with AI visibility than backlinks (Ahrefs December 2025 study of 75,000 brands). AI platforms cite businesses they "know" from mentions across the web — not just businesses with strong link profiles.
+
+### Platform Mention Correlation with AI Citations
+
+| Platform | AI Citation Correlation | Weight | Why It Matters |
+|----------|----------------------|--------|---------------|
+| YouTube | ~0.737 (strongest) | 25% | AI systems (especially Gemini) heavily index YouTube. Videos, reviews, and tutorials mentioning the brand = high AI visibility. |
+| Reddit | High | 25% | Perplexity sources 46.7% of citations from Reddit. ChatGPT also weights Reddit discussions. Authentic brand mentions in subreddit discussions = strong signal. |
+| Wikipedia / Wikidata | High | 20% | ChatGPT sources 47.9% from Wikipedia. Wikidata entity = 3× more AI citations. The #1 entity signal for AI. |
+| LinkedIn | Moderate | 15% | Copilot (Bing) weights Microsoft ecosystem. Thought leadership posts and company page completeness improve Copilot citations. |
+| Domain Rating / Backlinks | ~0.266 (weak!) | 15% | Traditional backlinks still matter for organic SEO but are a weak predictor of AI citation. Brand mentions outperform links 3:1. |
+
+**Key takeaway:** A business with 50 genuine brand mentions across YouTube, Reddit, and industry forums will likely have better AI visibility than a business with 500 backlinks but no platform presence.
+
+### Brand Mention Audit Protocol
+
+For each platform, search `"[Business Name]"` and document:
+
+| Platform | Search Method | Mentions Found? | Sentiment | Recency |
+|----------|-------------|----------------|-----------|---------|
+| YouTube | Search `[Business Name]` on youtube.com | Yes/No — [count] videos | Positive/Neutral/Negative | Last 6 months? |
+| Reddit | Search `[Business Name]` on reddit.com | Yes/No — [count] threads | Positive/Neutral/Negative | Last 6 months? |
+| Wikipedia | Search `[Business Name]` on en.wikipedia.org | Article / Mentioned / Absent | N/A | N/A |
+| Wikidata | Search `[Business Name]` on wikidata.org | Entity exists? Q-number? | N/A | N/A |
+| LinkedIn | Search `[Business Name]` on linkedin.com | Company page? Posts? | Positive/Neutral/Negative | Active? |
+| Quora | Search `[Business Name]` on quora.com | Yes/No — [count] answers | Positive/Neutral/Negative | Last year? |
+| Industry forums | Search niche-specific communities | Yes/No | Positive/Neutral/Negative | Recent? |
+
+### Brand Authority Score for AI (0–100)
+
+| Component | Points | How to Score |
+|-----------|--------|-------------|
+| YouTube presence (channel exists + brand mentioned in videos) | 25 | 25 = active channel + external mentions; 15 = channel only; 5 = mentioned by others; 0 = absent |
+| Reddit presence (genuine discussions, not spam) | 25 | 25 = active contributor in relevant subreddits; 15 = mentioned positively; 5 = minimal mentions; 0 = absent |
+| Wikipedia/Wikidata entity | 20 | 20 = Wikipedia article; 15 = Wikidata entity; 10 = mentioned in other articles; 0 = absent |
+| LinkedIn company page (complete + active) | 15 | 15 = complete + regular posts + employee engagement; 10 = complete; 5 = basic; 0 = absent |
+| Cross-platform mention consistency | 15 | 15 = consistent NAP + brand description across all platforms; 10 = mostly consistent; 5 = some conflicts; 0 = major inconsistencies |
+
+### Brand Mention Action Plan
+
+| Action | Impact (1–5) | Feasibility (1–5) | Priority | Effort |
+|--------|-------------|-------------------|---------|--------|
+| Create YouTube channel + publish 3 educational videos | 5 | 3 | 15 | 8–16 hrs |
+| Participate authentically in 2–3 relevant subreddits | 5 | 4 | 20 | 2 hrs/week ongoing |
+| Create Wikidata entity (if business has external coverage) | 4 | 4 | 16 | 2–4 hrs |
+| Complete + activate LinkedIn company page | 3 | 5 | 15 | 1–2 hrs |
+| Encourage customers to post YouTube review videos | 4 | 3 | 12 | Ongoing |
+| Answer Quora questions in business category | 3 | 4 | 12 | 1 hr/week |
+| Add sameAs schema linking all platform profiles | 4 | 5 | 20 | 30 min |
+| Set up brand mention monitoring (Google Alerts + Brand24) | 3 | 5 | 15 | 30 min setup |
+
+---
+
 ## Step 10: Reputation Recovery (If Needed)
 
 If average rating < 4.0 or significant negative content:
@@ -306,11 +361,12 @@ Provide 3 customized response templates:
 
 | Category | Weight | Score |
 |----------|--------|-------|
-| Google review count vs. competitors | 20% | /20 |
-| Average rating (target: ≥4.5) | 25% | /25 |
-| Review velocity (≥4/month for mid-market) | 20% | /20 |
-| Response rate (100% = perfect) | 20% | /20 |
+| Google review count vs. competitors | 15% | /15 |
+| Average rating (target: ≥4.5) | 20% | /20 |
+| Review velocity (≥4/month for mid-market) | 15% | /15 |
+| Response rate (100% = perfect) | 15% | /15 |
 | Multi-platform presence (3+ platforms complete) | 15% | /15 |
+| Brand mention authority for AI (YouTube/Reddit/Wikipedia/LinkedIn) | 20% | /20 |
 
 **Veto:** Average rating <3.5 → maximum score 40/100 regardless of other factors.
 **Veto:** Average rating <4.0 → flag as AIO exclusion risk; note in report.
@@ -352,8 +408,48 @@ Include:
 - Priority recommendations table (Impact × Feasibility scored, 10 actions)
 - 30/90-day reputation improvement plan with numbered steps
 
+**Output files:**
+- `{AUDIT_DIR}/reputation-findings.md` — findings with score and review profile analysis
+- `{REPORTS_DIR}/phase-15-reputation.pdf` — auto-generated PDF after phase completes
+
 **Key consumers:**
 - `cross-cutting/local-impact-auditor` — Online Reviews dimension (O in LOCAL-IMPACT)
 - `local/local-seo` — shares review baseline data
 - `local/brand-serp` — reputation signals affect Knowledge Panel trust
 - `output/report-generation` — reputation section in master report
+
+---
+
+## Reputation Quick Reference
+
+### Review Platform Priority Table (2025)
+
+| Platform | Local Ranking Impact | AIO Citation Impact | Min Reviews Target | Effort to Optimize |
+|---------|---------------------|---------------------|-------------------|--------------------|
+| Google Business Profile | Critical (primary signal) | High — feeds AIO local pack | 50+ (4.5 stars) | 30 min/week (respond to all) |
+| Yelp | High (Yelp/Apple Maps/Siri) | Medium | 20+ (4.0 stars) | 15 min/week |
+| Facebook Reviews | Medium (Meta search, brand SERP) | Low | 15+ | 10 min/week |
+| Industry-specific (Houzz/Angi/Healthgrades/Avvo) | High in niche | Medium | 10+ per platform | 20 min/week |
+| BBB Rating | Medium (trust signal) | Low | A- or better | 1 hr setup |
+| Trustpilot | Low-Medium | Medium (cited by ChatGPT/Perplexity) | 10+ | 15 min/week |
+
+### AIO Review Thresholds (2025)
+- **<3.5 stars** on GBP → excluded from AI Overview local recommendations entirely
+- **3.5–3.9 stars** → may appear but flagged as lower-rated; AIO citation probability reduced 60%
+- **4.0–4.4 stars** → competitive; AIO citable with sufficient review count
+- **4.5–4.7 stars** → preferred by AIO; cited in "best [service] in [city]" queries
+- **4.8–5.0 stars** with 50+ reviews → consistently cited in AIO + ChatGPT recommendations
+
+### INP + Reputation Connection
+Review widgets (embedded Google Reviews, Trustpilot widgets) are common INP killers — they inject late JS that blocks user interaction. Load review badges lazily or use static HTML snippets with AggregateRating schema instead of live widgets for fastest page response.
+
+### Specific Thresholds by Business Type
+
+| Business Type | Min GBP Reviews | Min Rating | Review Velocity | Star Display |
+|--------------|----------------|-----------|----------------|-------------|
+| Restaurant/food | 100+ | 4.3+ | 20+/month | AggregateRating schema |
+| Medical/dental | 50+ | 4.5+ | 5+/month | AggregateRating schema |
+| Legal/professional | 30+ | 4.4+ | 3+/month | AggregateRating schema |
+| Home services | 50+ | 4.5+ | 8+/month | AggregateRating schema |
+| Retail/e-commerce | 75+ | 4.3+ | 15+/month | Product + Organization schema |
+| General local SMB | 25+ | 4.0+ | 2+/month | AggregateRating schema |

@@ -35,3 +35,6 @@ pluginchanges.txt
 
 # Runtime-generated audit output (preserved as empty dir via audit/.gitkeep)
 audit/*.md
+
+# Project audit data (generated per-business, contains client data)
+projects/

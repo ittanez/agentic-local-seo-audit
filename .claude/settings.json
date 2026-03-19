@@ -1,7 +1,7 @@
 {
   "project": {
     "name": "Local SEO Audit System",
-    "version": "2.0.0",
+    "version": "3.5.0",
     "description": "Complete 21-phase local business SEO audit system"
   },
   "permissions": {
@@ -18,8 +18,5 @@
       "Bash(cat *)"
     ]
   },
-  "model": {
-    "default": "claude-opus-4-6",
-    "subagents": "claude-sonnet-4-6"
-  }
+  "model": "claude-opus-4-6"
 }

@@ -14,24 +14,16 @@ Follow the pdf-report skill instructions exactly:
    generate a fully populated HTML file. Replace ALL placeholders with real data.
    Compute all SVG gauge values (stroke-dashoffset = 339.29 * (1 - score/100)).
 
-3. **Write HTML File**: Save to `reports/{business-name-slug}-seo-audit-{date}.html`
+3. **Write HTML File**: Save to `{REPORTS_DIR}/{business-name-slug}-seo-audit-{date}.html`
    Create the reports/ directory if it doesn't exist.
 
-4. **Detect Chrome**: Find the Chrome binary on the system:
-   - macOS: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
-   - Linux: google-chrome or chromium-browser
-   - If not found: inform user to install Chrome and offer the HTML file as fallback
-
-5. **Convert to PDF**: Run Chrome headless:
+4. **Convert to PDF**: Always use the cross-platform Python script:
    ```
-   mkdir -p reports
-   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-     --headless --disable-gpu --no-sandbox \
-     --print-to-pdf="reports/{filename}.pdf" \
-     "file://{absolute-path-to-html}"
+   python3 scripts/generate_pdf.py --html {REPORTS_DIR}/{filename}.html
    ```
+   The script auto-detects Chrome/Chromium on macOS, Linux, and Windows.
 
-6. **Report Output**: Tell the user the PDF path and file size.
+5. **Report Output**: Tell the user the PDF path and file size.
    Also mention the HTML file is available for customization.
 
 If $ARGUMENTS is provided, use it as the output filename (without extension).

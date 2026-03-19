@@ -303,8 +303,48 @@ Include:
 - Priority matrix (all issues, Impact × Feasibility scored)
 - 30-day speed improvement plan (quick wins first)
 
+**Output files:**
+- `{AUDIT_DIR}/speed-findings.md` — CWV findings with score and fix roadmap
+- `{REPORTS_DIR}/phase-10-speed.pdf` — auto-generated PDF via `python3 scripts/generate_pdf.py`
+
 **Key consumers:**
 - `strategy/ux-cro-audit` — speed directly impacts conversion rate (1s delay = 20% drop)
 - `cross-cutting/serp-trust-auditor` — User Experience dimension U scores
 - `ai-visibility/voice-search` — voice results require mobile score > 70
 - `cross-cutting/local-impact-auditor` — Website Performance dimension
+
+---
+
+## Quick Reference: CWV Fix Priority Table
+
+### Action Priority by Issue Type
+
+| Issue | Root Cause | Fix | Effort | Impact |
+|-------|-----------|-----|--------|--------|
+| LCP >4s: render-blocking resources | CSS/JS blocking first paint | Defer non-critical JS; inline critical CSS | 2–4 hrs dev | High |
+| LCP >4s: slow server TTFB | Unoptimized hosting/no CDN | Add CDN (Cloudflare free tier); enable server caching | 1–2 hrs | High |
+| LCP >4s: large unoptimized image | No WebP/AVIF, no lazy load | Convert hero to WebP; add `fetchpriority="high"` on LCP image | 30 min | High |
+| INP >500ms: slow event handlers | Heavy JS on user interactions | Profile with Chrome DevTools → break up long tasks (>50ms) | 4–8 hrs dev | Critical |
+| INP >200ms: third-party scripts | Analytics/chat widgets blocking | Defer third-party scripts; use Partytown for off-main-thread | 2–4 hrs dev | High |
+| CLS >0.25: images without dimensions | No width/height on img tags | Add `width` + `height` attributes to all images | 30 min | Medium |
+| CLS >0.25: late-injected banners | Ads/cookie banners shifting layout | Reserve space with CSS `min-height`; use `contain: layout` | 1–2 hrs dev | Medium |
+| TTFB >800ms: no caching | Dynamic pages not cached | Add WP Super Cache / W3 Total Cache / server-side caching | 1 hr | High |
+
+### Numbered Action Plan (10+ Steps)
+
+#### Immediate (Week 1, No Dev — Quick Wins)
+1. **Run PageSpeed Insights** for mobile + desktop — record LCP, INP, CLS, TTFB baseline. Screenshot all scores. Effort: 10 min. Priority: 25.
+2. **Compress and convert hero images to WebP** — use Squoosh.app (free) or ShortPixel → target <200KB for hero. Add `fetchpriority="high"` attribute. Effort: 30 min. Priority: 20.
+3. **Add `width` and `height` to all `<img>` tags** — eliminates CLS from images. Use Screaming Frog to find missing attributes. Effort: 30 min + 1 hr dev. Priority: 20.
+4. **Enable browser caching + GZIP compression** — check `.htaccess` or Nginx config. 1-line addition. Most CDNs do this automatically. Effort: 15 min. Priority: 20.
+5. **Defer non-critical JavaScript** — add `defer` or `async` to all non-essential JS `<script>` tags. Doesn't require code changes, only attribute additions. Effort: 30 min. Priority: 20.
+
+#### Short-Term (Week 2–4, Developer Involvement)
+6. **Implement CDN** — Cloudflare free tier provides instant TTFB improvement globally. Set up in 1 hr. Expected TTFB drop: 200–600ms. Effort: 1 hr. Priority: 20.
+7. **Profile INP with Chrome DevTools** — record → filter for Interaction events → identify long tasks >50ms → break into smaller chunks with `setTimeout(0)` or `scheduler.postTask()`. Effort: 4–8 hrs. Priority: 20.
+8. **Defer or eliminate third-party scripts** — Google Tag Manager, chat widgets, and analytics are top INP killers. Load after user interaction where possible. Effort: 2–4 hrs. Priority: 16.
+9. **Enable lazy loading on below-fold images** — add `loading="lazy"` to all `<img>` tags below the fold. Single attribute addition. Effort: 30 min dev. Priority: 15.
+10. **Test mobile CWV separately** — Google uses mobile-first indexing. Run CrUX field data (real-user INP) vs. Lighthouse lab data. Fix the field data metric, not just the lab score. Effort: 30 min analysis. Priority: 20.
+
+#### GBP Speed Connection (2025)
+GBP links drive 25–35% of local website visits. Users arriving via GBP "Website" button have high intent — slow load (>3s) = 53% abandonment rate (Google 2025). Fast pages also rank higher in AI Overviews citation pool. Target: mobile PageSpeed score ≥90.

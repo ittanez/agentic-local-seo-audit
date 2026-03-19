@@ -26,7 +26,7 @@ Entity optimization is the bridge between traditional SEO and AI search visibili
 ### Immediate (30-Minute Wins)
 1. **Add sameAs links to LocalBusiness schema** — Add `"sameAs": [...]` array with GBP URL, Facebook, LinkedIn, Yelp, BBB, Instagram, Twitter/X, Wikidata (if exists). Each is a separate entity consolidation signal. Effort: 30 min. Priority: 25 (5×5).
 2. **Change `@type` to most specific type** — If currently `"@type": "LocalBusiness"`, change to specific type (e.g., `PlumbingContractor`, `Dentist`, `Attorney`). Effort: 5 min. Priority: 15.
-3. **Add `knowsAbout` to Organization schema** — Add the 5–7 core service entities the business is authoritative on. Example: `"knowsAbout": ["Drain Cleaning", "Water Heater Installation", "Emergency Plumbing"]`. Effort: 15 min. Priority: 20.
+3. **Add `knowsAbout` to Organization schema** — Add the 5–7 core service entities the business is authoritative on. This directly signals topical expertise to Google's NLP and AI systems. Example: `"knowsAbout": ["Drain Cleaning", "Water Heater Installation", "Emergency Plumbing", "Sewer Line Repair", "Tankless Water Heaters"]`. Also add `knowsAbout` to Person schema for the owner/key staff. Effort: 15 min. Priority: 20.
 
 ### Short-Term (Week 1–2)
 4. **Create Wikidata entity** — If business has significant web presence (news mentions, 3+ external references): create Wikidata entry with name, type, location, website, founding date, sameAs links. Effort: 2–4 hrs. Priority: 16.
@@ -260,6 +260,7 @@ For service businesses, key people should be recognized entities — increases E
   "name": "[Full Name]",
   "jobTitle": "[Title — be specific: 'Master Plumber' not 'Staff']",
   "description": "[Brief bio with credentials, years of experience, specialty]",
+  "knowsAbout": ["Drain Cleaning", "Water Heater Installation", "Emergency Plumbing"],
   "worksFor": {
     "@type": "LocalBusiness",
     "@id": "https://domain.com/#business"
@@ -270,6 +271,52 @@ For service businesses, key people should be recognized entities — increases E
   ]
 }
 ```
+
+---
+
+## Step 7b: Speakable Schema for AI Assistants
+
+The `speakable` property (Schema.org) marks content sections that are especially suitable for text-to-speech and AI assistant extraction. Google supports speakable for news articles, and AI assistants (Siri, Gemini, Alexa) use it as a signal for which content to read aloud or extract as voice answers.
+
+### When to Use Speakable
+- Service pages with clear answer paragraphs
+- FAQ pages with concise Q&A pairs
+- About page with business description
+- Any page with a "definition block" answering "What is [service]?"
+
+### Speakable Implementation
+
+Add to Article, WebPage, or FAQPage schema:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "[Page Title]",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".service-intro", ".faq-answer", "#business-description"]
+  }
+}
+```
+
+**Rules for speakable content:**
+- Keep speakable sections to 2–3 short sentences each
+- Use clear, conversational language (avoid jargon without definitions)
+- Ensure the section makes sense when read aloud without visual context
+- Point CSS selectors at the most citable, answer-rich paragraphs
+- Do NOT mark the entire page as speakable — only the best answer blocks
+
+### Speakable Audit Checklist
+
+| Page | Has Speakable? | CSS Selectors Valid? | Content Voice-Ready? | Priority |
+|------|---------------|---------------------|---------------------|---------|
+| Homepage | ✅/❌ | ✅/❌ | ✅/❌ | High |
+| Top service pages (3–5) | ✅/❌ | ✅/❌ | ✅/❌ | High |
+| FAQ page | ✅/❌ | ✅/❌ | ✅/❌ | High |
+| About page | ✅/❌ | ✅/❌ | ✅/❌ | Medium |
+
+**Effort:** 15 min/page. **Impact:** Improved voice search + AI assistant citation likelihood.
 
 ---
 
@@ -306,6 +353,9 @@ Which topics does Google associate this business with? Test:
 | Add `knowsAbout` to Organization schema | 4 | 5 | 20 | 30 min |
 | Create author pages for key team members | 3 | 4 | 12 | 2–4 hrs |
 | Earn mentions on authoritative local sites | 5 | 3 | 15 | 4–8 hrs/mention |
+| Add `speakable` schema to key answer sections | 3 | 5 | 15 | 15 min/page |
+| Create YouTube channel + 3 educational videos | 5 | 3 | 15 | 8–16 hrs |
+| Build Reddit presence in relevant subreddits | 4 | 4 | 16 | 2 hrs/week ongoing |
 
 ---
 
@@ -364,19 +414,23 @@ Include:
 
 ## Entity Optimization Quick Reference
 
-### sameAs Source Priority Table
+### sameAs Source Priority Table (AI Visibility Ranked)
 
-| Source | Entity Signal Strength | Effort to Add | Priority |
-|--------|----------------------|--------------|---------|
-| Google Business Profile (verified) | Critical (primary entity) | 30 min to verify | 25 (5×5) |
-| Wikidata Q-ID | High (KG direct pathway) | 1–2 hrs to create entry | 20 (5×4) |
-| LinkedIn Company Page | High (E-E-A-T, B2B) | 30 min | 16 (4×4) |
-| Facebook Business Page | High (local trust) | 30 min | 16 (4×4) |
-| Yelp Business Listing | High (local NAP citation) | 15 min | 16 (4×4) |
-| BBB Accreditation | Medium (trust signal) | 1–2 hrs | 12 (4×3) |
-| Industry association directory | Medium (topical entity) | 30 min | 12 (4×3) |
-| Wikipedia article | High (if business qualifies) | 4–8 hrs | 20 (5×4) |
-| Chamber of Commerce | Medium (local trust) | 30 min | 12 (3×4) |
+Brand mentions correlate **3× more strongly** with AI visibility than backlinks (Ahrefs Dec 2025, 75K brands). The sameAs priority order below is ranked by AI citation impact, not just traditional SEO value:
+
+| Source | Entity Signal | AI Citation Impact | Effort | Priority |
+|--------|--------------|-------------------|--------|---------|
+| Google Business Profile (verified) | Critical (primary entity) | High — feeds AIO + Gemini directly | 30 min | 25 (5×5) |
+| Wikidata Q-ID | High (KG direct pathway) | **Critical** — ChatGPT cites Wikidata entities 3× more | 1–2 hrs | 25 (5×5) |
+| YouTube Channel | High (AI citation signal) | **Highest correlation** (0.737) with AI citations | 1–2 hrs | 20 (5×4) |
+| Wikipedia article | High (if business qualifies) | **Highest** — 47.9% of ChatGPT citations from Wikipedia | 4–8 hrs | 20 (5×4) |
+| LinkedIn Company Page | High (E-E-A-T, B2B) | Moderate — weighted by Copilot (Bing/Microsoft ecosystem) | 30 min | 16 (4×4) |
+| Facebook Business Page | High (local trust) | Low–Moderate — Meta AI integration growing | 30 min | 16 (4×4) |
+| Yelp Business Listing | High (local NAP citation) | Medium — cited by ChatGPT/Perplexity for reviews | 15 min | 16 (4×4) |
+| Reddit presence | Medium (community signal) | **High** — Perplexity sources 46.7% from Reddit | Ongoing | 16 (4×4) |
+| BBB Accreditation | Medium (trust signal) | Low–Medium | 1–2 hrs | 12 (4×3) |
+| Industry association directory | Medium (topical entity) | Low | 30 min | 12 (4×3) |
+| Chamber of Commerce | Medium (local trust) | Low | 30 min | 12 (3×4) |
 
 ### GBP 2025 Entity Signals
 GBP is the #1 entity signal for local businesses (Whitespark 2024). For maximum entity recognition:
