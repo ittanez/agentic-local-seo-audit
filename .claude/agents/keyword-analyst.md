@@ -62,3 +62,14 @@ Read `local/entity-audit/SKILL.md`. Key areas:
 Write findings to `{AUDIT_DIR}/[phase-file].md` with YAML frontmatter including skill, phase, date, business, url, score, status.
 
 Entity audit must also include: knowledge_panel (present/partial/missing), same_as_count, wikidata_entity (yes/no/Q-number).
+
+## Depth Requirement (CRITICAL)
+
+Every phase finding file MUST be deeply detailed and in-depth — never a basic summary:
+- **300+ lines minimum** per finding file
+- Analyze every relevant page individually (not just homepage)
+- Include specific data points, metrics, raw values, and evidence
+- Provide detailed tables: per-page breakdowns, competitor comparisons, status matrices
+- Write comprehensive step-by-step recommendations with implementation details
+- Include scoring matrices and priority tables
+- Match the quality of a professional SEO agency deliverable

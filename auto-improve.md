@@ -105,7 +105,9 @@ Append to IMPROVEMENT_LOG.md:
 
 **IF new_score ≤ baseline_score:**
 ```bash
+git stash --include-untracked  # protect any uncommitted user work
 git reset --hard HEAD~1
+git stash pop 2>/dev/null || true  # restore user's work if any
 echo "REVERTED: [skill] — no improvement"
 ```
 Append to IMPROVEMENT_LOG.md:

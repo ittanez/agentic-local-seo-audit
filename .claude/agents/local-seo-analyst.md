@@ -64,6 +64,17 @@ Write findings to `{AUDIT_DIR}/[phase-file].md` with YAML frontmatter including 
 
 Every finding: specific to this business, competitor context included, priority scored (Impact × Feasibility).
 
+## Depth Requirement (CRITICAL)
+
+Every phase finding file MUST be deeply detailed and in-depth — never a basic summary:
+- **300+ lines minimum** per finding file
+- Analyze every relevant page individually (not just homepage)
+- Include specific data points, metrics, raw values, and evidence
+- Provide detailed tables: per-page breakdowns, competitor comparisons, status matrices
+- Write comprehensive step-by-step recommendations with implementation details
+- Include scoring matrices and priority tables
+- Match the quality of a professional SEO agency deliverable
+
 ## Rules
 - Use WebFetch to check GBP listings, citation sources, review platforms
 - Never produce generic output — reference specific URLs, specific issues

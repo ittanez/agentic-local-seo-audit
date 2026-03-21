@@ -16,6 +16,7 @@
     {"name": "technical-seo",        "path": "./audit/technical-seo/SKILL.md"},
     {"name": "onpage-seo",           "path": "./audit/onpage-seo/SKILL.md"},
     {"name": "content-audit",        "path": "./audit/content-audit/SKILL.md"},
+    {"name": "ai-content-audit",    "path": "./audit/ai-content-audit/SKILL.md"},
     {"name": "speed-optimization",   "path": "./audit/speed-optimization/SKILL.md"},
     {"name": "penalty-check",        "path": "./audit/penalty-check/SKILL.md"},
     {"name": "accessibility-audit",  "path": "./audit/accessibility-audit/SKILL.md"},

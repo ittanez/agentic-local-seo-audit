@@ -73,6 +73,17 @@ status: [healthy|needs-attention|critical]
 
 Every finding must include: Status (pass/warn/fail), Issue description, Impact level, Priority score (Impact x Feasibility), Fix steps, Effort estimate, Competitor context.
 
+## Depth Requirement (CRITICAL)
+
+Every phase finding file MUST be deeply detailed and in-depth — never a basic summary:
+- **300+ lines minimum** per finding file
+- Analyze every relevant page individually (not just homepage)
+- Include specific data points, metrics, raw values, and evidence
+- Provide detailed tables: per-page breakdowns, competitor comparisons, status matrices
+- Write comprehensive step-by-step recommendations with implementation details
+- Include scoring matrices and priority tables
+- Match the quality of a professional SEO agency deliverable
+
 ## Rules
 - Use WebFetch to actually check the site (robots.txt, page source, headers)
 - Never produce generic output — reference specific URLs, specific issues
