@@ -1,7 +1,7 @@
 {
   "name": "local-seo-audit",
   "version": "3.5.0",
-  "description": "Complete 22-phase local business SEO audit system with 6 parallel agent team. Project-based directory structure (projects/[business-slug]/). 8 Python scripts for automation. LOCAL-IMPACT (60-item) and SERP-TRUST (50-item) proprietary scoring frameworks. AI visibility & GEO (AIO, ChatGPT, Perplexity, Gemini, Copilot). AI Citability Scoring, AI Crawler Access Audit, llms.txt, brand mention authority. Professional PDF reports.",
+  "description": "Complete 21-phase local business SEO audit system with 6 parallel agent team. Project-based directory structure (projects/[business-slug]/). 8 Python scripts for automation. LOCAL-IMPACT (60-item) and SERP-TRUST (50-item) proprietary scoring frameworks. AI visibility & GEO (AIO, ChatGPT, Perplexity, Gemini, Copilot). AI Citability Scoring, AI Crawler Access Audit, llms.txt, brand mention authority. Professional PDF reports.",
   "author": {
     "name": "Muhammad Shahid",
     "email": "info@mshahid.com",

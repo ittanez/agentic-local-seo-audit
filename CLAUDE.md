@@ -34,7 +34,7 @@ REPEAT FOREVER:
 
 ### Auto-Improve Rules
 1. **Only modify SKILL.md files** — never touch quality_checker.py, auto-improve.md, CLAUDE.md, or Python scripts
-2. **Revert on no improvement** — `git reset --hard HEAD~1` if score doesn't increase
+2. **Revert on no improvement** — stash uncommitted work first (`git stash --include-untracked`), then `git reset --hard HEAD~1`, then restore (`git stash pop 2>/dev/null || true`)
 3. **Log every experiment** — every attempt (kept or reverted) goes in IMPROVEMENT_LOG.md
 4. **Never push** — all changes stay local until user reviews and merges
 5. **Branch isolation** — always work on `autoimprove/YYYY-MM-DD` branch
@@ -172,9 +172,24 @@ Every recommendation is specific, actionable, prioritized, and tied to measurabl
 
 ## TRIGGER COMMANDS
 
-When ANY of the following are detected, initiate the full audit workflow:
+When ANY of the following are detected, initiate the audit workflow:
 `Run an Audit` | `Start the SEO audit` | `SEO Audit` | `Local business SEO Audit`
 `Complete Local SEO Audit` | `Run full audit` | `Audit this site` | `Local SEO check` | `Analyze this business`
+
+### Audit Mode Selection (MANDATORY)
+
+**After completing Phase 0 (intake form), ALWAYS ask the user which mode they prefer before proceeding:**
+
+```
+How would you like to proceed?
+
+1. Full Audit — Run all 21 phases continuously (parallel agents, auto-PDF per phase)
+2. Phase-by-Phase — Start with Phase 1 (Competitors), then I'll ask what's next after each phase
+
+Select 1 or 2:
+```
+
+**Never auto-start a full audit without asking.** The user must choose their mode.
 
 ---
 
@@ -235,7 +250,7 @@ Six specialist agents in `.claude/agents/` handle parallel phase execution:
 | `technical-analyst` | 2 (Technical), 10 (Speed), 19 (Accessibility) | 2, 5 |
 | `keyword-analyst` | 3 (On-Page), 6 (Keywords), 9 (Entities) | 2, 3, 4 |
 | `content-analyst` | 4 (Content), 5 (Content Gaps), 7 (Topical Gaps), 8 (Authority) | 2, 3, 5 |
-| `local-seo-analyst` | 11 (Local SEO), 15 (Reputation), 21 (Multi-Location) | 4, 5 |
+| `local-seo-analyst` | 11 (Local SEO), 15 (Reputation), 20 (Penalty), 21 (Multi-Location) | 4, 5 |
 | `ai-visibility-analyst` | 14 (AI SEO), 16 (Brand SERP), 18 (Voice) | 5 |
 | `offpage-analyst` | 12 (Backlinks), 13 (Social), 17 (UX/CRO) | 4, 5 |
 
@@ -244,7 +259,7 @@ Six specialist agents in `.claude/agents/` handle parallel phase execution:
 **Phase 0 (Pre-flight):** Collect all intake form fields (items 1–6 required). Run `python3 scripts/setup_project.py` to create project directory. Run `python3 scripts/check_url.py --url [URL] --full` to validate site. Research competitors if not provided.
 
 **Wave 1 — Foundation (sequential, no parallelism):**
-Execute Phase 1 → PDF → Phase 20 → PDF → proceed to Wave 2
+Execute Phase 1 (Competitor Analysis) → PDF → proceed to Wave 2
 
 **Wave 2 — Technical (parallel via agents):**
 Spawn 3 agents simultaneously:
@@ -266,14 +281,14 @@ Spawn 3 agents simultaneously:
 - `@offpage-analyst` → Phase 12 (Backlinks) + Phase 13 (Social)
 → 4 PDFs → proceed
 
-**Wave 5 — Advanced (parallel via agents):**
-Spawn 4 agents simultaneously:
+**Wave 5 — Advanced + Penalty (parallel via agents):**
+Spawn 5 agents simultaneously:
 - `@content-analyst` → Phase 8 (Topical Authority)
 - `@ai-visibility-analyst` → Phase 14 (AI SEO) + Phase 16 (Brand SERP) + Phase 18 (Voice)
-- `@local-seo-analyst` → Phase 15 (Reputation) + Phase 21 (Multi-Location)
+- `@local-seo-analyst` → Phase 15 (Reputation) + Phase 20 (Penalty Check) + Phase 21 (Multi-Location)
 - `@offpage-analyst` → Phase 17 (UX/CRO)
-+ `@technical-analyst` → Phase 19 (Accessibility)
-→ 8 PDFs → proceed
+- `@technical-analyst` → Phase 19 (Accessibility)
+→ 9 PDFs → proceed
 
 **Wave 6 — Scoring (sequential):**
 Run LOCAL-IMPACT framework → PDF → Run SERP-TRUST framework → PDF → Compute SEO Health Index
@@ -351,11 +366,11 @@ Present this intake form and collect all required fields before proceeding:
 
 | Wave | Phases | Parallelize? | Skill Files |
 |------|--------|-------------|-------------|
-| 1 — Foundation | 0 intake, 1 competitors, 20 penalty | No — sequential | `research/audit-intake`, `research/competitor-analysis`, `audit/penalty-check` |
+| 1 — Foundation | 0 intake, 1 competitors | No — sequential | `research/audit-intake`, `research/competitor-analysis` |
 | 2 — Technical | 2 technical, 3 on-page, 4 content, 10 speed | Yes | `audit/technical-seo`, `audit/onpage-seo`, `audit/content-audit`, `audit/speed-optimization` |
 | 3 — Gap Analysis | 5 content gaps, 6 keywords, 7 topical gaps | Yes | `research/content-gaps`, `research/keyword-gaps`, `research/topical-gaps` |
 | 4 — Local + Authority | 9 entities, 11 local, 12 backlinks, 13 social | Yes | `local/entity-audit`, `local/local-seo`, `strategy/backlink-audit`, `strategy/social-media-audit` |
-| 5 — Advanced | 8 topical auth, 14 AI SEO, 15 reputation, 16 brand SERP, 17 CRO, 18 voice, 19 accessibility, 21 multi-loc | Yes | `local/`, `ai-visibility/`, `strategy/` |
+| 5 — Advanced + Penalty | 8 topical auth, 14 AI SEO, 15 reputation, 16 brand SERP, 17 CRO, 18 voice, 19 accessibility, 20 penalty, 21 multi-loc | Yes | `local/`, `ai-visibility/`, `strategy/`, `audit/penalty-check` |
 | 6 — Scoring | LOCAL-IMPACT, SERP-TRUST, SEO Health Index | Sequential | `cross-cutting/local-impact-auditor`, `cross-cutting/serp-trust-auditor` |
 | 7 — Output | Master report, PDF | Sequential | `output/report-generation`, `output/pdf-report` |
 
@@ -469,12 +484,13 @@ If a required file doesn't exist: note it, score affected items N/A, continue wi
 10. **Stay current** — reference 2025-2026 best practices; research when uncertain
 11. **GEO-aware content** — assess content citability (answer-first structure, self-containment, statistical density); flag passages that AI cannot extract
 12. **Brand mentions > backlinks** — brand mentions correlate 3× more with AI visibility than backlinks (Ahrefs Dec 2025); prioritize YouTube/Reddit/Wikipedia presence alongside link building
+13. **Deep, not shallow** — every phase audit must be deeply detailed and in-depth, never a basic summary. Analyze every relevant page individually. Include specific data points, metrics, evidence, and detailed tables. Each phase finding file should be 300+ lines minimum. Match the depth and quality of a professional agency deliverable.
 
 ---
 
 ## QUALITY GATE CHECKS
 
-Before producing output, verify all seven:
+Before producing output, verify all eight:
 1. No generic recommendations (references specific business/URL/data point)
 2. Competitor context present on every finding
 3. Actionable steps + effort estimate + expected impact
@@ -482,6 +498,7 @@ Before producing output, verify all seven:
 5. AI visibility angle on content/on-page recommendations (all 5 AI platforms)
 6. AI crawler access checked (are Tier 1 crawlers — GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot — allowed?)
 7. Content citability assessed (answer-first blocks, self-containment, statistical density)
+8. **Depth check** — findings file is 300+ lines, every relevant page analyzed individually, detailed tables/matrices included, not a surface-level summary
 
 Fail any gate → revise before presenting.
 

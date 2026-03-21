@@ -58,6 +58,13 @@ claude plugin install local-seo-audit@mshahiddigital-seo-tools
 git clone https://github.com/mshahiddigital/local-seo-audit.git
 claude --plugin-dir ./local-seo-audit
 
+# Claude Cowork — .plugin file (drag-and-drop)
+# Build the .plugin package first:
+zip -r local-seo-audit.plugin . \
+  -x '*.DS_Store' -x '__pycache__/*' -x 'projects/*' -x '.git/*' \
+  -x 'plugin-audit-report/*' -x 'auto-research-plan.md'
+# Then drag local-seo-audit.plugin into Claude Cowork to install
+
 # skills.sh (Vercel) — install all 27 skills
 npx skills add mshahiddigital/local-seo-audit
 
@@ -306,10 +313,13 @@ local-seo-audit/
 │   ├── local-impact-benchmark.md
 │   ├── serp-trust-benchmark.md
 │   └── scoring-methodology.md
+├── scripts/                      # 8 Python automation scripts
 ├── hooks/                        # Quality gate hooks
 ├── CLAUDE.md                     # Master audit framework
 ├── AGENTS.md                     # Sub-agent architecture
 ├── CONNECTORS.md                 # MCP connector patterns
+├── skills.sh.json                # skills.sh distribution config (Vercel)
+├── auto-improve.md               # Autonomous skill improvement loop
 └── marketplace.json              # Marketplace distribution
 ```
 

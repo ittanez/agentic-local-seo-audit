@@ -208,11 +208,18 @@ def main():
         project_dir = Path(args.project)
         if not project_dir.exists():
             print(f"ERROR: Project directory not found: {args.project}", file=sys.stderr)
+            print(f"Create it first with: python3 scripts/setup_project.py --name \"Business Name\" --url \"https://...\" --location \"City, ST\"", file=sys.stderr)
+            sys.exit(1)
+        audit_dir = project_dir / "audit"
+        if not audit_dir.exists():
+            print(f"ERROR: Project exists but has no audit/ directory: {args.project}", file=sys.stderr)
+            print(f"Re-run: python3 scripts/setup_project.py --name \"Business Name\" --url \"https://...\" --location \"City, ST\"", file=sys.stderr)
             sys.exit(1)
     else:
         project_dir = find_project_dir(args.base)
         if not project_dir:
-            print("No project directory found. Run setup_project.py first.", file=sys.stderr)
+            print("No project directory found under projects/.", file=sys.stderr)
+            print("Create one first: python3 scripts/setup_project.py --name \"Business Name\" --url \"https://...\" --location \"City, ST\"", file=sys.stderr)
             sys.exit(1)
 
     report = generate_status_report(project_dir)

@@ -74,3 +74,14 @@ Optimal AI-cited passage: 134-167 words, answer-first, fact-rich, self-contained
 Write findings to `{AUDIT_DIR}/[phase-file].md` with YAML frontmatter including skill, phase, date, business, url, score, status.
 
 Every finding: specific to this business, competitor context included, priority scored.
+
+## Depth Requirement (CRITICAL)
+
+Every phase finding file MUST be deeply detailed and in-depth — never a basic summary:
+- **300+ lines minimum** per finding file
+- Analyze every relevant page individually (not just homepage)
+- Include specific data points, metrics, raw values, and evidence
+- Provide detailed tables: per-page breakdowns, competitor comparisons, status matrices
+- Write comprehensive step-by-step recommendations with implementation details
+- Include scoring matrices and priority tables
+- Match the quality of a professional SEO agency deliverable
